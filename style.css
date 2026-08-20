@@ -262,6 +262,35 @@ a:focus-visible, button:focus-visible {
 
 .step p { margin: 0; color: var(--navy-ink); opacity: 0.85; }
 
+.steps-detailed {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  margin: 0 auto;
+  gap: 48px;
+}
+
+.steps-detailed .step h3 { font-size: 1.3rem; }
+.steps-detailed .step p { font-size: 1.02rem; line-height: 1.65; }
+
+/* ---------- FAQ ---------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.faq-item p { margin: 0; opacity: 0.85; }
+
 /* ---------- Price cards ---------- */
 .price-cards {
   display: grid;
