@@ -333,6 +333,30 @@ a:focus-visible, button:focus-visible {
 
 .price-quote { font-size: 1.3rem; }
 
+/* ---------- Contact cards (contatti.html) ---------- */
+.contact-cards { grid-template-columns: repeat(2, 1fr); }
+
+.contact-card { text-align: left; }
+
+.contact-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.contact-text {
+  margin: 0 0 24px;
+  opacity: 0.85;
+}
+
+.zones-text {
+  max-width: 640px;
+  margin: -24px 0 32px;
+  opacity: 0.8;
+}
+
 .price-cta { text-align: center; margin: 40px 0 0; font-weight: 600; }
 .price-cta a { color: var(--navy); }
 .price-cta a:hover { color: var(--gold); }
@@ -829,6 +853,7 @@ a:focus-visible, button:focus-visible {
   .steps { grid-template-columns: 1fr; gap: 32px; }
   .price-cards { grid-template-columns: 1fr; }
   .price-cards-4 { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-cards { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-spark { width: 200px; }
   .section { padding: 64px 0; }
