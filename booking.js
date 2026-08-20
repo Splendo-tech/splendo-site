@@ -7,7 +7,7 @@
   "use strict";
 
   // Sostituisci con la tua access key gratuita da https://web3forms.com
-  var WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+  var WEB3FORMS_ACCESS_KEY = "476e51d4-8223-4645-b4b2-04755e570b05";
 
   var form = document.getElementById("booking-form");
   if (!form) return;
