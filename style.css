@@ -300,6 +300,10 @@ a:focus-visible, button:focus-visible {
 
 .price-note { font-size: 0.85rem; opacity: 0.6; margin: 0; }
 
+.price-cards-4 { grid-template-columns: repeat(4, 1fr); }
+
+.price-quote { font-size: 1.3rem; }
+
 .price-cta { text-align: center; margin: 40px 0 0; font-weight: 600; }
 .price-cta a { color: var(--navy); }
 .price-cta a:hover { color: var(--gold); }
@@ -724,8 +728,14 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ---------- Pricing table (prezzi.html) ---------- */
+.table-scroll {
+  overflow-x: auto;
+  border-radius: 16px;
+}
+
 .price-table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   background: var(--white);
   border-radius: 16px;
@@ -789,6 +799,7 @@ a:focus-visible, button:focus-visible {
   .main-nav { display: none; }
   .steps { grid-template-columns: 1fr; gap: 32px; }
   .price-cards { grid-template-columns: 1fr; }
+  .price-cards-4 { grid-template-columns: 1fr 1fr; gap: 16px; }
   .why-grid { grid-template-columns: 1fr; gap: 32px; }
   .hero-spark { width: 200px; }
   .section { padding: 64px 0; }
