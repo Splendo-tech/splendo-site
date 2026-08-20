@@ -14,6 +14,8 @@
 
   var summaryList = document.getElementById("summary-list");
   var summaryTotalValue = document.getElementById("summary-total-value");
+  var summaryTotalBlock = document.getElementById("summary-total-block");
+  var summaryRecurring = document.getElementById("summary-recurring");
   var statusEl = document.getElementById("form-status");
 
   var counters = form.querySelectorAll("[data-counter]");
@@ -49,7 +51,8 @@
     var nameEl = card.querySelector(".option-name");
     return {
       displayLabel: nameEl ? nameEl.textContent : input.value,
-      deLabel: input.dataset.de || input.value
+      deLabel: input.dataset.de || input.value,
+      isRecurring: input.dataset.recurring === "true"
     };
   }
 
@@ -104,6 +107,7 @@
 
   function renderSummary() {
     var apartment = getSelectedApartment();
+    var frequency = getSelectedFrequency();
     var extras = getCheckedExtras().concat(getCounterItems());
     var tappezzeria = getTappezzeria();
     var urgent = getUrgent();
@@ -155,7 +159,14 @@
       });
     }
 
-    summaryTotalValue.textContent = eur(total);
+    if (frequency && frequency.isRecurring) {
+      summaryTotalBlock.hidden = true;
+      summaryRecurring.hidden = false;
+    } else {
+      summaryTotalBlock.hidden = false;
+      summaryRecurring.hidden = true;
+      summaryTotalValue.textContent = eur(total);
+    }
   }
 
   // ---- Contatori (+/-) ----

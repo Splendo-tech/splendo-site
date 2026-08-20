@@ -709,6 +709,20 @@ a:focus-visible, button:focus-visible {
   margin: 14px 0 0;
 }
 
+.summary-total[hidden], .summary-recurring[hidden] { display: none; }
+
+.summary-recurring {
+  border-top: 1.5px solid rgba(31,56,100,0.15);
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+.summary-recurring p {
+  font-size: 0.88rem;
+  color: var(--navy-ink);
+  margin: 0 0 14px;
+}
+
 /* ---------- Pricing table (prezzi.html) ---------- */
 .price-table {
   width: 100%;

@@ -68,7 +68,9 @@ window.SPLENDO_I18N_PAGE = {
     summary_empty: "Wähle Optionen, um den Preis zu sehen",
     summary_total_label: "Geschätzter Gesamtpreis",
     summary_note: "Richtpreis. Die endgültigen Details bestätigen wir vor dem Termin per WhatsApp.",
-    summary_quote_suffix: " + Angebot für Wohnung"
+    summary_quote_suffix: " + Angebot für Wohnung",
+    recurring_note: "Für wiederkehrende Reinigungen sprechen wir Preis und Rhythmus persönlich mit dir ab.",
+    recurring_cta: "Auf WhatsApp schreiben"
   },
   en: {
     meta_title: "Book — Splendo",
@@ -126,7 +128,9 @@ window.SPLENDO_I18N_PAGE = {
     summary_empty: "Select options to see the price",
     summary_total_label: "Estimated total",
     summary_note: "Estimated price. We'll confirm final details via WhatsApp before the appointment.",
-    summary_quote_suffix: " + custom quote for apartment"
+    summary_quote_suffix: " + custom quote for apartment",
+    recurring_note: "For recurring cleanings, we'll agree on price and schedule with you directly.",
+    recurring_cta: "Message us on WhatsApp"
   }
 };
 </script>
@@ -204,15 +208,15 @@ window.SPLENDO_I18N_PAGE = {
               <span class="option-name" data-i18n="freq_once" data-de="Einmalig">Einmalig</span>
             </label>
             <label class="option-card">
-              <input type="radio" name="frequency" value="Wöchentlich" data-de="Wöchentlich">
+              <input type="radio" name="frequency" value="Wöchentlich" data-de="Wöchentlich" data-recurring="true">
               <span class="option-name" data-i18n="freq_weekly" data-de="Wöchentlich">Wöchentlich</span>
             </label>
             <label class="option-card">
-              <input type="radio" name="frequency" value="Alle zwei Wochen" data-de="Alle zwei Wochen">
+              <input type="radio" name="frequency" value="Alle zwei Wochen" data-de="Alle zwei Wochen" data-recurring="true">
               <span class="option-name" data-i18n="freq_biweekly" data-de="Alle zwei Wochen">Alle zwei Wochen</span>
             </label>
             <label class="option-card">
-              <input type="radio" name="frequency" value="Monatlich" data-de="Monatlich">
+              <input type="radio" name="frequency" value="Monatlich" data-de="Monatlich" data-recurring="true">
               <span class="option-name" data-i18n="freq_monthly" data-de="Monatlich">Monatlich</span>
             </label>
           </div>
@@ -390,9 +394,13 @@ window.SPLENDO_I18N_PAGE = {
         <ul id="summary-list" class="summary-list">
           <li class="summary-empty" data-i18n="summary_empty">Wähle Optionen, um den Preis zu sehen</li>
         </ul>
-        <div class="summary-total">
+        <div class="summary-total" id="summary-total-block">
           <span data-i18n="summary_total_label">Geschätzter Gesamtpreis</span>
           <strong id="summary-total-value">79€</strong>
+        </div>
+        <div class="summary-recurring" id="summary-recurring" hidden>
+          <p data-i18n="recurring_note">Für wiederkehrende Reinigungen sprechen wir Preis und Rhythmus persönlich mit dir ab.</p>
+          <a class="btn btn-ghost btn-block" href="https://wa.me/491234567890" target="_blank" rel="noopener" data-i18n="recurring_cta">Auf WhatsApp schreiben</a>
         </div>
         <p class="summary-note" data-i18n="summary_note">Richtpreis. Die endgültigen Details bestätigen wir vor dem Termin per WhatsApp.</p>
       </aside>
