@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta_title">Buchen — Splendo</title>
+<meta name="description" data-i18n-content="meta_desc" content="Buche deine Wohnungsreinigung in Berlin. Wähle Wohnung, Extras und Termin — jetzt noch keine Zahlung nötig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    meta_title: "Buchen — Splendo",
+    meta_desc: "Buche deine Wohnungsreinigung in Berlin. Wähle Wohnung, Extras und Termin — jetzt noch keine Zahlung nötig.",
+    page_eyebrow: "Buchung",
+    page_h1: "Erzähl uns von deiner Wohnung, den Rest übernehmen wir.",
+    page_sub: "Füll das Formular aus: Wir bestätigen Termin und Verfügbarkeit meist innerhalb weniger Stunden per WhatsApp. Keine Karte nötig.",
+    legend1: "1. Wohnungstyp",
+    apt_studio: "Studio",
+    apt_2zimmer: "2-Zimmer-Wohnung",
+    apt_3zimmer: "3-Zimmer-Wohnung",
+    apt_4plus: "4+ Zimmer",
+    apt_4plus_price: "Preis auf Anfrage",
+    legend2: "2. Häufigkeit",
+    freq_once: "Einmalig",
+    freq_weekly: "Wöchentlich",
+    freq_biweekly: "Alle zwei Wochen",
+    freq_monthly: "Monatlich",
+    legend3: "3. Zusätzliche Extras",
+    extra_forno: "Backofen",
+    extra_cappa: "Dunstabzugshaube",
+    extra_frigo: "Kühlschrank (innen)",
+    extra_microonde: "Mikrowelle",
+    extra_mobile: "Küchenschrank (innen)",
+    extra_piatti: "Geschirr von Hand",
+    extra_finestre: "Fenster",
+    extra_finestre_note: "15€ pro Stück",
+    extra_balcone: "Balkon/Terrasse",
+    extra_stiro: "Bügeln",
+    extra_armadio: "Kleiderschrank (Inneres aufräumen)",
+    extra_lettiera: "Tierstreu",
+    extra_ore: "Zusätzliche Stunden",
+    extra_ore_note: "25€ pro Stunde",
+    extra_tappezzeria: "Polstermöbel/Sofas",
+    extra_tappezzeria_note: "Preis auf Anfrage —",
+    extra_tappezzeria_link: "schreib uns",
+    legend4: "4. Dringende Anfrage",
+    urgent_label: "Dringende Anfrage",
+    urgent_note: "(Antwort innerhalb von 3 Stunden) — +20€",
+    legend5: "5. Datum, Adresse und Kontakt",
+    field_data: "Bevorzugtes Datum",
+    field_ora: "Bevorzugte Uhrzeit",
+    field_indirizzo: "Adresse",
+    field_indirizzo_ph: "Straße, Hausnummer, Stadtteil",
+    field_nome: "Vor- und Nachname",
+    field_telefono: "Telefon",
+    field_email: "E-Mail",
+    field_note: "Notizen (Schlüssel, Haustiere, besonderer Zugang...)",
+    payment_note: "Wir erheben hier keine Zahlung. Nach Abschluss der Reinigung senden wir dir einen sicheren Stripe-Link per WhatsApp — keine Kartendaten im Voraus.",
+    submit_btn: "Buchungsanfrage senden",
+    status_sending: "Wird gesendet...",
+    status_success: "Anfrage gesendet! Wir melden uns innerhalb weniger Stunden per WhatsApp, um Termin und Endpreis zu bestätigen. Bezahlt wird erst nach dem Service.",
+    status_error: "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu, wir antworten sofort.",
+    summary_title: "Übersicht",
+    summary_empty: "Wähle Optionen, um den Preis zu sehen",
+    summary_total_label: "Geschätzter Gesamtpreis",
+    summary_note: "Richtpreis. Die endgültigen Details bestätigen wir vor dem Termin per WhatsApp.",
+    summary_quote_suffix: " + Angebot für Wohnung"
+  },
+  en: {
+    meta_title: "Book — Splendo",
+    meta_desc: "Book your home cleaning in Berlin. Choose your apartment, extras and date — no payment needed now.",
+    page_eyebrow: "Booking",
+    page_h1: "Tell us about your home, we'll take care of the rest.",
+    page_sub: "Fill in the form: we usually confirm your date and availability via WhatsApp within a few hours. No card needed.",
+    legend1: "1. Apartment type",
+    apt_studio: "Studio",
+    apt_2zimmer: "2-room apartment",
+    apt_3zimmer: "3-room apartment",
+    apt_4plus: "4+ rooms",
+    apt_4plus_price: "Custom quote",
+    legend2: "2. Frequency",
+    freq_once: "One-time",
+    freq_weekly: "Weekly",
+    freq_biweekly: "Every two weeks",
+    freq_monthly: "Monthly",
+    legend3: "3. Optional extras",
+    extra_forno: "Oven",
+    extra_cappa: "Extractor hood",
+    extra_frigo: "Fridge (inside)",
+    extra_microonde: "Microwave",
+    extra_mobile: "Kitchen cabinet (inside)",
+    extra_piatti: "Hand-washing dishes",
+    extra_finestre: "Windows",
+    extra_finestre_note: "€15 per item",
+    extra_balcone: "Balcony/terrace",
+    extra_stiro: "Ironing",
+    extra_armadio: "Wardrobe (inside tidy-up)",
+    extra_lettiera: "Pet litter box",
+    extra_ore: "Extra hours",
+    extra_ore_note: "€25 per hour",
+    extra_tappezzeria: "Upholstery/sofas",
+    extra_tappezzeria_note: "Custom quote —",
+    extra_tappezzeria_link: "message us",
+    legend4: "4. Urgent request",
+    urgent_label: "Urgent request",
+    urgent_note: "(we reply within 3 hours) — +€20",
+    legend5: "5. Date, address and contact",
+    field_data: "Preferred date",
+    field_ora: "Preferred time",
+    field_indirizzo: "Address",
+    field_indirizzo_ph: "Street, number, neighborhood",
+    field_nome: "Full name",
+    field_telefono: "Phone",
+    field_email: "Email",
+    field_note: "Notes (keys, pets, special access...)",
+    payment_note: "We don't collect payment here. Once the cleaning is done, we'll send you a secure Stripe link via WhatsApp — no card saved in advance.",
+    submit_btn: "Send booking request",
+    status_sending: "Sending...",
+    status_success: "Request sent! We'll message you on WhatsApp within a few hours to confirm the date and final price. Payment happens only after the service.",
+    status_error: "Something went wrong. Email us directly at admin@splendo.eu and we'll reply right away.",
+    summary_title: "Summary",
+    summary_empty: "Select options to see the price",
+    summary_total_label: "Estimated total",
+    summary_note: "Estimated price. We'll confirm final details via WhatsApp before the appointment.",
+    summary_quote_suffix: " + custom quote for apartment"
+  }
+};
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="logo">
+      <img src="logo-icon.png" alt="Splendo" class="logo-icon-img">
+      <span>Splendo</span>
+    </a>
+    <nav class="main-nav">
+      <a href="/come-funziona.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/prezzi.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/chi-siamo.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/contatti.html" data-i18n="nav_contatti">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="/prenota.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="page_eyebrow">Buchung</p>
+      <h1 data-i18n="page_h1">Erzähl uns von deiner Wohnung, den Rest übernehmen wir.</h1>
+      <p class="page-hero-sub" data-i18n="page_sub">Füll das Formular aus: Wir bestätigen Termin und Verfügbarkeit meist innerhalb weniger Stunden per WhatsApp. Keine Karte nötig.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap booking-layout">
+
+      <form id="booking-form" class="booking-form" novalidate>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend1">1. Wohnungstyp</legend>
+          <div class="option-grid" data-group="apartment">
+            <label class="option-card">
+              <input type="radio" name="apartment" value="Studio" data-price="79" data-de="Studio" checked>
+              <span class="option-name" data-i18n="apt_studio" data-de="Studio">Studio</span>
+              <span class="option-price">79€</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="apartment" value="2-Zimmer" data-price="99" data-de="2-Zimmer-Wohnung">
+              <span class="option-name" data-i18n="apt_2zimmer" data-de="2-Zimmer-Wohnung">2-Zimmer-Wohnung</span>
+              <span class="option-price">99€</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="apartment" value="3-Zimmer" data-price="129" data-de="3-Zimmer-Wohnung">
+              <span class="option-name" data-i18n="apt_3zimmer" data-de="3-Zimmer-Wohnung">3-Zimmer-Wohnung</span>
+              <span class="option-price">129€</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="apartment" value="4+" data-quote="true" data-de="4+ Zimmer">
+              <span class="option-name" data-i18n="apt_4plus" data-de="4+ Zimmer">4+ Zimmer</span>
+              <span class="option-price" data-i18n="apt_4plus_price">Preis auf Anfrage</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend2">2. Häufigkeit</legend>
+          <div class="option-grid" data-group="frequency">
+            <label class="option-card">
+              <input type="radio" name="frequency" value="Einmalig" data-de="Einmalig" checked>
+              <span class="option-name" data-i18n="freq_once" data-de="Einmalig">Einmalig</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="frequency" value="Wöchentlich" data-de="Wöchentlich">
+              <span class="option-name" data-i18n="freq_weekly" data-de="Wöchentlich">Wöchentlich</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="frequency" value="Alle zwei Wochen" data-de="Alle zwei Wochen">
+              <span class="option-name" data-i18n="freq_biweekly" data-de="Alle zwei Wochen">Alle zwei Wochen</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="frequency" value="Monatlich" data-de="Monatlich">
+              <span class="option-name" data-i18n="freq_monthly" data-de="Monatlich">Monatlich</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend3">3. Zusätzliche Extras</legend>
+          <div class="extras-list">
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Backofen" data-price="20" data-de="Backofen">
+                <span class="extra-name" data-i18n="extra_forno" data-de="Backofen">Backofen</span>
+              </span>
+              <span class="extra-price">+20€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Dunstabzugshaube" data-price="16" data-de="Dunstabzugshaube">
+                <span class="extra-name" data-i18n="extra_cappa" data-de="Dunstabzugshaube">Dunstabzugshaube</span>
+              </span>
+              <span class="extra-price">+16€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Kühlschrank (innen)" data-price="15" data-de="Kühlschrank (innen)">
+                <span class="extra-name" data-i18n="extra_frigo" data-de="Kühlschrank (innen)">Kühlschrank (innen)</span>
+              </span>
+              <span class="extra-price">+15€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Mikrowelle" data-price="9" data-de="Mikrowelle">
+                <span class="extra-name" data-i18n="extra_microonde" data-de="Mikrowelle">Mikrowelle</span>
+              </span>
+              <span class="extra-price">+9€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Küchenschrank (innen)" data-price="60" data-de="Küchenschrank (innen)">
+                <span class="extra-name" data-i18n="extra_mobile" data-de="Küchenschrank (innen)">Küchenschrank (innen)</span>
+              </span>
+              <span class="extra-price">+60€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Geschirr von Hand" data-price="10" data-de="Geschirr von Hand">
+                <span class="extra-name" data-i18n="extra_piatti" data-de="Geschirr von Hand">Geschirr von Hand</span>
+              </span>
+              <span class="extra-price">+10€</span>
+            </label>
+
+            <div class="extra-row extra-row-counter" data-counter="finestre" data-price="15" data-de="Fenster">
+              <span class="extra-name">
+                <span data-i18n="extra_finestre" data-de="Fenster">Fenster</span>
+                <small data-i18n="extra_finestre_note">15€ pro Stück</small>
+              </span>
+              <div class="counter">
+                <button type="button" class="counter-btn" data-action="decrease" aria-label="−">−</button>
+                <span class="counter-value" data-value="0">0</span>
+                <button type="button" class="counter-btn" data-action="increase" aria-label="+">+</button>
+              </div>
+            </div>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Balkon/Terrasse" data-price="15" data-de="Balkon/Terrasse">
+                <span class="extra-name" data-i18n="extra_balcone" data-de="Balkon/Terrasse">Balkon/Terrasse</span>
+              </span>
+              <span class="extra-price">+15€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Bügeln" data-price="25" data-de="Bügeln">
+                <span class="extra-name" data-i18n="extra_stiro" data-de="Bügeln">Bügeln</span>
+              </span>
+              <span class="extra-price">+25€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Kleiderschrank (Inneres aufräumen)" data-price="13" data-de="Kleiderschrank (Inneres aufräumen)">
+                <span class="extra-name" data-i18n="extra_armadio" data-de="Kleiderschrank (Inneres aufräumen)">Kleiderschrank (Inneres aufräumen)</span>
+              </span>
+              <span class="extra-price">+13€</span>
+            </label>
+
+            <label class="extra-row">
+              <span class="extra-check">
+                <input type="checkbox" name="extra" value="Tierstreu" data-price="4" data-de="Tierstreu">
+                <span class="extra-name" data-i18n="extra_lettiera" data-de="Tierstreu">Tierstreu</span>
+              </span>
+              <span class="extra-price">+4€</span>
+            </label>
+
+            <div class="extra-row extra-row-counter" data-counter="ore-extra" data-price="25" data-de="Zusätzliche Stunden">
+              <span class="extra-name">
+                <span data-i18n="extra_ore" data-de="Zusätzliche Stunden">Zusätzliche Stunden</span>
+                <small data-i18n="extra_ore_note">25€ pro Stunde</small>
+              </span>
+              <div class="counter">
+                <button type="button" class="counter-btn" data-action="decrease" aria-label="−">−</button>
+                <span class="counter-value" data-value="0">0</span>
+                <button type="button" class="counter-btn" data-action="increase" aria-label="+">+</button>
+              </div>
+            </div>
+
+            <div class="extra-row extra-row-quote">
+              <label class="extra-check">
+                <input type="checkbox" id="tappezzeria" data-de="Polstermöbel/Sofas">
+                <span class="extra-name" data-i18n="extra_tappezzeria" data-de="Polstermöbel/Sofas">Polstermöbel/Sofas</span>
+              </label>
+              <span class="extra-price-quote"><span data-i18n="extra_tappezzeria_note">Preis auf Anfrage —</span> <a href="https://wa.me/491234567890" target="_blank" rel="noopener" data-i18n="extra_tappezzeria_link">schreib uns</a></span>
+            </div>
+
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend4">4. Dringende Anfrage</legend>
+          <label class="urgent-toggle">
+            <input type="checkbox" id="urgent" data-price="20" data-de="Dringende Anfrage (Antwort innerhalb von 3 Stunden)">
+            <span><span data-i18n="urgent_label">Dringende Anfrage</span> <small data-i18n="urgent_note">(Antwort innerhalb von 3 Stunden) — +20€</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend5">5. Datum, Adresse und Kontakt</legend>
+          <div class="field-grid">
+            <div class="field">
+              <label for="data" data-i18n="field_data">Bevorzugtes Datum</label>
+              <input type="date" id="data" name="data" required>
+            </div>
+            <div class="field">
+              <label for="ora" data-i18n="field_ora">Bevorzugte Uhrzeit</label>
+              <input type="time" id="ora" name="ora" required>
+            </div>
+            <div class="field field-full">
+              <label for="indirizzo" data-i18n="field_indirizzo">Adresse</label>
+              <input type="text" id="indirizzo" name="indirizzo" data-i18n-placeholder="field_indirizzo_ph" placeholder="Straße, Hausnummer, Stadtteil" required>
+            </div>
+            <div class="field">
+              <label for="nome" data-i18n="field_nome">Vor- und Nachname</label>
+              <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="field">
+              <label for="telefono" data-i18n="field_telefono">Telefon</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+49 ..." required>
+            </div>
+            <div class="field field-full">
+              <label for="email" data-i18n="field_email">E-Mail</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="field field-full">
+              <label for="note" data-i18n="field_note">Notizen (Schlüssel, Haustiere, besonderer Zugang...)</label>
+              <textarea id="note" name="note"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <p class="form-payment-note" data-i18n="payment_note">Wir erheben hier keine Zahlung. Nach Abschluss der Reinigung senden wir dir einen sicheren Stripe-Link per WhatsApp — keine Kartendaten im Voraus.</p>
+
+        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="submit_btn">Buchungsanfrage senden</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="booking-summary">
+        <h3 data-i18n="summary_title">Übersicht</h3>
+        <ul id="summary-list" class="summary-list">
+          <li class="summary-empty" data-i18n="summary_empty">Wähle Optionen, um den Preis zu sehen</li>
+        </ul>
+        <div class="summary-total">
+          <span data-i18n="summary_total_label">Geschätzter Gesamtpreis</span>
+          <strong id="summary-total-value">79€</strong>
+        </div>
+        <p class="summary-note" data-i18n="summary_note">Richtpreis. Die endgültigen Details bestätigen wir vor dem Termin per WhatsApp.</p>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Splendo<span class="spark" aria-hidden="true">✦</span></div>
+    <nav class="footer-nav">
+      <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+      <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+      <a href="/agb.html" data-i18n="footer_agb">AGB</a>
+    </nav>
+    <a class="footer-contact" href="mailto:admin@splendo.eu">admin@splendo.eu</a>
+  </div>
+</footer>
+
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
+<script src="booking.js" defer></script>
+</body>
+</html>
