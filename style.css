@@ -815,6 +815,36 @@ a:focus-visible, button:focus-visible {
 
 .price-table-note { font-size: 0.85rem; opacity: 0.6; margin: 0; }
 
+.product-toggle-card {
+  background: var(--white);
+  border: 1px solid rgba(31,56,100,0.1);
+  border-radius: 16px;
+  padding: 22px 26px;
+  margin: 28px 0 0;
+}
+
+.product-toggle-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.product-toggle-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.product-toggle-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
 /* ---------- Legal pages ---------- */
 .legal-content {
   max-width: 760px;

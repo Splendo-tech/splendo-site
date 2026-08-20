@@ -105,11 +105,18 @@
     return { amount: parseFloat(input.dataset.price), deLabel: input.dataset.de };
   }
 
+  function getProducts() {
+    var input = document.getElementById("products");
+    if (!input || !input.checked) return null;
+    return { amount: parseFloat(input.dataset.price), deLabel: input.dataset.de };
+  }
+
   function renderSummary() {
     var apartment = getSelectedApartment();
     var frequency = getSelectedFrequency();
     var extras = getCheckedExtras().concat(getCounterItems());
     var tappezzeria = getTappezzeria();
+    var products = getProducts();
     var urgent = getUrgent();
 
     var rows = [];
@@ -131,6 +138,11 @@
 
     if (tappezzeria) {
       rows.push({ label: tappezzeria.displayLabel, amountLabel: "—" });
+    }
+
+    if (products) {
+      total += products.amount;
+      rows.push({ label: t("products_label", "Reinigungsprodukte von uns mitbringen lassen"), amountLabel: "+" + eur(products.amount) });
     }
 
     if (urgent) {
@@ -202,6 +214,7 @@
     var frequency = getSelectedFrequency();
     var extras = getCheckedExtras().concat(getCounterItems());
     var tappezzeria = getTappezzeria();
+    var products = getProducts();
     var urgent = getUrgent();
 
     var payload = {
@@ -210,6 +223,7 @@
       from_name: "Splendo Website",
       wohnungstyp: apartment ? apartment.deLabel : "",
       haeufigkeit: frequency ? frequency.deLabel : "",
+      reinigungsprodukte_mitbringen: products ? "Ja (+8€)" : "Nein",
       extras: extras.map(function (i) { return i.deLabel; }).join(", ") || "Keine",
       polstermoebel_sofas: tappezzeria ? "Ja, Preis auf Anfrage" : "Nein",
       dringende_anfrage: urgent ? "Ja (+20€)" : "Nein",
