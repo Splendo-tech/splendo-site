@@ -249,6 +249,7 @@
       polstermoebel_sofas: tappezzeria ? "Ja, Preis auf Anfrage" : "Nein",
       dringende_anfrage: urgent ? ("Ja (+" + eur(urgent.amount) + ")") : "Nein",
       geschaetzter_gesamtpreis: summaryTotalValue.textContent,
+      rabattcode: form.querySelector("#promo").value || "Kein Rabattcode",
       bevorzugtes_datum: form.querySelector("#data").value,
       bevorzugte_uhrzeit: form.querySelector("#ora").value,
       adresse: form.querySelector("#indirizzo").value,

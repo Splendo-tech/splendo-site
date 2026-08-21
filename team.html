@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGB — Splendo</title>
-<meta name="description" content="Allgemeine Geschäftsbedingungen von Splendo.">
-<link rel="canonical" href="https://splendo.eu/agb.html">
+<title data-i18n="meta_title">Team — Splendo</title>
+<meta name="description" data-i18n-content="meta_desc" content="Lerne das Splendo-Team kennen — erfahrene, geprüfte Reinigungskräfte in Berlin.">
+<link rel="canonical" href="https://splendo.eu/team.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://splendo.eu/agb.html">
-<meta property="og:title" content="AGB — Splendo">
-<meta property="og:description" content="Allgemeine Geschäftsbedingungen von Splendo.">
+<meta property="og:url" content="https://splendo.eu/team.html">
+<meta property="og:title" content="Team — Splendo">
+<meta property="og:description" content="Lerne das Splendo-Team kennen — erfahrene, geprüfte Reinigungskräfte in Berlin.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
 <meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="style.css">
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    meta_title: "Team — Splendo",
+    meta_desc: "Lerne das Splendo-Team kennen — erfahrene, geprüfte Reinigungskräfte in Berlin.",
+    page_eyebrow: "Team",
+    page_h1: "Unser Team",
+    page_sub: "Die Menschen, die sich um deine Wohnung kümmern.",
+    card_name: "[NAME] — [X] Jahre Erfahrung",
+    card_bio: "[Kurze Bio hier einfügen]",
+    cta_h2: "Bereit für dein erstes Reinigungserlebnis?",
+    cta_btn: "Jetzt buchen"
+  },
+  en: {
+    meta_title: "Team — Splendo",
+    meta_desc: "Meet the Splendo team — experienced, vetted cleaners in Berlin.",
+    page_eyebrow: "Team",
+    page_h1: "Our Team",
+    page_sub: "The people who take care of your home.",
+    card_name: "[NAME] — [X] years of experience",
+    card_bio: "[Short bio to be added]",
+    cta_h2: "Ready for your first cleaning?",
+    cta_btn: "Book now"
+  }
+};
+</script>
 </head>
 <body>
 
@@ -44,53 +70,42 @@
 </header>
 
 <main>
+
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Rechtliches</p>
-      <h1>Allgemeine Geschäftsbedingungen</h1>
+      <p class="eyebrow" data-i18n="page_eyebrow">Team</p>
+      <h1 data-i18n="page_h1">Unser Team</h1>
+      <p class="page-hero-sub" data-i18n="page_sub">Die Menschen, die sich um deine Wohnung kümmern.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <div class="legal-content">
+      <div class="team-grid">
 
-        <p class="legal-note">⚠️ Dies ist ein Platzhalter-Gerüst. Erstelle die vollständigen AGB mit dem <a href="https://www.e-recht24.de/agb-generator.html" target="_blank" rel="noopener">AGB-Generator von e-recht24.de</a>, passend zu deinem Geschäftsmodell (Dienstleistung vor Ort, Zahlung nach Leistung, Stornobedingungen). Diese Seite ist erst nach dem Einfügen des echten Textes rechtsgültig.</p>
+        <article class="team-card">
+          <div class="team-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.4c-3.3 0-9.8 1.6-9.8 4.9v2.5h19.6v-2.5c0-3.3-6.5-4.9-9.8-4.9z"/>
+            </svg>
+          </div>
+          <h3><span class="legal-placeholder" data-i18n="card_name">[NAME] — [X] Jahre Erfahrung</span></h3>
+          <p><span class="legal-placeholder" data-i18n="card_bio">[Kurze Bio hier einfügen]</span></p>
+        </article>
 
-        <h2>1. Geltungsbereich</h2>
-        <p><span class="legal-placeholder">[Beschreibung, dass diese AGB für alle über splendo.eu und WhatsApp gebuchten Reinigungsleistungen von Splendo gelten]</span></p>
-
-        <h2>2. Vertragspartner</h2>
-        <p>
-          <span class="legal-placeholder">[Vollständiger Name / Firmenname]</span><br>
-          <span class="legal-placeholder">[Anschrift]</span><br>
-          E-Mail: <a href="mailto:admin@splendo.eu">admin@splendo.eu</a>
-        </p>
-
-        <h2>3. Vertragsschluss</h2>
-        <p><span class="legal-placeholder">[Beschreibung des Ablaufs: Buchungsanfrage über das Formular auf buchen.html → Bestätigung von Termin und Preis per WhatsApp → verbindlicher Vertrag erst mit dieser Bestätigung]</span></p>
-
-        <h2>4. Preise und Zahlung</h2>
-        <p><span class="legal-placeholder">[Beschreibung: Preise laut aktueller Preisliste auf preise.html zzgl. gewählter Extras; Zahlung erst nach erbrachter Leistung über einen von Splendo per WhatsApp gesendeten Stripe-Zahlungslink; keine Vorabzahlung oder Kartenspeicherung]</span></p>
-
-        <h2>5. Stornierung und Terminänderung</h2>
-        <p><span class="legal-placeholder">[Fristen und ggf. Gebühren für Stornierung oder Verschiebung eines gebuchten Termins]</span></p>
-
-        <h2>6. Zugang zur Wohnung und Schlüssel</h2>
-        <p><span class="legal-placeholder">[Regelungen zur Übergabe/Verwahrung von Schlüsseln, Haftung bei Schlüsselverlust]</span></p>
-
-        <h2>7. Haftung</h2>
-        <p><span class="legal-placeholder">[Haftungsregelung, Verweis auf die bestehende Berufshaftpflichtversicherung, Haftungsausschlüsse/-beschränkungen im gesetzlich zulässigen Rahmen]</span></p>
-
-        <h2>8. Dringende Anfragen</h2>
-        <p><span class="legal-placeholder">[Klarstellung: Die "Antwort innerhalb von 3 Stunden" bei dringenden Anfragen ist eine Rückmeldezeit zur Verfügbarkeit, keine Zusage einer sofortigen Ausführung der Reinigung]</span></p>
-
-        <h2>9. Schlussbestimmungen</h2>
-        <p><span class="legal-placeholder">[Anwendbares Recht, Gerichtsstand, Salvatorische Klausel]</span></p>
+        <!-- Weitere Team-Karten hier nach dem gleichen Muster hinzufügen -->
 
       </div>
     </div>
   </section>
+
+  <section class="section cta-final">
+    <div class="wrap">
+      <h2 data-i18n="cta_h2">Bereit für dein erstes Reinigungserlebnis?</h2>
+      <a href="/buchen.html" class="btn btn-gold btn-lg" data-i18n="cta_btn">Jetzt buchen</a>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -109,7 +124,6 @@
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
-
 
 <script src="i18n-common.js"></script>
 <script src="i18n.js"></script>

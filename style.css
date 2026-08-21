@@ -888,6 +888,91 @@ a:focus-visible, button:focus-visible {
   margin: 0 0 40px;
 }
 
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.32);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: #ffffff;
+}
+
+/* ---------- Team page ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.team-card {
+  background: var(--white);
+  border: 1px solid rgba(31,56,100,0.1);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+}
+
+.team-avatar {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: var(--tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-avatar svg {
+  width: 46px;
+  height: 46px;
+  fill: var(--navy);
+  opacity: 0.35;
+}
+
+.team-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+
+.team-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* ---------- Promo code field ---------- */
+.promo-field {
+  margin: 0 0 28px;
+}
+
+.promo-optional {
+  font-weight: 400;
+  opacity: 0.6;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .main-nav { display: none; }
@@ -909,6 +994,8 @@ a:focus-visible, button:focus-visible {
   .lang-btn { padding: 5px 8px; font-size: 0.72rem; }
   .logo-icon-img { height: 34px; }
   .logo { font-size: 1.25rem; gap: 7px; }
+  .whatsapp-float { width: 48px; height: 48px; bottom: 16px; right: 16px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
 }
 
 @media (max-width: 400px) {
