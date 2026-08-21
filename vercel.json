@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/prenota.html", "destination": "/buchen.html", "permanent": true },
+    { "source": "/prezzi.html", "destination": "/preise.html", "permanent": true },
+    { "source": "/come-funziona.html", "destination": "/ablauf.html", "permanent": true },
+    { "source": "/chi-siamo.html", "destination": "/ueber-uns.html", "permanent": true },
+    { "source": "/contatti.html", "destination": "/kontakt.html", "permanent": true },
+    { "source": "/zone-servite.html", "destination": "/servicegebiete.html", "permanent": true }
+  ]
+}
