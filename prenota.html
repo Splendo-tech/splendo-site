@@ -25,18 +25,26 @@ window.SPLENDO_I18N_PAGE = {
     page_eyebrow: "Buchung",
     page_h1: "Erzähl uns von deiner Wohnung, den Rest übernehmen wir.",
     page_sub: "Füll das Formular aus: Wir bestätigen Termin und Verfügbarkeit meist innerhalb weniger Stunden per WhatsApp. Keine Karte nötig.",
-    legend1: "1. Wohnungstyp",
+    legend_plz: "1. Postleitzahl",
+    field_plz: "Postleitzahl",
+    field_plz_ph: "z. B. 10115",
+    legend1: "2. Wohnungstyp",
     apt_studio: "Studio",
     apt_2zimmer: "2-Zimmer-Wohnung",
     apt_3zimmer: "3-Zimmer-Wohnung",
     apt_4plus: "4+ Zimmer",
     apt_4plus_price: "Preis auf Anfrage",
-    legend2: "2. Häufigkeit",
+    legend_service: "3. Art der Reinigung",
+    svc_standard: "Standardreinigung",
+    svc_deep: "Grundreinigung",
+    svc_movein: "Einzugsreinigung",
+    svc_moveout: "Endreinigung",
+    legend2: "4. Häufigkeit",
     freq_once: "Einmalig",
     freq_weekly: "Wöchentlich",
     freq_biweekly: "Alle zwei Wochen",
     freq_monthly: "Monatlich",
-    legend3: "3. Zusätzliche Extras",
+    legend3: "5. Zusätzliche Extras",
     extra_forno: "Backofen",
     extra_cappa: "Dunstabzugshaube",
     extra_frigo: "Kühlschrank (innen)",
@@ -50,17 +58,17 @@ window.SPLENDO_I18N_PAGE = {
     extra_armadio: "Kleiderschrank (Inneres aufräumen)",
     extra_lettiera: "Tierstreu",
     extra_ore: "Zusätzliche Stunden",
-    extra_ore_note: "25€ pro Stunde",
+    extra_ore_note: "28€ pro Stunde",
     extra_tappezzeria: "Polstermöbel/Sofas",
     extra_tappezzeria_note: "Preis auf Anfrage —",
     extra_tappezzeria_link: "schreib uns",
-    legend4: "4. Dringende Anfrage",
+    legend4: "6. Dringende Anfrage",
     urgent_label: "Dringende Anfrage",
     urgent_note: "(Antwort innerhalb von 3 Stunden) — +20€",
-    legend5: "5. Reinigungsprodukte",
+    legend5: "7. Reinigungsprodukte",
     products_label: "Reinigungsprodukte von uns mitbringen lassen",
-    products_note: "+8€ — falls nicht ausgewählt, bitte Grundausstattung zuhause bereitstellen (Reinigungsmittel, Tücher usw.)",
-    legend6: "6. Datum, Adresse und Kontakt",
+    products_note: "+12€ — falls nicht ausgewählt, bitte Grundausstattung zuhause bereitstellen (Reinigungsmittel, Tücher usw.)",
+    legend6: "8. Datum, Adresse und Kontakt",
     field_data: "Bevorzugtes Datum",
     field_ora: "Bevorzugte Uhrzeit",
     field_indirizzo: "Adresse",
@@ -88,18 +96,26 @@ window.SPLENDO_I18N_PAGE = {
     page_eyebrow: "Booking",
     page_h1: "Tell us about your home, we'll take care of the rest.",
     page_sub: "Fill in the form: we usually confirm your date and availability via WhatsApp within a few hours. No card needed.",
-    legend1: "1. Apartment type",
+    legend_plz: "1. Postcode",
+    field_plz: "Postcode",
+    field_plz_ph: "e.g. 10115",
+    legend1: "2. Apartment type",
     apt_studio: "Studio",
     apt_2zimmer: "2-room apartment",
     apt_3zimmer: "3-room apartment",
     apt_4plus: "4+ rooms",
     apt_4plus_price: "Custom quote",
-    legend2: "2. Frequency",
+    legend_service: "3. Type of cleaning",
+    svc_standard: "Standard clean",
+    svc_deep: "Deep clean",
+    svc_movein: "Move-in cleaning",
+    svc_moveout: "Move-out cleaning",
+    legend2: "4. Frequency",
     freq_once: "One-time",
     freq_weekly: "Weekly",
     freq_biweekly: "Every two weeks",
     freq_monthly: "Monthly",
-    legend3: "3. Optional extras",
+    legend3: "5. Optional extras",
     extra_forno: "Oven",
     extra_cappa: "Extractor hood",
     extra_frigo: "Fridge (inside)",
@@ -113,17 +129,17 @@ window.SPLENDO_I18N_PAGE = {
     extra_armadio: "Wardrobe (inside tidy-up)",
     extra_lettiera: "Pet litter box",
     extra_ore: "Extra hours",
-    extra_ore_note: "€25 per hour",
+    extra_ore_note: "€28 per hour",
     extra_tappezzeria: "Upholstery/sofas",
     extra_tappezzeria_note: "Custom quote —",
     extra_tappezzeria_link: "message us",
-    legend4: "4. Urgent request",
+    legend4: "6. Urgent request",
     urgent_label: "Urgent request",
     urgent_note: "(we reply within 3 hours) — +€20",
-    legend5: "5. Cleaning products",
+    legend5: "7. Cleaning products",
     products_label: "Have us bring the cleaning products",
-    products_note: "+€8 — if not selected, please have basic supplies at home (cleaning products, cloths, etc.)",
-    legend6: "6. Date, address and contact",
+    products_note: "+€12 — if not selected, please have basic supplies at home (cleaning products, cloths, etc.)",
+    legend6: "8. Date, address and contact",
     field_data: "Preferred date",
     field_ora: "Preferred time",
     field_indirizzo: "Address",
@@ -188,7 +204,17 @@ window.SPLENDO_I18N_PAGE = {
       <form id="booking-form" class="booking-form" novalidate>
 
         <fieldset class="form-fieldset">
-          <legend data-i18n="legend1">1. Wohnungstyp</legend>
+          <legend data-i18n="legend_plz">1. Postleitzahl</legend>
+          <div class="field-grid">
+            <div class="field">
+              <label for="plz" data-i18n="field_plz">Postleitzahl</label>
+              <input type="text" id="plz" name="plz" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" data-i18n-placeholder="field_plz_ph" placeholder="z. B. 10115" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend1">2. Wohnungstyp</legend>
           <div class="option-grid" data-group="apartment">
             <label class="option-card">
               <input type="radio" name="apartment" value="Studio" data-price="79" data-de="Studio" checked>
@@ -214,7 +240,32 @@ window.SPLENDO_I18N_PAGE = {
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend data-i18n="legend2">2. Häufigkeit</legend>
+          <legend data-i18n="legend_service">3. Art der Reinigung</legend>
+          <div class="option-grid" data-group="service-level">
+            <label class="option-card">
+              <input type="radio" name="service-level" value="Standardreinigung" data-multiplier="1" data-de="Standardreinigung" checked>
+              <span class="option-name" data-i18n="svc_standard" data-de="Standardreinigung">Standardreinigung</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="service-level" value="Grundreinigung" data-multiplier="1.3" data-de="Grundreinigung">
+              <span class="option-name" data-i18n="svc_deep" data-de="Grundreinigung">Grundreinigung</span>
+              <span class="option-price">+30%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="service-level" value="Einzugsreinigung" data-multiplier="1.3" data-de="Einzugsreinigung">
+              <span class="option-name" data-i18n="svc_movein" data-de="Einzugsreinigung">Einzugsreinigung</span>
+              <span class="option-price">+30%</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="service-level" value="Endreinigung" data-multiplier="1.5" data-de="Endreinigung">
+              <span class="option-name" data-i18n="svc_moveout" data-de="Endreinigung">Endreinigung</span>
+              <span class="option-price">+50%</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend data-i18n="legend2">4. Häufigkeit</legend>
           <div class="option-grid" data-group="frequency">
             <label class="option-card">
               <input type="radio" name="frequency" value="Einmalig" data-de="Einmalig" checked>
@@ -236,7 +287,7 @@ window.SPLENDO_I18N_PAGE = {
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend data-i18n="legend3">3. Zusätzliche Extras</legend>
+          <legend data-i18n="legend3">5. Zusätzliche Extras</legend>
           <div class="extras-list">
 
             <label class="extra-row">
@@ -309,10 +360,10 @@ window.SPLENDO_I18N_PAGE = {
 
             <label class="extra-row">
               <span class="extra-check">
-                <input type="checkbox" name="extra" value="Bügeln" data-price="25" data-de="Bügeln">
+                <input type="checkbox" name="extra" value="Bügeln" data-price="28" data-de="Bügeln">
                 <span class="extra-name" data-i18n="extra_stiro" data-de="Bügeln">Bügeln</span>
               </span>
-              <span class="extra-price">+25€</span>
+              <span class="extra-price">+28€</span>
             </label>
 
             <label class="extra-row">
@@ -331,10 +382,10 @@ window.SPLENDO_I18N_PAGE = {
               <span class="extra-price">+4€</span>
             </label>
 
-            <div class="extra-row extra-row-counter" data-counter="ore-extra" data-price="25" data-de="Zusätzliche Stunden">
+            <div class="extra-row extra-row-counter" data-counter="ore-extra" data-price="28" data-de="Zusätzliche Stunden">
               <span class="extra-name">
                 <span data-i18n="extra_ore" data-de="Zusätzliche Stunden">Zusätzliche Stunden</span>
-                <small data-i18n="extra_ore_note">25€ pro Stunde</small>
+                <small data-i18n="extra_ore_note">28€ pro Stunde</small>
               </span>
               <div class="counter">
                 <button type="button" class="counter-btn" data-action="decrease" aria-label="−">−</button>
@@ -355,7 +406,7 @@ window.SPLENDO_I18N_PAGE = {
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend data-i18n="legend4">4. Dringende Anfrage</legend>
+          <legend data-i18n="legend4">6. Dringende Anfrage</legend>
           <label class="urgent-toggle">
             <input type="checkbox" id="urgent" data-price="20" data-de="Dringende Anfrage (Antwort innerhalb von 3 Stunden)">
             <span><span data-i18n="urgent_label">Dringende Anfrage</span> <small data-i18n="urgent_note">(Antwort innerhalb von 3 Stunden) — +20€</small></span>
@@ -363,15 +414,15 @@ window.SPLENDO_I18N_PAGE = {
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend data-i18n="legend5">5. Reinigungsprodukte</legend>
+          <legend data-i18n="legend5">7. Reinigungsprodukte</legend>
           <label class="urgent-toggle">
-            <input type="checkbox" id="products" data-price="8" data-de="Reinigungsprodukte von uns mitbringen lassen">
-            <span><span data-i18n="products_label">Reinigungsprodukte von uns mitbringen lassen</span> <small data-i18n="products_note">+8€ — falls nicht ausgewählt, bitte Grundausstattung zuhause bereitstellen (Reinigungsmittel, Tücher usw.)</small></span>
+            <input type="checkbox" id="products" data-price="12" data-de="Reinigungsprodukte von uns mitbringen lassen">
+            <span><span data-i18n="products_label">Reinigungsprodukte von uns mitbringen lassen</span> <small data-i18n="products_note">+12€ — falls nicht ausgewählt, bitte Grundausstattung zuhause bereitstellen (Reinigungsmittel, Tücher usw.)</small></span>
           </label>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend data-i18n="legend6">6. Datum, Adresse und Kontakt</legend>
+          <legend data-i18n="legend6">8. Datum, Adresse und Kontakt</legend>
           <div class="field-grid">
             <div class="field">
               <label for="data" data-i18n="field_data">Bevorzugtes Datum</label>

@@ -49,7 +49,7 @@ window.SPLENDO_I18N_PAGE = {
     extra_armadio: "Kleiderschrank (Inneres aufräumen)",
     extra_lettiera: "Tierstreu",
     extra_ore: "Zusätzliche Stunden über den Standard hinaus",
-    extra_ore_price: "25€ pro Stunde",
+    extra_ore_price: "28€ pro Stunde",
     extra_tappezzeria: "Polstermöbel/Sofas",
     extra_tappezzeria_price: "Preis auf Anfrage",
     extra_urgent: "Dringende Anfrage (Antwort innerhalb von 3 Stunden)",
@@ -57,6 +57,13 @@ window.SPLENDO_I18N_PAGE = {
     table_note: "Alle Extras kannst du direkt bei der Buchung auswählen und siehst den Gesamtpreis live.",
     products_label: "Reinigungsprodukte von uns mitbringen lassen",
     products_note: "Falls nicht ausgewählt, bitte Grundausstattung zuhause bereitstellen (Reinigungsmittel, Tücher usw.).",
+    svc_table_title: "Reinigungsarten",
+    svc_table_note: "Der Aufpreis gilt auf den Grundpreis der Wohnung, vor den Extras.",
+    svc_th_type: "Wohnungstyp",
+    svc_th_standard: "Standard",
+    svc_th_deep: "Grundreinigung",
+    svc_th_movein: "Einzugsreinigung",
+    svc_th_moveout: "Endreinigung",
     cta_text: "Jetzt buchen und Preis live berechnen →"
   },
   en: {
@@ -89,7 +96,7 @@ window.SPLENDO_I18N_PAGE = {
     extra_armadio: "Wardrobe (inside tidy-up)",
     extra_lettiera: "Pet litter box",
     extra_ore: "Extra hours beyond standard",
-    extra_ore_price: "€25 per hour",
+    extra_ore_price: "€28 per hour",
     extra_tappezzeria: "Upholstery/sofas",
     extra_tappezzeria_price: "Custom quote",
     extra_urgent: "Urgent request (reply within 3 hours)",
@@ -97,6 +104,13 @@ window.SPLENDO_I18N_PAGE = {
     table_note: "You can select all extras directly when booking and see the live total.",
     products_label: "Have us bring the cleaning products",
     products_note: "If not selected, please have basic supplies at home (cleaning products, cloths, etc.).",
+    svc_table_title: "Types of cleaning",
+    svc_table_note: "The surcharge applies to the apartment's base price, before extras.",
+    svc_th_type: "Apartment type",
+    svc_th_standard: "Standard",
+    svc_th_deep: "Deep clean",
+    svc_th_movein: "Move-in cleaning",
+    svc_th_moveout: "Move-out cleaning",
     cta_text: "Book now and calculate your price live →"
   }
 };
@@ -162,6 +176,31 @@ window.SPLENDO_I18N_PAGE = {
     </div>
   </section>
 
+  <section class="section">
+    <div class="wrap">
+      <h2 class="section-title" data-i18n="svc_table_title">Reinigungsarten</h2>
+      <div class="table-scroll">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th data-i18n="svc_th_type">Wohnungstyp</th>
+              <th data-i18n="svc_th_standard">Standard</th>
+              <th data-i18n="svc_th_deep">Grundreinigung</th>
+              <th data-i18n="svc_th_movein">Einzugsreinigung</th>
+              <th data-i18n="svc_th_moveout">Endreinigung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="price1_name">Studio</td><td>79€</td><td>103€</td><td>103€</td><td>119€</td></tr>
+            <tr><td data-i18n="price2_name">2-Zimmer-Wohnung</td><td>99€</td><td>129€</td><td>129€</td><td>149€</td></tr>
+            <tr><td data-i18n="price3_name">3-Zimmer-Wohnung</td><td>129€</td><td>168€</td><td>168€</td><td>194€</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table-note" data-i18n="svc_table_note">Der Aufpreis gilt auf den Grundpreis der Wohnung, vor den Extras.</p>
+    </div>
+  </section>
+
   <section class="section section-tint">
     <div class="wrap">
       <h2 class="section-title" data-i18n="table_title">Alle Extras im Überblick</h2>
@@ -182,7 +221,7 @@ window.SPLENDO_I18N_PAGE = {
             <tr><td data-i18n="extra_piatti">Geschirr von Hand</td><td>10€</td></tr>
             <tr><td data-i18n="extra_finestre">Fenster</td><td data-i18n="extra_finestre_price">15€ pro Stück</td></tr>
             <tr><td data-i18n="extra_balcone">Balkon/Terrasse</td><td>15€</td></tr>
-            <tr><td data-i18n="extra_stiro">Bügeln</td><td>25€</td></tr>
+            <tr><td data-i18n="extra_stiro">Bügeln</td><td>28€</td></tr>
             <tr><td data-i18n="extra_armadio">Kleiderschrank (Inneres aufräumen)</td><td>13€</td></tr>
             <tr><td data-i18n="extra_lettiera">Tierstreu</td><td>4€</td></tr>
             <tr><td data-i18n="extra_ore">Zusätzliche Stunden über den Standard hinaus</td><td data-i18n="extra_ore_price">25€ pro Stunde</td></tr>
@@ -196,7 +235,7 @@ window.SPLENDO_I18N_PAGE = {
       <div class="product-toggle-card">
         <div class="product-toggle-head">
           <span data-i18n="products_label">Reinigungsprodukte von uns mitbringen lassen</span>
-          <span class="product-toggle-price">+8€</span>
+          <span class="product-toggle-price">+12€</span>
         </div>
         <p data-i18n="products_note">Falls nicht ausgewählt, bitte Grundausstattung zuhause bereitstellen (Reinigungsmittel, Tücher usw.).</p>
       </div>

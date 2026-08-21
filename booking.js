@@ -44,6 +44,18 @@
     };
   }
 
+  function getSelectedServiceLevel() {
+    var input = form.querySelector('input[name="service-level"]:checked');
+    if (!input) return { displayLabel: null, deLabel: null, multiplier: 1 };
+    var card = input.closest(".option-card");
+    var nameEl = card.querySelector(".option-name");
+    return {
+      displayLabel: nameEl ? nameEl.textContent : input.value,
+      deLabel: input.dataset.de || input.value,
+      multiplier: parseFloat(input.dataset.multiplier) || 1
+    };
+  }
+
   function getSelectedFrequency() {
     var input = form.querySelector('input[name="frequency"]:checked');
     if (!input) return null;
@@ -113,6 +125,7 @@
 
   function renderSummary() {
     var apartment = getSelectedApartment();
+    var serviceLevel = getSelectedServiceLevel();
     var frequency = getSelectedFrequency();
     var extras = getCheckedExtras().concat(getCounterItems());
     var tappezzeria = getTappezzeria();
@@ -126,8 +139,13 @@
       if (apartment.isQuote) {
         rows.push({ label: apartment.displayLabel, amountLabel: apartment.quoteLabel || "—" });
       } else {
-        total += apartment.price;
+        var adjustedPrice = Math.round(apartment.price * serviceLevel.multiplier);
+        total += adjustedPrice;
         rows.push({ label: apartment.displayLabel, amountLabel: eur(apartment.price) });
+        if (serviceLevel.multiplier !== 1) {
+          var delta = adjustedPrice - apartment.price;
+          rows.push({ label: serviceLevel.displayLabel, amountLabel: "+" + eur(delta) });
+        }
       }
     }
 
@@ -211,6 +229,7 @@
     statusEl.className = "form-status";
 
     var apartment = getSelectedApartment();
+    var serviceLevel = getSelectedServiceLevel();
     var frequency = getSelectedFrequency();
     var extras = getCheckedExtras().concat(getCounterItems());
     var tappezzeria = getTappezzeria();
@@ -221,12 +240,14 @@
       access_key: WEB3FORMS_ACCESS_KEY,
       subject: "Neue Splendo-Buchungsanfrage — " + (form.querySelector("#nome").value || ""),
       from_name: "Splendo Website",
+      postleitzahl: form.querySelector("#plz").value,
       wohnungstyp: apartment ? apartment.deLabel : "",
+      art_der_reinigung: serviceLevel.deLabel || "Standardreinigung",
       haeufigkeit: frequency ? frequency.deLabel : "",
-      reinigungsprodukte_mitbringen: products ? "Ja (+8€)" : "Nein",
+      reinigungsprodukte_mitbringen: products ? ("Ja (+" + eur(products.amount) + ")") : "Nein",
       extras: extras.map(function (i) { return i.deLabel; }).join(", ") || "Keine",
       polstermoebel_sofas: tappezzeria ? "Ja, Preis auf Anfrage" : "Nein",
-      dringende_anfrage: urgent ? "Ja (+20€)" : "Nein",
+      dringende_anfrage: urgent ? ("Ja (+" + eur(urgent.amount) + ")") : "Nein",
       geschaetzter_gesamtpreis: summaryTotalValue.textContent,
       bevorzugtes_datum: form.querySelector("#data").value,
       bevorzugte_uhrzeit: form.querySelector("#ora").value,
