@@ -88,8 +88,9 @@
             <option>Pulizia casa</option>
             <option>Pulizia ufficio</option>
           </select>
-          <input class="qs-input" id="qs-plz" placeholder="Il tuo CAP" aria-label="Il tuo CAP">
+          <input class="qs-input" id="qs-plz" placeholder="Il tuo CAP" aria-label="Il tuo CAP" inputmode="numeric" maxlength="5">
           <button class="qs-btn" id="qs-btn" type="button">Vai al preventivo →</button>
+          <p class="plz-error" id="qs-plz-error">Inserisci un CAP di Berlino valido (10115–14199).</p>
         </div>
 
         <div class="no-reviews-note">* Nessuna recensione fittizia: appena ne avremo di vere, compariranno qui.</div>
@@ -313,10 +314,29 @@
 </a>
 
 <script>
+function isValidBerlinPlz(plz) {
+  return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
+}
+
+var qsPlzInput = document.getElementById('qs-plz');
+var qsPlzError = document.getElementById('qs-plz-error');
+
 document.getElementById('qs-btn').addEventListener('click', function () {
-  var plz = document.getElementById('qs-plz').value.trim();
-  var url = '/buchen.html' + (plz ? ('?plz=' + encodeURIComponent(plz)) : '');
-  window.location.href = url;
+  var plz = qsPlzInput.value.trim();
+
+  if (!isValidBerlinPlz(plz)) {
+    qsPlzError.classList.add('visible');
+    qsPlzInput.classList.add('is-invalid');
+    qsPlzInput.focus();
+    return;
+  }
+
+  window.location.href = '/buchen.html?plz=' + encodeURIComponent(plz);
+});
+
+qsPlzInput.addEventListener('input', function () {
+  qsPlzError.classList.remove('visible');
+  qsPlzInput.classList.remove('is-invalid');
 });
 </script>
 </body>

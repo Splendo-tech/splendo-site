@@ -229,9 +229,32 @@
     if (plz && plzField) plzField.value = plz;
   })();
 
+  // ---- Validazione CAP di Berlino (10115–14199) ----
+  function isValidBerlinPlz(plz) {
+    return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
+  }
+
+  var plzField = document.getElementById("plz");
+  var plzError = document.getElementById("plz-error");
+
+  if (plzField) {
+    plzField.addEventListener("input", function () {
+      plzError.classList.remove("visible");
+      plzField.classList.remove("is-invalid");
+    });
+  }
+
   // ---- Invio form ----
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    if (plzField && !isValidBerlinPlz(plzField.value.trim())) {
+      plzError.classList.add("visible");
+      plzField.classList.add("is-invalid");
+      plzField.focus();
+      plzField.scrollIntoView({ block: "center", behavior: "smooth" });
+      return;
+    }
 
     statusEl.textContent = t("status_sending", "Invio in corso...");
     statusEl.className = "form-status";
