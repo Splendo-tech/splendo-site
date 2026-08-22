@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Pagina Contatti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --gold-soft: #E8C560;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  header { background: var(--cream); border-bottom: 1px solid rgba(31,56,100,0.08); }
+  .header-inner {
+    max-width: 1120px; margin: 0 auto; padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-family:'Fraunces', serif; font-weight:600; font-size: 22px; color: var(--navy); }
+  nav { display:flex; gap: 30px; }
+  nav a { color: #2B3350; text-decoration:none; font-size: 14px; font-weight: 500; }
+  .cta-nav {
+    background: var(--gold); color: var(--navy-dark); text-decoration:none;
+    padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 14px;
+  }
+
+  .page-hero {
+    background: var(--navy);
+    padding: 60px 32px 50px;
+    text-align: center;
+  }
+  .breadcrumb { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 18px; }
+  .page-hero h1 { font-family:'Fraunces', serif; font-weight: 600; font-size: 34px; color: white; margin-bottom: 14px; }
+  .page-hero p { color: rgba(255,255,255,0.7); font-size: 15px; max-width: 480px; margin: 0 auto; }
+
+  .contact-section { max-width: 1000px; margin: 0 auto; padding: 80px 32px; }
+  .contact-grid { display: flex; gap: 24px; margin-bottom: 60px; }
+  .contact-card {
+    flex: 1; background: white; border-radius: 18px; padding: 32px 26px;
+    border: 1px solid rgba(31,56,100,0.08); text-align: center;
+  }
+  .contact-icon {
+    width: 50px; height: 50px; border-radius: 14px; background: rgba(191,144,0,0.12);
+    color: var(--gold); display:flex; align-items:center; justify-content:center;
+    font-size: 20px; margin: 0 auto 16px;
+  }
+  .contact-card h4 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 16px; margin-bottom: 8px; }
+  .contact-card p { color: #667; font-size: 13.5px; margin-bottom: 14px; }
+  .contact-card a {
+    color: var(--gold); font-weight: 600; font-size: 13.5px; text-decoration: none;
+  }
+
+  .map-and-zones { display: flex; gap: 40px; align-items: center; }
+  .contact-map {
+    flex: 1.1; border-radius: 18px; overflow: hidden; height: 320px;
+  }
+  .contact-map iframe { width: 100%; height: 100%; border: 0; display:block; }
+
+  .zones-list { flex: 1; }
+  .zones-list h3 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 20px; margin-bottom: 16px; }
+  .zones-list p { color: #667; font-size: 14px; margin-bottom: 20px; line-height: 1.6; }
+  .zone-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .zone-tag {
+    background: rgba(31,56,100,0.06); color: var(--navy); font-size: 12.5px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px;
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Pagina Contatti</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Splendo</div>
+    <nav>
+      <a href="#">Come funziona</a>
+      <a href="#">Prezzi</a>
+      <a href="#">Chi siamo</a>
+      <a href="#">Team</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <a href="#" class="cta-nav">Prenota ora</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="breadcrumb">Home / Contatti</div>
+  <h1>Parliamone</h1>
+  <p>Hai una domanda prima di prenotare? Scrivici, rispondiamo di persona.</p>
+</section>
+
+<section class="contact-section">
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">💬</div>
+      <h4>WhatsApp</h4>
+      <p>Il modo più veloce per raggiungerci</p>
+      <a href="#">+49 175 8990050</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <h4>Email</h4>
+      <p>Per richieste più dettagliate</p>
+      <a href="mailto:admin@splendo.eu">admin@splendo.eu</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">🕐</div>
+      <h4>Orari di risposta</h4>
+      <p>Lun–Ven, 9:00–18:00</p>
+      <a href="#">Richieste urgenti entro 3h</a>
+    </div>
+  </div>
+
+  <div class="map-and-zones">
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d152677.0!2d13.3777!3d52.5200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x42120465b5e3b70!2sBerlin!5e0!3m2!1sit!2sde!4v1000000000000"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+    <div class="zones-list">
+      <h3>Serviamo tutta Berlino</h3>
+      <p>Nessun quartiere escluso, stesso prezzo ovunque in città.</p>
+      <div class="zone-tags">
+        <span class="zone-tag">Mitte</span>
+        <span class="zone-tag">Charlottenburg</span>
+        <span class="zone-tag">Zehlendorf</span>
+        <span class="zone-tag">Prenzlauer Berg</span>
+        <span class="zone-tag">Neukölln</span>
+        <span class="zone-tag">Spandau</span>
+        <span class="zone-tag">Köpenick</span>
+        <span class="zone-tag">+ tutti gli altri</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Sezione 6: CTA finale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --gold-soft: #E8C560;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  .cta-section {
+    position: relative;
+    background: var(--navy);
+    padding: 110px 32px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(191,144,0,0.15), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(191,144,0,0.12), transparent 40%);
+  }
+  .cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+  .eyebrow { font-size: 13px; font-weight: 700; color: var(--gold-soft); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+  .cta-inner h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 36px; color: white;
+    margin-bottom: 18px; line-height: 1.2;
+  }
+  .cta-inner p { color: rgba(255,255,255,0.75); font-size: 16px; margin-bottom: 36px; }
+
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn { font-weight: 700; padding: 16px 34px; border-radius: 999px; font-size: 15.5px; text-decoration:none; display:inline-block; }
+  .btn-gold { background: var(--gold); color: var(--navy-dark); }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,0.4); color: white; }
+
+  .trust-row {
+    margin-top: 44px; display: flex; gap: 30px; justify-content: center;
+    flex-wrap: wrap; color: rgba(255,255,255,0.55); font-size: 13px;
+  }
+  .trust-row span { display:flex; align-items:center; gap: 6px; }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Sezione 6: CTA finale</div>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="eyebrow">Pronto quando lo sei tu</div>
+    <h2>Pronta/o a riprenderti il sabato mattina?</h2>
+    <p>Prenota in due minuti, scegli data e orario, e pensa ad altro. Al resto ci pensiamo noi.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-gold">Prenota la tua pulizia</a>
+      <a href="#" class="btn btn-ghost">Scrivici su WhatsApp</a>
+    </div>
+    <div class="trust-row">
+      <span>✓ Nessun impegno a lungo termine</span>
+      <span>✓ Paghi solo a servizio concluso</span>
+      <span>✓ Assicurazione RC attiva</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

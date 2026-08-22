@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Pagina FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --gold-soft: #E8C560;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  header { background: var(--cream); border-bottom: 1px solid rgba(31,56,100,0.08); }
+  .header-inner {
+    max-width: 1120px; margin: 0 auto; padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-family:'Fraunces', serif; font-weight:600; font-size: 22px; color: var(--navy); }
+  nav { display:flex; gap: 30px; }
+  nav a { color: #2B3350; text-decoration:none; font-size: 14px; font-weight: 500; }
+  .cta-nav {
+    background: var(--gold); color: var(--navy-dark); text-decoration:none;
+    padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 14px;
+  }
+
+  .page-hero {
+    background: var(--navy);
+    padding: 60px 32px 50px;
+    text-align: center;
+  }
+  .breadcrumb { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 18px; }
+  .page-hero h1 { font-family:'Fraunces', serif; font-weight: 600; font-size: 34px; color: white; margin-bottom: 14px; }
+  .page-hero p { color: rgba(255,255,255,0.7); font-size: 15px; max-width: 480px; margin: 0 auto; }
+
+  .faq-section { max-width: 760px; margin: 0 auto; padding: 80px 32px; }
+  .faq-item {
+    background: white; border-radius: 14px; margin-bottom: 14px;
+    border: 1px solid rgba(31,56,100,0.08); overflow: hidden;
+  }
+  .faq-q {
+    padding: 20px 26px; display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; color: var(--navy); font-size: 15px; cursor: pointer;
+  }
+  .faq-q .icon { color: var(--gold); font-size: 18px; }
+  .faq-a {
+    padding: 0 26px 20px; color: #556; font-size: 14px; line-height: 1.65;
+  }
+  .faq-a.hidden { display: none; }
+
+  .contact-cta {
+    text-align: center; margin-top: 50px; padding: 36px;
+    background: white; border-radius: 18px; border: 1px solid rgba(31,56,100,0.08);
+  }
+  .contact-cta p { color: #667; font-size: 14px; margin-bottom: 16px; }
+  .btn-outline {
+    display: inline-block; border: 1.5px solid var(--navy); color: var(--navy);
+    padding: 11px 26px; border-radius: 999px; text-decoration:none; font-weight: 600; font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Pagina FAQ (bonus)</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Splendo</div>
+    <nav>
+      <a href="#">Come funziona</a>
+      <a href="#">Prezzi</a>
+      <a href="#">Chi siamo</a>
+      <a href="#">Team</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <a href="#" class="cta-nav">Prenota ora</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="breadcrumb">Home / FAQ</div>
+  <h1>Domande frequenti</h1>
+  <p>Tutto quello che ti serve sapere prima di prenotare.</p>
+</section>
+
+<section class="faq-section">
+
+  <div class="faq-item">
+    <div class="faq-q">Come funziona il pagamento? <span class="icon">+</span></div>
+    <div class="faq-a">Ricevi un link di pagamento sicuro (Stripe) via WhatsApp solo dopo che il servizio è concluso. Nessuna carta salvata in anticipo.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Posso cancellare o spostare una prenotazione? <span class="icon">+</span></div>
+    <div class="faq-a">Sì, scrivici su WhatsApp il prima possibile. [Da definire: policy esatta di cancellazione/preavviso.]</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Devo fornire io i prodotti di pulizia? <span class="icon">+</span></div>
+    <div class="faq-a">Puoi scegliere: se hai già detergenti e panni in casa, non paghi nulla in più. Se preferisci che li portiamo noi, è un extra di 12€.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Cosa succede se non sono soddisfatto/a del servizio? <span class="icon">+</span></div>
+    <div class="faq-a">Scrivici entro 24 ore su WhatsApp: troviamo insieme una soluzione, che sia un intervento correttivo o un rimborso parziale. [Da confermare la policy esatta.]</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Siete assicurati in caso di danni? <span class="icon">+</span></div>
+    <div class="faq-a">Sì, disponiamo di un'assicurazione di responsabilità civile professionale attiva su ogni intervento.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Servite tutta Berlino? <span class="icon">+</span></div>
+    <div class="faq-a">Sì, operiamo in tutti i quartieri della città, senza sovrapprezzo per le zone periferiche.</div>
+  </div>
+
+  <div class="contact-cta">
+    <p>Non hai trovato risposta alla tua domanda?</p>
+    <a href="#" class="btn-outline">Scrivici su WhatsApp</a>
+  </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Sezione 1: Header</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  header {
+    background: var(--cream);
+    border-bottom: 1px solid rgba(31,56,100,0.08);
+  }
+  .header-inner {
+    max-width: 1120px; margin: 0 auto; padding: 22px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { display:flex; align-items:center; gap: 10px; font-family:'Fraunces', serif; font-weight:600; font-size: 24px; color: var(--navy); }
+  nav { display:flex; gap: 34px; }
+  nav a { color: #2B3350; text-decoration:none; font-size: 15px; font-weight: 500; transition: color 0.15s; }
+  nav a:hover { color: var(--navy); }
+  .cta {
+    background: var(--gold); color: var(--navy-dark); text-decoration:none;
+    padding: 11px 24px; border-radius: 999px; font-weight: 600; font-size: 14.5px;
+  }
+  .placeholder-body { height: 200px; display:flex; align-items:center; justify-content:center; color: #999; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Sezione 1: Header / Navigazione</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      Splendo
+    </div>
+    <nav>
+      <a href="#">Come funziona</a>
+      <a href="#">Prezzi</a>
+      <a href="#">Chi siamo</a>
+      <a href="#">Team</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <a href="#" class="cta">Prenota ora</a>
+  </div>
+</header>
+
+<div class="placeholder-body">↓ qui sotto andrà l'Hero (Sezione 2, prossima) ↓</div>
+
+</body>
+</html>

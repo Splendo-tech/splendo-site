@@ -160,19 +160,19 @@
 
     if (products) {
       total += products.amount;
-      rows.push({ label: t("products_label", "Reinigungsprodukte von uns mitbringen lassen"), amountLabel: "+" + eur(products.amount) });
+      rows.push({ label: t("products_label", "Prodotti forniti da noi"), amountLabel: "+" + eur(products.amount) });
     }
 
     if (urgent) {
       total += urgent.amount;
-      rows.push({ label: t("urgent_label", "Dringende Anfrage"), amountLabel: "+" + eur(urgent.amount) });
+      rows.push({ label: t("urgent_label", "Richiesta urgente"), amountLabel: "+" + eur(urgent.amount) });
     }
 
     summaryList.innerHTML = "";
     if (rows.length === 0) {
       var empty = document.createElement("li");
       empty.className = "summary-empty";
-      empty.textContent = t("summary_empty", "Wähle Optionen, um den Preis zu sehen");
+      empty.textContent = t("summary_empty", "Seleziona le opzioni per vedere il prezzo");
       summaryList.appendChild(empty);
     } else {
       rows.forEach(function (row) {
@@ -221,11 +221,19 @@
   document.addEventListener("splendo:langchange", renderSummary);
   renderSummary();
 
+  // Precompila il CAP se arriva dal quick-start della Home (?plz=...)
+  (function prefillPlz() {
+    var params = new URLSearchParams(window.location.search);
+    var plz = params.get("plz");
+    var plzField = document.getElementById("plz");
+    if (plz && plzField) plzField.value = plz;
+  })();
+
   // ---- Invio form ----
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    statusEl.textContent = t("status_sending", "Wird gesendet...");
+    statusEl.textContent = t("status_sending", "Invio in corso...");
     statusEl.className = "form-status";
 
     var apartment = getSelectedApartment();
@@ -267,7 +275,7 @@
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.success) {
-          statusEl.textContent = t("status_success", "Anfrage gesendet!");
+          statusEl.textContent = t("status_success", "Richiesta inviata! Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.");
           statusEl.className = "form-status is-success";
           form.reset();
           counters.forEach(function (row) {
@@ -281,7 +289,7 @@
         }
       })
       .catch(function () {
-        statusEl.textContent = t("status_error", "Etwas ist schiefgelaufen.");
+        statusEl.textContent = t("status_error", "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito.");
         statusEl.className = "form-status is-error";
       });
   });

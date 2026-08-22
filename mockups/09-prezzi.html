@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Pagina Prezzi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --gold-soft: #E8C560;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  header { background: var(--cream); border-bottom: 1px solid rgba(31,56,100,0.08); }
+  .header-inner {
+    max-width: 1120px; margin: 0 auto; padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-family:'Fraunces', serif; font-weight:600; font-size: 22px; color: var(--navy); }
+  nav { display:flex; gap: 30px; }
+  nav a { color: #2B3350; text-decoration:none; font-size: 14px; font-weight: 500; }
+  .cta-nav {
+    background: var(--gold); color: var(--navy-dark); text-decoration:none;
+    padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 14px;
+  }
+
+  .page-hero {
+    background: var(--navy);
+    padding: 60px 32px 50px;
+    text-align: center;
+  }
+  .breadcrumb { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 18px; }
+  .page-hero h1 { font-family:'Fraunces', serif; font-weight: 600; font-size: 34px; color: white; margin-bottom: 14px; }
+  .page-hero p { color: rgba(255,255,255,0.7); font-size: 15px; max-width: 480px; margin: 0 auto; }
+
+  .section { padding: 70px 32px; max-width: 1120px; margin: 0 auto; }
+  .section-title { font-family:'Fraunces', serif; font-weight: 600; font-size: 26px; color: var(--navy); margin-bottom: 8px; }
+  .section-sub { color: #667; font-size: 14.5px; margin-bottom: 40px; }
+
+  /* Tabella livelli di servizio */
+  .tiers { display: flex; gap: 22px; margin-bottom: 90px; }
+  .tier-card {
+    flex: 1; background: white; border-radius: 18px; padding: 30px 24px;
+    border: 1px solid rgba(31,56,100,0.08); text-align: center;
+  }
+  .tier-card.featured { border: 2px solid var(--gold); box-shadow: 0 16px 40px rgba(191,144,0,0.15); position: relative; }
+  .tier-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--navy-dark); font-size: 11px; font-weight: 700;
+    padding: 4px 14px; border-radius: 999px; text-transform: uppercase;
+  }
+  .tier-name { font-family:'Fraunces', serif; font-weight: 600; font-size: 17px; color: var(--navy); margin-bottom: 16px; }
+  .tier-prices { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .tier-row { display: flex; justify-content: space-between; font-size: 13.5px; color: #556; padding: 6px 0; border-bottom: 1px dashed #eee; }
+  .tier-row strong { color: var(--navy); }
+  .tier-note { font-size: 12px; color: #999; }
+
+  /* Tabella extra */
+  .extras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .extra-item {
+    background: white; border-radius: 12px; padding: 18px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    border: 1px solid rgba(31,56,100,0.06); font-size: 14px;
+  }
+  .extra-item strong { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Pagina Prezzi</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Splendo</div>
+    <nav>
+      <a href="#">Come funziona</a>
+      <a href="#">Prezzi</a>
+      <a href="#">Chi siamo</a>
+      <a href="#">Team</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <a href="#" class="cta-nav">Prenota ora</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="breadcrumb">Home / Prezzi</div>
+  <h1>Prezzi chiari, nessuna sorpresa</h1>
+  <p>Scegli il livello di pulizia più adatto a te. Nessun costo nascosto, nessun impegno a lungo termine.</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Livelli di servizio</h2>
+  <p class="section-sub">Prezzo per Studio / Bilocale / Trilocale, per ogni livello</p>
+
+  <div class="tiers">
+    <div class="tier-card">
+      <div class="tier-name">Standard Clean</div>
+      <div class="tier-prices">
+        <div class="tier-row"><span>Studio</span><strong>79€</strong></div>
+        <div class="tier-row"><span>Bilocale</span><strong>99€</strong></div>
+        <div class="tier-row"><span>Trilocale</span><strong>129€</strong></div>
+      </div>
+      <div class="tier-note">Pulizia di routine</div>
+    </div>
+
+    <div class="tier-card featured">
+      <div class="tier-badge">Consigliato</div>
+      <div class="tier-name">Deep Clean</div>
+      <div class="tier-prices">
+        <div class="tier-row"><span>Studio</span><strong>103€</strong></div>
+        <div class="tier-row"><span>Bilocale</span><strong>129€</strong></div>
+        <div class="tier-row"><span>Trilocale</span><strong>168€</strong></div>
+      </div>
+      <div class="tier-note">Pulizia profonda, +30%</div>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-name">Move-in Clean</div>
+      <div class="tier-prices">
+        <div class="tier-row"><span>Studio</span><strong>103€</strong></div>
+        <div class="tier-row"><span>Bilocale</span><strong>129€</strong></div>
+        <div class="tier-row"><span>Trilocale</span><strong>168€</strong></div>
+      </div>
+      <div class="tier-note">Per chi entra in una nuova casa, +30%</div>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-name">Move-out Clean</div>
+      <div class="tier-prices">
+        <div class="tier-row"><span>Studio</span><strong>119€</strong></div>
+        <div class="tier-row"><span>Bilocale</span><strong>149€</strong></div>
+        <div class="tier-row"><span>Trilocale</span><strong>194€</strong></div>
+      </div>
+      <div class="tier-note">Standard Endreinigung, +50%</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Extra a catalogo</h2>
+  <p class="section-sub">Aggiungi solo quello che ti serve</p>
+
+  <div class="extras-grid">
+    <div class="extra-item">Forno <strong>+20€</strong></div>
+    <div class="extra-item">Cappa aspirante <strong>+16€</strong></div>
+    <div class="extra-item">Frigorifero <strong>+15€</strong></div>
+    <div class="extra-item">Microonde <strong>+9€</strong></div>
+    <div class="extra-item">Mobile cucina <strong>+60€</strong></div>
+    <div class="extra-item">Piatti a mano <strong>+10€</strong></div>
+    <div class="extra-item">Finestre <strong>+15€/pz</strong></div>
+    <div class="extra-item">Balcone/terrazza <strong>+15€</strong></div>
+    <div class="extra-item">Stiro <strong>+28€</strong></div>
+    <div class="extra-item">Armadio <strong>+13€</strong></div>
+    <div class="extra-item">Lettiera animali <strong>+4€</strong></div>
+    <div class="extra-item">Ore extra <strong>+28€/h</strong></div>
+    <div class="extra-item">Prodotti forniti da noi <strong>+12€</strong></div>
+    <div class="extra-item">Richiesta urgente <strong>+20€</strong></div>
+    <div class="extra-item">Tappezzeria/divani <strong>su richiesta</strong></div>
+  </div>
+</section>
+
+</body>
+</html>

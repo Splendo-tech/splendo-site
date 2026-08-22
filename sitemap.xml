@@ -2,43 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://splendo.eu/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://splendo.eu/buchen.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://splendo.eu/preise.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://splendo.eu/ablauf.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://splendo.eu/ueber-uns.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://splendo.eu/team.html</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://splendo.eu/kontakt.html</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://splendo.eu/servicegebiete.html</loc>
-    <lastmod>2026-08-21</lastmod>
+    <loc>https://splendo.eu/faq.html</loc>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

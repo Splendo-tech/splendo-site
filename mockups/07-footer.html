@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Sezione 7: Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --gold-soft: #E8C560;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  .filler { height: 80px; display:flex; align-items:center; justify-content:center; color:#aaa; font-size:13px; font-family:Arial; }
+
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 32px 30px;
+  }
+  .footer-inner { max-width: 1120px; margin: 0 auto; }
+  .footer-top {
+    display: flex; justify-content: space-between; gap: 50px;
+    padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 30px;
+  }
+  .footer-brand { max-width: 280px; }
+  .footer-brand .logo { font-family: 'Fraunces', serif; font-weight: 600; font-size: 22px; color: white; margin-bottom: 14px; }
+  .footer-brand p { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.55); }
+
+  .footer-cols { display: flex; gap: 60px; }
+  .footer-col h4 { color: white; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration:none; font-size: 14px; margin-bottom: 10px; }
+  .footer-col a:hover { color: var(--gold-soft); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items:center; flex-wrap: wrap; gap: 12px;
+    font-size: 12.5px; color: rgba(255,255,255,0.45);
+  }
+  .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; margin-left: 18px; }
+  .socials { display: flex; gap: 14px; }
+  .social-dot {
+    width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center; color: white; font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Sezione 7: Footer</div>
+<div class="filler">↑ qui sopra il resto della pagina (CTA finale, già confermata) ↑</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Splendo</div>
+        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <div class="socials" style="margin-top:20px;">
+          <div class="social-dot">IG</div>
+          <div class="social-dot">FB</div>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Naviga</h4>
+          <a href="#">Come funziona</a>
+          <a href="#">Prezzi</a>
+          <a href="#">Chi siamo</a>
+          <a href="#">Il team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Assistenza</h4>
+          <a href="#">Contatti</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Domande frequenti</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legale</h4>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Splendo — admin@splendo.eu</div>
+      <div>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

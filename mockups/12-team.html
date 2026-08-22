@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splendo — Pagina Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-dark: #16233D;
+    --gold: #BF9000;
+    --gold-soft: #E8C560;
+    --cream: #FAF8F4;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); }
+
+  .mockup-tag {
+    background: var(--navy-dark); color: #E8C560; font-size: 12px; font-weight: 600;
+    text-align: center; padding: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  header { background: var(--cream); border-bottom: 1px solid rgba(31,56,100,0.08); }
+  .header-inner {
+    max-width: 1120px; margin: 0 auto; padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { font-family:'Fraunces', serif; font-weight:600; font-size: 22px; color: var(--navy); }
+  nav { display:flex; gap: 30px; }
+  nav a { color: #2B3350; text-decoration:none; font-size: 14px; font-weight: 500; }
+  .cta-nav {
+    background: var(--gold); color: var(--navy-dark); text-decoration:none;
+    padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 14px;
+  }
+
+  .page-hero {
+    background: var(--navy);
+    padding: 60px 32px 50px;
+    text-align: center;
+  }
+  .breadcrumb { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 18px; }
+  .page-hero h1 { font-family:'Fraunces', serif; font-weight: 600; font-size: 34px; color: white; margin-bottom: 14px; }
+  .page-hero p { color: rgba(255,255,255,0.7); font-size: 15px; max-width: 480px; margin: 0 auto; }
+
+  .team-section { max-width: 1000px; margin: 0 auto; padding: 80px 32px; }
+  .team-grid { display: flex; gap: 26px; flex-wrap: wrap; justify-content: center; }
+  .team-card {
+    background: white; border-radius: 18px; overflow: hidden; width: 260px;
+    border: 1px solid rgba(31,56,100,0.08); box-shadow: 0 10px 30px rgba(31,56,100,0.06);
+  }
+  .team-photo {
+    height: 220px;
+    background: repeating-linear-gradient(45deg, #DCE4EC, #DCE4EC 14px, #EAEFF4 14px, #EAEFF4 28px);
+    display:flex; align-items:center; justify-content:center;
+    border-bottom: 1px solid #eee;
+  }
+  .team-photo span { font-family: Arial; font-size: 11.5px; color: #778; text-align:center; padding: 0 20px; }
+  .team-info { padding: 20px; text-align: center; }
+  .team-info h4 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+  .team-info .role { color: var(--gold); font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .team-info p { color: #667; font-size: 13.5px; line-height: 1.5; }
+
+  .team-card.add-placeholder {
+    display:flex; align-items:center; justify-content:center; flex-direction: column;
+    border: 2px dashed #CCC; background: transparent; box-shadow: none;
+    color: #999; font-size: 13px; text-align: center; padding: 30px;
+  }
+  .team-card.add-placeholder .plus { font-size: 36px; color: var(--gold); margin-bottom: 10px; }
+
+  .cta-join {
+    text-align: center; margin-top: 60px; padding: 44px;
+    background: white; border-radius: 20px; border: 1px solid rgba(31,56,100,0.08);
+  }
+  .cta-join h3 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 20px; margin-bottom: 10px; }
+  .cta-join p { color: #667; font-size: 14px; margin-bottom: 20px; }
+  .btn-gold {
+    display: inline-block; background: var(--gold); color: var(--navy-dark);
+    font-weight: 700; padding: 13px 28px; border-radius: 999px; font-size: 14px; text-decoration:none;
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-tag">Mockup — Pagina Team</div>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Splendo</div>
+    <nav>
+      <a href="#">Come funziona</a>
+      <a href="#">Prezzi</a>
+      <a href="#">Chi siamo</a>
+      <a href="#">Team</a>
+      <a href="#">Contatti</a>
+    </nav>
+    <a href="#" class="cta-nav">Prenota ora</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="breadcrumb">Home / Team</div>
+  <h1>Il nostro team</h1>
+  <p>Le persone che entrano davvero in casa tua — selezionate con cura, non assegnate a caso.</p>
+</section>
+
+<section class="team-section">
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo"><span>FOTO — [Nome cleaner 1]</span></div>
+      <div class="team-info">
+        <h4>[Nome]</h4>
+        <div class="role">[X] anni di esperienza</div>
+        <p>[Breve bio da inserire — esperienza, specialità, una frase personale]</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo"><span>FOTO — [Nome cleaner 2]</span></div>
+      <div class="team-info">
+        <h4>[Nome]</h4>
+        <div class="role">[X] anni di esperienza</div>
+        <p>[Breve bio da inserire — esperienza, specialità, una frase personale]</p>
+      </div>
+    </div>
+
+    <div class="team-card add-placeholder">
+      <div class="plus">+</div>
+      Stiamo crescendo — presto altri membri del team
+    </div>
+
+  </div>
+
+  <div class="cta-join">
+    <h3>Vuoi entrare a far parte del team?</h3>
+    <p>Cerchiamo sempre professionisti esperti e affidabili a Berlino.</p>
+    <a href="mailto:admin@splendo.eu?subject=Candidatura%20Cleaner%20Splendo" class="btn-gold">Candidati ora</a>
+  </div>
+</section>
+
+</body>
+</html>
