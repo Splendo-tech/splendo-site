@@ -287,6 +287,7 @@
       name: form.querySelector("#nome").value,
       telefon: form.querySelector("#telefono").value,
       email: form.querySelector("#email").value,
+      haustiere: form.querySelector("#pets").value || "Keine Angabe",
       notizen: form.querySelector("#note").value
     };
 
