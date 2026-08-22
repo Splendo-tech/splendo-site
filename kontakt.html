@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contatti — Splendo</title>
-<meta name="description" content="Scrivici su WhatsApp o via email. Splendo pulisce case in tutta Berlino, risposta entro 3 ore per le richieste urgenti.">
+<title data-i18n-content="contact_meta_title">Kontakt — Splendo</title>
+<meta name="description" data-i18n-content="contact_meta_description" content="Schreib uns auf WhatsApp oder per E-Mail. Splendo reinigt Wohnungen in ganz Berlin, Antwort innerhalb von 3 Stunden bei dringenden Anfragen.">
 <link rel="canonical" href="https://splendo.eu/kontakt.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/kontakt.html">
-<meta property="og:title" content="Contatti — Splendo">
-<meta property="og:description" content="Scrivici su WhatsApp o via email. Splendo pulisce case in tutta Berlino, risposta entro 3 ore per le richieste urgenti.">
+<meta property="og:title" data-i18n-content="contact_meta_title" content="Kontakt — Splendo">
+<meta property="og:description" data-i18n-content="contact_meta_description" content="Schreib uns auf WhatsApp oder per E-Mail. Splendo reinigt Wohnungen in ganz Berlin, Antwort innerhalb von 3 Stunden bei dringenden Anfragen.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,14 +27,21 @@
       <span>Splendo</span>
     </a>
     <nav class="main-nav">
-      <a href="/ablauf.html">Come funziona</a>
-      <a href="/preise.html">Prezzi</a>
-      <a href="/ueber-uns.html">Chi siamo</a>
-      <a href="/team.html">Team</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/kontakt.html">Contatti</a>
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/team.html" data-i18n="nav_team">Team</a>
+      <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
     </nav>
-    <a href="/buchen.html" class="btn btn-gold btn-nav">Prenota ora</a>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
   </div>
 </header>
 
@@ -42,9 +49,9 @@
 
   <section class="page-hero-v2">
     <div class="wrap">
-      <p class="breadcrumb-v2"><a href="/">Home</a> / Contatti</p>
-      <h1>Parliamone</h1>
-      <p>Hai una domanda prima di prenotare? Scrivici, rispondiamo di persona.</p>
+      <p class="breadcrumb-v2"><a href="/" data-i18n="contact_breadcrumb_home">Start</a> / <span data-i18n="nav_contatti">Kontakt</span></p>
+      <h1 data-i18n="contact_hero_h1">Lass uns reden</h1>
+      <p data-i18n="contact_hero_p">Hast du eine Frage, bevor du buchst? Schreib uns, wir antworten dir persönlich.</p>
     </div>
   </section>
 
@@ -55,32 +62,32 @@
         <div class="contact-grid-v2">
           <div class="contact-card-v2">
             <div class="contact-icon-v2">💬</div>
-            <h4>WhatsApp</h4>
-            <p>Il modo più veloce per raggiungerci</p>
+            <h4 data-i18n="contact_card_whatsapp_title">WhatsApp</h4>
+            <p data-i18n="contact_card_whatsapp_desc">Der schnellste Weg, uns zu erreichen</p>
             <a href="https://wa.me/491758990050" target="_blank" rel="noopener">+49 175 8990050</a>
           </div>
           <div class="contact-card-v2">
             <div class="contact-icon-v2">✉️</div>
-            <h4>Email</h4>
-            <p>Per richieste più dettagliate</p>
+            <h4 data-i18n="contact_card_email_title">E-Mail</h4>
+            <p data-i18n="contact_card_email_desc">Für ausführlichere Anfragen</p>
             <a href="mailto:admin@splendo.eu">admin@splendo.eu</a>
           </div>
           <div class="contact-card-v2">
             <div class="contact-icon-v2">🕐</div>
-            <h4>Orari di risposta</h4>
-            <p>Tutti i giorni, 8:00–21:00 (esclusi i festivi)</p>
-            <a href="https://wa.me/491758990050" target="_blank" rel="noopener">Risposta entro 30 minuti</a>
+            <h4 data-i18n="contact_card_hours_title">Erreichbarkeit</h4>
+            <p data-i18n="contact_card_hours_desc">Jeden Tag, 8:00–21:00 Uhr (außer an Feiertagen)</p>
+            <a href="https://wa.me/491758990050" target="_blank" rel="noopener" data-i18n="contact_card_hours_response">Antwort innerhalb von 30 Minuten</a>
           </div>
         </div>
 
         <div class="map-and-zones-v2">
           <div class="contact-map-v2">
-            <span class="map-coverage-badge-v2">📍 Copriamo tutta Berlino</span>
+            <span class="map-coverage-badge-v2" data-i18n="contact_map_badge">📍 Wir decken ganz Berlin ab</span>
             <iframe src="https://www.google.com/maps?q=Berlin,Germany&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa di Berlino — area servita da Splendo"></iframe>
           </div>
           <div class="zones-list-v2">
-            <h3>Serviamo tutta Berlino</h3>
-            <p>Nessun quartiere escluso, stesso prezzo ovunque in città.</p>
+            <h3 data-i18n="contact_zones_h3">Wir sind in ganz Berlin für dich da</h3>
+            <p data-i18n="contact_zones_p">Kein Bezirk ausgeschlossen, gleicher Preis in der ganzen Stadt.</p>
             <div class="zone-tags-v2">
               <span class="zone-tag-v2">Mitte</span>
               <span class="zone-tag-v2">Charlottenburg</span>
@@ -89,7 +96,7 @@
               <span class="zone-tag-v2">Neukölln</span>
               <span class="zone-tag-v2">Spandau</span>
               <span class="zone-tag-v2">Köpenick</span>
-              <span class="zone-tag-v2">+ tutti gli altri</span>
+              <span class="zone-tag-v2" data-i18n="contact_zone_other">+ alle anderen</span>
             </div>
           </div>
         </div>
@@ -108,45 +115,105 @@
           <img src="/logo-icon.png" alt="Splendo" class="footer-logo-icon">
           <div class="logo-word">Splendo</div>
         </div>
-        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <p data-i18n="footer_brand_tagline">Wohnungsreinigung in Berlin, mit Sorgfalt gemacht. Ein persönlicher Service, kein anonymer Marktplatz.</p>
       </div>
       <div class="footer-v2-cols">
         <div class="footer-v2-col">
-          <h4>Naviga</h4>
-          <a href="/ablauf.html">Come funziona</a>
-          <a href="/preise.html">Prezzi</a>
-          <a href="/ueber-uns.html">Chi siamo</a>
-          <a href="/team.html">Team</a>
+          <h4 data-i18n="footer_col_naviga">Navigation</h4>
+          <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+          <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+          <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+          <a href="/team.html" data-i18n="nav_team">Team</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Assistenza</h4>
-          <a href="/kontakt.html">Contatti</a>
+          <h4 data-i18n="footer_col_assistenza">Support</h4>
+          <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
           <a href="https://wa.me/491758990050" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="/faq.html">Domande frequenti</a>
+          <a href="/faq.html" data-i18n="footer_faq">Häufige Fragen</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Legale</h4>
-          <a href="/impressum.html">Impressum</a>
-          <a href="/datenschutz.html">Datenschutz</a>
-          <a href="/agb.html">AGB</a>
+          <h4 data-i18n="footer_col_legale">Rechtliches</h4>
+          <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+          <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+          <a href="/agb.html" data-i18n="footer_agb">AGB</a>
         </div>
       </div>
     </div>
     <div class="footer-v2-bottom">
       <div>© 2026 Splendo — admin@splendo.eu</div>
       <div>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/agb.html">AGB</a>
+        <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+        <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+        <a href="/agb.html" data-i18n="footer_agb">AGB</a>
       </div>
     </div>
   </div>
 </footer>
-<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp_float_label" aria-label="Kontaktiere uns auf WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
 
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    contact_meta_title: "Kontakt — Splendo",
+    contact_meta_description: "Schreib uns auf WhatsApp oder per E-Mail. Splendo reinigt Wohnungen in ganz Berlin, Antwort innerhalb von 3 Stunden bei dringenden Anfragen.",
+    contact_breadcrumb_home: "Start",
+    contact_hero_h1: "Lass uns reden",
+    contact_hero_p: "Hast du eine Frage, bevor du buchst? Schreib uns, wir antworten dir persönlich.",
+    contact_card_whatsapp_title: "WhatsApp",
+    contact_card_whatsapp_desc: "Der schnellste Weg, uns zu erreichen",
+    contact_card_email_title: "E-Mail",
+    contact_card_email_desc: "Für ausführlichere Anfragen",
+    contact_card_hours_title: "Erreichbarkeit",
+    contact_card_hours_desc: "Jeden Tag, 8:00–21:00 Uhr (außer an Feiertagen)",
+    contact_card_hours_response: "Antwort innerhalb von 30 Minuten",
+    contact_map_badge: "📍 Wir decken ganz Berlin ab",
+    contact_zones_h3: "Wir sind in ganz Berlin für dich da",
+    contact_zones_p: "Kein Bezirk ausgeschlossen, gleicher Preis in der ganzen Stadt.",
+    contact_zone_other: "+ alle anderen"
+  },
+  en: {
+    contact_meta_title: "Contact — Splendo",
+    contact_meta_description: "Message us on WhatsApp or by email. Splendo cleans homes across Berlin, with replies within 3 hours for urgent requests.",
+    contact_breadcrumb_home: "Home",
+    contact_hero_h1: "Let's talk",
+    contact_hero_p: "Have a question before booking? Write to us, we'll answer you personally.",
+    contact_card_whatsapp_title: "WhatsApp",
+    contact_card_whatsapp_desc: "The fastest way to reach us",
+    contact_card_email_title: "Email",
+    contact_card_email_desc: "For more detailed requests",
+    contact_card_hours_title: "Response hours",
+    contact_card_hours_desc: "Every day, 8:00 AM–9:00 PM (except public holidays)",
+    contact_card_hours_response: "Response within 30 minutes",
+    contact_map_badge: "📍 We cover all of Berlin",
+    contact_zones_h3: "We cover all of Berlin",
+    contact_zones_p: "No district left out, the same price everywhere in the city.",
+    contact_zone_other: "+ all others"
+  },
+  it: {
+    contact_meta_title: "Contatti — Splendo",
+    contact_meta_description: "Scrivici su WhatsApp o via email. Splendo pulisce case in tutta Berlino, risposta entro 3 ore per le richieste urgenti.",
+    contact_breadcrumb_home: "Home",
+    contact_hero_h1: "Parliamone",
+    contact_hero_p: "Hai una domanda prima di prenotare? Scrivici, rispondiamo di persona.",
+    contact_card_whatsapp_title: "WhatsApp",
+    contact_card_whatsapp_desc: "Il modo più veloce per raggiungerci",
+    contact_card_email_title: "Email",
+    contact_card_email_desc: "Per richieste più dettagliate",
+    contact_card_hours_title: "Orari di risposta",
+    contact_card_hours_desc: "Tutti i giorni, 8:00–21:00 (esclusi i festivi)",
+    contact_card_hours_response: "Risposta entro 30 minuti",
+    contact_map_badge: "📍 Copriamo tutta Berlino",
+    contact_zones_h3: "Serviamo tutta Berlino",
+    contact_zones_p: "Nessun quartiere escluso, stesso prezzo ovunque in città.",
+    contact_zone_other: "+ tutti gli altri"
+  }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

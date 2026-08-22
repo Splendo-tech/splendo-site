@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prenota — Splendo</title>
-<meta name="description" content="Prenota la tua pulizia di casa a Berlino. Scegli appartamento, livello di pulizia ed extra — nessun pagamento richiesto ora.">
+<title data-i18n-content="buchen_meta_title">Buchen — Splendo</title>
+<meta name="description" data-i18n-content="buchen_meta_description" content="Buche deine Wohnungsreinigung in Berlin. Wähle Wohnungstyp, Reinigungsstufe und Extras — jetzt noch keine Zahlung nötig.">
 <link rel="canonical" href="https://splendo.eu/buchen.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/buchen.html">
-<meta property="og:title" content="Prenota — Splendo">
-<meta property="og:description" content="Prenota la tua pulizia di casa a Berlino. Scegli appartamento, livello di pulizia ed extra — nessun pagamento richiesto ora.">
+<meta property="og:title" data-i18n-content="buchen_meta_title" content="Buchen — Splendo">
+<meta property="og:description" data-i18n-content="buchen_meta_description" content="Buche deine Wohnungsreinigung in Berlin. Wähle Wohnungstyp, Reinigungsstufe und Extras — jetzt noch keine Zahlung nötig.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,14 +27,21 @@
       <span>Splendo</span>
     </a>
     <nav class="main-nav">
-      <a href="/ablauf.html">Come funziona</a>
-      <a href="/preise.html">Prezzi</a>
-      <a href="/ueber-uns.html">Chi siamo</a>
-      <a href="/team.html">Team</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/kontakt.html">Contatti</a>
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/team.html" data-i18n="nav_team">Team</a>
+      <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
     </nav>
-    <a href="/buchen.html" class="btn btn-gold btn-nav">Prenota ora</a>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
   </div>
 </header>
 
@@ -42,9 +49,9 @@
 
   <section class="page-hero-v2">
     <div class="wrap">
-      <p class="breadcrumb-v2"><a href="/">Home</a> / Prenota</p>
-      <h1>Prenota la tua pulizia</h1>
-      <p>Due minuti per completare, nessun impegno, nessuna carta salvata. Paghi solo a servizio concluso.</p>
+      <p class="breadcrumb-v2"><a href="/">Home</a> / <span data-i18n="buchen_breadcrumb">Buchen</span></p>
+      <h1 data-i18n="buchen_h1">Buche deine Reinigung</h1>
+      <p data-i18n="buchen_hero_p">Zwei Minuten zum Ausfüllen, keine Verpflichtung, keine gespeicherte Karte. Du zahlst erst nach Abschluss des Services.</p>
       <div class="progress-strip">
         <div class="progress-dot active"></div>
         <div class="progress-dot"></div>
@@ -62,44 +69,44 @@
       <form id="booking-form" class="booking-form" novalidate>
 
         <fieldset class="form-fieldset">
-          <legend>1. CAP</legend>
+          <legend data-i18n="buchen_legend1">1. Postleitzahl</legend>
           <div class="field-grid">
             <div class="field">
-              <label for="plz">CAP</label>
-              <input type="text" id="plz" name="plz" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="es. 10115" required>
-              <p class="plz-error" id="plz-error">Inserisci un CAP di Berlino valido (10115–14199).</p>
+              <label for="plz" data-i18n="buchen_plz_label">PLZ</label>
+              <input type="text" id="plz" name="plz" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="z.B. 10115" data-i18n-placeholder="buchen_plz_placeholder" required>
+              <p class="plz-error" id="plz-error" data-i18n="buchen_plz_error">Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).</p>
             </div>
           </div>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>2. Tipo di appartamento</legend>
+          <legend data-i18n="buchen_legend2">2. Wohnungstyp</legend>
           <div class="option-grid" data-group="apartment">
             <label class="option-card">
               <input type="radio" name="apartment" value="Studio" data-price="79" data-de="Studio" checked>
-              <span class="option-name">Studio</span>
+              <span class="option-name" data-i18n="buchen_apt_studio">Studio</span>
               <span class="option-price">79€</span>
             </label>
             <label class="option-card">
               <input type="radio" name="apartment" value="2-Zimmer" data-price="99" data-de="2-Zimmer-Wohnung">
-              <span class="option-name">Bilocale</span>
+              <span class="option-name" data-i18n="buchen_apt_2zi">2-Zimmer-Wohnung</span>
               <span class="option-price">99€</span>
             </label>
             <label class="option-card">
               <input type="radio" name="apartment" value="3-Zimmer" data-price="129" data-de="3-Zimmer-Wohnung">
-              <span class="option-name">Trilocale</span>
+              <span class="option-name" data-i18n="buchen_apt_3zi">3-Zimmer-Wohnung</span>
               <span class="option-price">129€</span>
             </label>
             <label class="option-card">
               <input type="radio" name="apartment" value="4+" data-quote="true" data-de="4+ Zimmer">
-              <span class="option-name">4+ locali</span>
-              <span class="option-price">Preventivo</span>
+              <span class="option-name" data-i18n="buchen_apt_4plus">4+ Zimmer</span>
+              <span class="option-price" data-i18n="buchen_apt_quote">Angebot auf Anfrage</span>
             </label>
           </div>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>3. Livello di pulizia</legend>
+          <legend data-i18n="buchen_legend3">3. Reinigungsstufe</legend>
           <div class="option-grid" data-group="service-level">
             <label class="option-card">
               <input type="radio" name="service-level" value="Standardreinigung" data-multiplier="1" data-de="Standardreinigung" checked>
@@ -124,35 +131,35 @@
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>4. Frequenza</legend>
+          <legend data-i18n="buchen_legend4">4. Häufigkeit</legend>
           <div class="option-grid" data-group="frequency">
             <label class="option-card">
               <input type="radio" name="frequency" value="Einmalig" data-de="Einmalig" checked>
-              <span class="option-name">Una tantum</span>
+              <span class="option-name" data-i18n="buchen_freq_once">Einmalig</span>
             </label>
             <label class="option-card">
               <input type="radio" name="frequency" value="Wöchentlich" data-de="Wöchentlich" data-recurring="true">
-              <span class="option-name">Settimanale</span>
+              <span class="option-name" data-i18n="buchen_freq_weekly">Wöchentlich</span>
             </label>
             <label class="option-card">
               <input type="radio" name="frequency" value="Alle zwei Wochen" data-de="Alle zwei Wochen" data-recurring="true">
-              <span class="option-name">Quindicinale</span>
+              <span class="option-name" data-i18n="buchen_freq_biweekly">Alle zwei Wochen</span>
             </label>
             <label class="option-card">
               <input type="radio" name="frequency" value="Monatlich" data-de="Monatlich" data-recurring="true">
-              <span class="option-name">Mensile</span>
+              <span class="option-name" data-i18n="buchen_freq_monthly">Monatlich</span>
             </label>
           </div>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>5. Extra opzionali</legend>
+          <legend data-i18n="buchen_legend5">5. Optionale Extras</legend>
           <div class="extras-list">
 
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Backofen" data-price="20" data-de="Backofen">
-                <span class="extra-name">Forno</span>
+                <span class="extra-name" data-i18n="buchen_extra_oven">Backofen</span>
               </span>
               <span class="extra-price">+20€</span>
             </label>
@@ -160,7 +167,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Dunstabzugshaube" data-price="16" data-de="Dunstabzugshaube">
-                <span class="extra-name">Cappa aspirante</span>
+                <span class="extra-name" data-i18n="buchen_extra_hood">Dunstabzugshaube</span>
               </span>
               <span class="extra-price">+16€</span>
             </label>
@@ -168,7 +175,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Kühlschrank (innen)" data-price="15" data-de="Kühlschrank (innen)">
-                <span class="extra-name">Frigorifero (interno)</span>
+                <span class="extra-name" data-i18n="buchen_extra_fridge">Kühlschrank (innen)</span>
               </span>
               <span class="extra-price">+15€</span>
             </label>
@@ -176,7 +183,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Mikrowelle" data-price="9" data-de="Mikrowelle">
-                <span class="extra-name">Microonde</span>
+                <span class="extra-name" data-i18n="buchen_extra_microwave">Mikrowelle</span>
               </span>
               <span class="extra-price">+9€</span>
             </label>
@@ -184,7 +191,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Küchenschrank (innen)" data-price="60" data-de="Küchenschrank (innen)">
-                <span class="extra-name">Mobile cucina (interno)</span>
+                <span class="extra-name" data-i18n="buchen_extra_cabinet">Küchenschrank (innen)</span>
               </span>
               <span class="extra-price">+60€</span>
             </label>
@@ -192,15 +199,15 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Geschirr von Hand" data-price="10" data-de="Geschirr von Hand">
-                <span class="extra-name">Piatti a mano</span>
+                <span class="extra-name" data-i18n="buchen_extra_dishes">Geschirr von Hand</span>
               </span>
               <span class="extra-price">+10€</span>
             </label>
 
             <div class="extra-row extra-row-counter" data-counter="finestre" data-price="15" data-de="Fenster">
               <span class="extra-name">
-                <span>Finestre</span>
-                <small>15€ a pezzo</small>
+                <span data-i18n="buchen_extra_windows">Fenster</span>
+                <small data-i18n="buchen_extra_windows_note">15€ pro Stück</small>
               </span>
               <div class="counter">
                 <button type="button" class="counter-btn" data-action="decrease" aria-label="−">−</button>
@@ -212,7 +219,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Balkon/Terrasse" data-price="15" data-de="Balkon/Terrasse">
-                <span class="extra-name">Balcone/terrazza</span>
+                <span class="extra-name" data-i18n="buchen_extra_balcony">Balkon/Terrasse</span>
               </span>
               <span class="extra-price">+15€</span>
             </label>
@@ -220,7 +227,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Bügeln" data-price="28" data-de="Bügeln">
-                <span class="extra-name">Stiro</span>
+                <span class="extra-name" data-i18n="buchen_extra_ironing">Bügeln</span>
               </span>
               <span class="extra-price">+28€</span>
             </label>
@@ -228,7 +235,7 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Kleiderschrank (Inneres aufräumen)" data-price="13" data-de="Kleiderschrank (Inneres aufräumen)">
-                <span class="extra-name">Armadio (riordino interno)</span>
+                <span class="extra-name" data-i18n="buchen_extra_wardrobe">Kleiderschrank (Inneres aufräumen)</span>
               </span>
               <span class="extra-price">+13€</span>
             </label>
@@ -236,15 +243,15 @@
             <label class="extra-row">
               <span class="extra-check">
                 <input type="checkbox" name="extra" value="Tierstreu" data-price="4" data-de="Tierstreu">
-                <span class="extra-name">Lettiera animali</span>
+                <span class="extra-name" data-i18n="buchen_extra_litter">Tierstreu</span>
               </span>
               <span class="extra-price">+4€</span>
             </label>
 
             <div class="extra-row extra-row-counter" data-counter="ore-extra" data-price="28" data-de="Zusätzliche Stunden">
               <span class="extra-name">
-                <span>Ore extra</span>
-                <small>28€ all'ora</small>
+                <span data-i18n="buchen_extra_hours">Zusätzliche Stunden</span>
+                <small data-i18n="buchen_extra_hours_note">28€ pro Stunde</small>
               </span>
               <div class="counter">
                 <button type="button" class="counter-btn" data-action="decrease" aria-label="−">−</button>
@@ -256,89 +263,89 @@
             <div class="extra-row extra-row-quote">
               <label class="extra-check">
                 <input type="checkbox" id="tappezzeria" data-de="Polstermöbel/Sofas">
-                <span class="extra-name">Tappezzeria/divani</span>
+                <span class="extra-name" data-i18n="buchen_extra_upholstery">Polstermöbel/Sofas</span>
               </label>
-              <span class="extra-price-quote">Preventivo su richiesta — <a href="https://wa.me/491758990050" target="_blank" rel="noopener">scrivici</a></span>
+              <span class="extra-price-quote" data-i18n-html="buchen_extra_upholstery_quote">Preis auf Anfrage — <a href="https://wa.me/491758990050" target="_blank" rel="noopener">schreib uns</a></span>
             </div>
 
           </div>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>6. Richiesta urgente</legend>
+          <legend data-i18n="buchen_legend6">6. Dringende Anfrage</legend>
           <label class="urgent-toggle">
             <input type="checkbox" id="urgent" data-price="20" data-de="Dringende Anfrage (Antwort innerhalb von 3 Stunden)">
-            <span><span>Richiesta urgente</span> <small>(risposta entro 3 ore) — +20€</small></span>
+            <span data-i18n-html="buchen_urgent_label_html"><span>Dringende Anfrage</span> <small>(Antwort innerhalb von 3 Stunden) — +20€</small></span>
           </label>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>7. Prodotti per la pulizia</legend>
+          <legend data-i18n="buchen_legend7">7. Reinigungsprodukte</legend>
           <label class="urgent-toggle">
             <input type="checkbox" id="products" data-price="18" data-de="Reinigungsprodukte von uns mitbringen lassen">
-            <span><span>Prodotti forniti da noi</span> <small>+18€ — se non selezioni questa opzione, assicurati di avere a casa l'occorrente (detersivi, panni, ecc.)</small></span>
+            <span data-i18n-html="buchen_products_label_html"><span>Reinigungsprodukte von uns</span> <small>+18€ — falls du diese Option nicht wählst, halte bitte Reinigungsmittel und Tücher selbst bereit.</small></span>
           </label>
         </fieldset>
 
         <fieldset class="form-fieldset">
-          <legend>8. Data, indirizzo e contatti</legend>
+          <legend data-i18n="buchen_legend8">8. Termin, Adresse und Kontakt</legend>
           <div class="field-grid">
             <div class="field">
-              <label for="data">Data preferita</label>
+              <label for="data" data-i18n="buchen_field_date">Bevorzugtes Datum</label>
               <input type="date" id="data" name="data" required>
             </div>
             <div class="field">
-              <label for="ora">Ora preferita</label>
+              <label for="ora" data-i18n="buchen_field_time">Bevorzugte Uhrzeit</label>
               <input type="time" id="ora" name="ora" required>
             </div>
             <div class="field field-full">
-              <label for="indirizzo">Indirizzo</label>
-              <input type="text" id="indirizzo" name="indirizzo" placeholder="Via, numero civico, quartiere" required>
+              <label for="indirizzo" data-i18n="buchen_field_address">Adresse</label>
+              <input type="text" id="indirizzo" name="indirizzo" placeholder="Straße, Hausnummer, Stadtteil" data-i18n-placeholder="buchen_field_address_placeholder" required>
             </div>
             <div class="field">
-              <label for="nome">Nome e cognome</label>
+              <label for="nome" data-i18n="buchen_field_name">Vor- und Nachname</label>
               <input type="text" id="nome" name="nome" required>
             </div>
             <div class="field">
-              <label for="telefono">Telefono</label>
+              <label for="telefono" data-i18n="buchen_field_phone">Telefon</label>
               <input type="tel" id="telefono" name="telefono" placeholder="+49 ..." required>
             </div>
             <div class="field field-full">
-              <label for="email">Email</label>
+              <label for="email" data-i18n="buchen_field_email">E-Mail</label>
               <input type="email" id="email" name="email" required>
             </div>
             <div class="field field-full">
-              <label for="note">Note (chiavi, animali domestici, accessi particolari...)</label>
+              <label for="note" data-i18n="buchen_field_notes">Notizen (Schlüssel, Haustiere, besondere Zugänge...)</label>
               <textarea id="note" name="note"></textarea>
             </div>
           </div>
         </fieldset>
 
         <div class="field promo-field">
-          <label for="promo">Hai un codice promozionale? <span class="promo-optional">(facoltativo)</span></label>
-          <input type="text" id="promo" name="promo" placeholder="es. BENVENUTO10">
+          <label for="promo" data-i18n-html="buchen_promo_label">Hast du einen Rabattcode? <span class="promo-optional">(optional)</span></label>
+          <input type="text" id="promo" name="promo" placeholder="z.B. WILLKOMMEN10" data-i18n-placeholder="buchen_promo_placeholder">
         </div>
 
-        <p class="form-payment-note">Non raccogliamo pagamenti qui. A fine servizio ti invieremo un link Stripe sicuro su WhatsApp — nessuna carta salvata in anticipo.</p>
+        <p class="form-payment-note" data-i18n="buchen_payment_note">Wir erfassen hier keine Zahlung. Nach Abschluss des Services senden wir dir einen sicheren Stripe-Link per WhatsApp — keine Karte wird im Voraus gespeichert.</p>
 
-        <button type="submit" class="btn btn-gold btn-lg btn-block">Invia richiesta di prenotazione</button>
+        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn">Buchungsanfrage senden</button>
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
 
       <aside class="booking-summary">
-        <h3>Riepilogo</h3>
+        <h3 data-i18n="buchen_summary_h3">Zusammenfassung</h3>
         <ul id="summary-list" class="summary-list">
-          <li class="summary-empty">Seleziona le opzioni per vedere il prezzo</li>
+          <li class="summary-empty" data-i18n="summary_empty">Wähle die Optionen, um den Preis zu sehen</li>
         </ul>
         <div class="summary-total" id="summary-total-block">
-          <span>Prezzo totale stimato</span>
+          <span data-i18n="buchen_summary_total_label">Geschätzter Gesamtpreis</span>
           <strong id="summary-total-value">79€</strong>
         </div>
         <div class="summary-recurring" id="summary-recurring" hidden>
-          <p>Per le pulizie ricorrenti, concordiamo prezzo e frequenza direttamente con te.</p>
-          <a class="btn btn-ghost btn-block" href="https://wa.me/491758990050" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+          <p data-i18n="buchen_summary_recurring_p">Für wiederkehrende Reinigungen vereinbaren wir Preis und Häufigkeit direkt mit dir.</p>
+          <a class="btn btn-ghost btn-block" href="https://wa.me/491758990050" target="_blank" rel="noopener" data-i18n="buchen_summary_whatsapp_btn">Schreib uns auf WhatsApp</a>
         </div>
-        <p class="summary-note">Prezzo indicativo. Confermeremo i dettagli finali via WhatsApp prima dell'intervento.</p>
+        <p class="summary-note" data-i18n="buchen_summary_note">Richtpreis. Wir bestätigen die endgültigen Details vor dem Einsatz per WhatsApp.</p>
       </aside>
 
     </div>
@@ -354,46 +361,256 @@
           <img src="/logo-icon.png" alt="Splendo" class="footer-logo-icon">
           <div class="logo-word">Splendo</div>
         </div>
-        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <p data-i18n="footer_brand_tagline">Wohnungsreinigung in Berlin, mit Sorgfalt gemacht. Ein persönlicher Service, kein anonymer Marktplatz.</p>
       </div>
       <div class="footer-v2-cols">
         <div class="footer-v2-col">
-          <h4>Naviga</h4>
-          <a href="/ablauf.html">Come funziona</a>
-          <a href="/preise.html">Prezzi</a>
-          <a href="/ueber-uns.html">Chi siamo</a>
-          <a href="/team.html">Team</a>
+          <h4 data-i18n="footer_col_naviga">Navigation</h4>
+          <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+          <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+          <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+          <a href="/team.html" data-i18n="nav_team">Team</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Assistenza</h4>
-          <a href="/kontakt.html">Contatti</a>
+          <h4 data-i18n="footer_col_assistenza">Support</h4>
+          <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
           <a href="https://wa.me/491758990050" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="/faq.html">Domande frequenti</a>
+          <a href="/faq.html" data-i18n="footer_faq">Häufige Fragen</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Legale</h4>
-          <a href="/impressum.html">Impressum</a>
-          <a href="/datenschutz.html">Datenschutz</a>
-          <a href="/agb.html">AGB</a>
+          <h4 data-i18n="footer_col_legale">Rechtliches</h4>
+          <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+          <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+          <a href="/agb.html" data-i18n="footer_agb">AGB</a>
         </div>
       </div>
     </div>
     <div class="footer-v2-bottom">
       <div>© 2026 Splendo — admin@splendo.eu</div>
       <div>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/agb.html">AGB</a>
+        <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+        <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+        <a href="/agb.html" data-i18n="footer_agb">AGB</a>
       </div>
     </div>
   </div>
 </footer>
-<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp_float_label" aria-label="Kontaktiere uns auf WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
 
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    buchen_meta_title: "Buchen — Splendo",
+    buchen_meta_description: "Buche deine Wohnungsreinigung in Berlin. Wähle Wohnungstyp, Reinigungsstufe und Extras — jetzt noch keine Zahlung nötig.",
+    buchen_breadcrumb: "Buchen",
+    buchen_h1: "Buche deine Reinigung",
+    buchen_hero_p: "Zwei Minuten zum Ausfüllen, keine Verpflichtung, keine gespeicherte Karte. Du zahlst erst nach Abschluss des Services.",
+    buchen_legend1: "1. Postleitzahl",
+    buchen_plz_label: "PLZ",
+    buchen_plz_placeholder: "z.B. 10115",
+    buchen_plz_error: "Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).",
+    buchen_legend2: "2. Wohnungstyp",
+    buchen_apt_studio: "Studio",
+    buchen_apt_2zi: "2-Zimmer-Wohnung",
+    buchen_apt_3zi: "3-Zimmer-Wohnung",
+    buchen_apt_4plus: "4+ Zimmer",
+    buchen_apt_quote: "Angebot auf Anfrage",
+    buchen_legend3: "3. Reinigungsstufe",
+    buchen_legend4: "4. Häufigkeit",
+    buchen_freq_once: "Einmalig",
+    buchen_freq_weekly: "Wöchentlich",
+    buchen_freq_biweekly: "Alle zwei Wochen",
+    buchen_freq_monthly: "Monatlich",
+    buchen_legend5: "5. Optionale Extras",
+    buchen_extra_oven: "Backofen",
+    buchen_extra_hood: "Dunstabzugshaube",
+    buchen_extra_fridge: "Kühlschrank (innen)",
+    buchen_extra_microwave: "Mikrowelle",
+    buchen_extra_cabinet: "Küchenschrank (innen)",
+    buchen_extra_dishes: "Geschirr von Hand",
+    buchen_extra_windows: "Fenster",
+    buchen_extra_windows_note: "15€ pro Stück",
+    buchen_extra_balcony: "Balkon/Terrasse",
+    buchen_extra_ironing: "Bügeln",
+    buchen_extra_wardrobe: "Kleiderschrank (Inneres aufräumen)",
+    buchen_extra_litter: "Tierstreu",
+    buchen_extra_hours: "Zusätzliche Stunden",
+    buchen_extra_hours_note: "28€ pro Stunde",
+    buchen_extra_upholstery: "Polstermöbel/Sofas",
+    buchen_extra_upholstery_quote: "Preis auf Anfrage — <a href=\"https://wa.me/491758990050\" target=\"_blank\" rel=\"noopener\">schreib uns</a>",
+    buchen_legend6: "6. Dringende Anfrage",
+    buchen_urgent_label_html: "<span>Dringende Anfrage</span> <small>(Antwort innerhalb von 3 Stunden) — +20€</small>",
+    buchen_legend7: "7. Reinigungsprodukte",
+    buchen_products_label_html: "<span>Reinigungsprodukte von uns</span> <small>+18€ — falls du diese Option nicht wählst, halte bitte Reinigungsmittel und Tücher selbst bereit.</small>",
+    buchen_legend8: "8. Termin, Adresse und Kontakt",
+    buchen_field_date: "Bevorzugtes Datum",
+    buchen_field_time: "Bevorzugte Uhrzeit",
+    buchen_field_address: "Adresse",
+    buchen_field_address_placeholder: "Straße, Hausnummer, Stadtteil",
+    buchen_field_name: "Vor- und Nachname",
+    buchen_field_phone: "Telefon",
+    buchen_field_email: "E-Mail",
+    buchen_field_notes: "Notizen (Schlüssel, Haustiere, besondere Zugänge...)",
+    buchen_promo_label: "Hast du einen Rabattcode? <span class=\"promo-optional\">(optional)</span>",
+    buchen_promo_placeholder: "z.B. WILLKOMMEN10",
+    buchen_payment_note: "Wir erfassen hier keine Zahlung. Nach Abschluss des Services senden wir dir einen sicheren Stripe-Link per WhatsApp — keine Karte wird im Voraus gespeichert.",
+    buchen_submit_btn: "Buchungsanfrage senden",
+    buchen_summary_h3: "Zusammenfassung",
+    buchen_summary_total_label: "Geschätzter Gesamtpreis",
+    buchen_summary_recurring_p: "Für wiederkehrende Reinigungen vereinbaren wir Preis und Häufigkeit direkt mit dir.",
+    buchen_summary_whatsapp_btn: "Schreib uns auf WhatsApp",
+    buchen_summary_note: "Richtpreis. Wir bestätigen die endgültigen Details vor dem Einsatz per WhatsApp.",
+    summary_empty: "Wähle die Optionen, um den Preis zu sehen",
+    products_label: "Reinigungsprodukte von uns",
+    urgent_label: "Dringende Anfrage",
+    status_sending: "Wird gesendet...",
+    status_success: "Anfrage gesendet! Wir melden uns innerhalb weniger Stunden per WhatsApp, um Termin und Endpreis zu bestätigen. Die Zahlung erfolgt erst nach Abschluss des Services.",
+    status_error: "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu, wir antworten sofort."
+  },
+  en: {
+    buchen_meta_title: "Book — Splendo",
+    buchen_meta_description: "Book your home cleaning in Berlin. Choose apartment type, cleaning level and extras — no payment required now.",
+    buchen_breadcrumb: "Book",
+    buchen_h1: "Book your cleaning",
+    buchen_hero_p: "Two minutes to complete, no commitment, no card saved. You only pay once the service is done.",
+    buchen_legend1: "1. Postcode",
+    buchen_plz_label: "Postcode",
+    buchen_plz_placeholder: "e.g. 10115",
+    buchen_plz_error: "Please enter a valid Berlin postcode (10115–14199).",
+    buchen_legend2: "2. Apartment type",
+    buchen_apt_studio: "Studio",
+    buchen_apt_2zi: "1-bedroom flat",
+    buchen_apt_3zi: "2-bedroom flat",
+    buchen_apt_4plus: "4+ rooms",
+    buchen_apt_quote: "Custom quote",
+    buchen_legend3: "3. Cleaning level",
+    buchen_legend4: "4. Frequency",
+    buchen_freq_once: "One-off",
+    buchen_freq_weekly: "Weekly",
+    buchen_freq_biweekly: "Every two weeks",
+    buchen_freq_monthly: "Monthly",
+    buchen_legend5: "5. Optional extras",
+    buchen_extra_oven: "Oven",
+    buchen_extra_hood: "Extractor hood",
+    buchen_extra_fridge: "Fridge (inside)",
+    buchen_extra_microwave: "Microwave",
+    buchen_extra_cabinet: "Kitchen cabinet (inside)",
+    buchen_extra_dishes: "Washing dishes by hand",
+    buchen_extra_windows: "Windows",
+    buchen_extra_windows_note: "€15 each",
+    buchen_extra_balcony: "Balcony/terrace",
+    buchen_extra_ironing: "Ironing",
+    buchen_extra_wardrobe: "Wardrobe (tidy inside)",
+    buchen_extra_litter: "Pet litter",
+    buchen_extra_hours: "Extra hours",
+    buchen_extra_hours_note: "€28 per hour",
+    buchen_extra_upholstery: "Upholstery/sofas",
+    buchen_extra_upholstery_quote: "Quote on request — <a href=\"https://wa.me/491758990050\" target=\"_blank\" rel=\"noopener\">message us</a>",
+    buchen_legend6: "6. Urgent request",
+    buchen_urgent_label_html: "<span>Urgent request</span> <small>(reply within 3 hours) — +€20</small>",
+    buchen_legend7: "7. Cleaning products",
+    buchen_products_label_html: "<span>Products supplied by us</span> <small>+€18 — if you don't select this option, make sure you have supplies at home (detergents, cloths, etc.)</small>",
+    buchen_legend8: "8. Date, address and contact",
+    buchen_field_date: "Preferred date",
+    buchen_field_time: "Preferred time",
+    buchen_field_address: "Address",
+    buchen_field_address_placeholder: "Street, number, neighbourhood",
+    buchen_field_name: "Full name",
+    buchen_field_phone: "Phone",
+    buchen_field_email: "Email",
+    buchen_field_notes: "Notes (keys, pets, special access...)",
+    buchen_promo_label: "Got a promo code? <span class=\"promo-optional\">(optional)</span>",
+    buchen_promo_placeholder: "e.g. WELCOME10",
+    buchen_payment_note: "We don't collect payment here. Once the service is done, we'll send you a secure Stripe link on WhatsApp — no card saved in advance.",
+    buchen_submit_btn: "Send booking request",
+    buchen_summary_h3: "Summary",
+    buchen_summary_total_label: "Estimated total price",
+    buchen_summary_recurring_p: "For recurring cleanings, we agree on price and frequency directly with you.",
+    buchen_summary_whatsapp_btn: "Message us on WhatsApp",
+    buchen_summary_note: "Estimated price. We'll confirm the final details via WhatsApp before the visit.",
+    summary_empty: "Select the options to see the price",
+    products_label: "Products supplied by us",
+    urgent_label: "Urgent request",
+    status_sending: "Sending...",
+    status_success: "Request sent! We'll contact you within a few hours on WhatsApp to confirm date and final price. Payment happens only once the service is done.",
+    status_error: "Something went wrong. Write to us directly at admin@splendo.eu, we'll reply right away."
+  },
+  it: {
+    buchen_meta_title: "Prenota — Splendo",
+    buchen_meta_description: "Prenota la tua pulizia di casa a Berlino. Scegli appartamento, livello di pulizia ed extra — nessun pagamento richiesto ora.",
+    buchen_breadcrumb: "Prenota",
+    buchen_h1: "Prenota la tua pulizia",
+    buchen_hero_p: "Due minuti per completare, nessun impegno, nessuna carta salvata. Paghi solo a servizio concluso.",
+    buchen_legend1: "1. CAP",
+    buchen_plz_label: "CAP",
+    buchen_plz_placeholder: "es. 10115",
+    buchen_plz_error: "Inserisci un CAP di Berlino valido (10115–14199).",
+    buchen_legend2: "2. Tipo di appartamento",
+    buchen_apt_studio: "Studio",
+    buchen_apt_2zi: "Bilocale",
+    buchen_apt_3zi: "Trilocale",
+    buchen_apt_4plus: "4+ locali",
+    buchen_apt_quote: "Preventivo",
+    buchen_legend3: "3. Livello di pulizia",
+    buchen_legend4: "4. Frequenza",
+    buchen_freq_once: "Una tantum",
+    buchen_freq_weekly: "Settimanale",
+    buchen_freq_biweekly: "Quindicinale",
+    buchen_freq_monthly: "Mensile",
+    buchen_legend5: "5. Extra opzionali",
+    buchen_extra_oven: "Forno",
+    buchen_extra_hood: "Cappa aspirante",
+    buchen_extra_fridge: "Frigorifero (interno)",
+    buchen_extra_microwave: "Microonde",
+    buchen_extra_cabinet: "Mobile cucina (interno)",
+    buchen_extra_dishes: "Piatti a mano",
+    buchen_extra_windows: "Finestre",
+    buchen_extra_windows_note: "15€ a pezzo",
+    buchen_extra_balcony: "Balcone/terrazza",
+    buchen_extra_ironing: "Stiro",
+    buchen_extra_wardrobe: "Armadio (riordino interno)",
+    buchen_extra_litter: "Lettiera animali",
+    buchen_extra_hours: "Ore extra",
+    buchen_extra_hours_note: "28€ all'ora",
+    buchen_extra_upholstery: "Tappezzeria/divani",
+    buchen_extra_upholstery_quote: "Preventivo su richiesta — <a href=\"https://wa.me/491758990050\" target=\"_blank\" rel=\"noopener\">scrivici</a>",
+    buchen_legend6: "6. Richiesta urgente",
+    buchen_urgent_label_html: "<span>Richiesta urgente</span> <small>(risposta entro 3 ore) — +20€</small>",
+    buchen_legend7: "7. Prodotti per la pulizia",
+    buchen_products_label_html: "<span>Prodotti forniti da noi</span> <small>+18€ — se non selezioni questa opzione, assicurati di avere a casa l'occorrente (detersivi, panni, ecc.)</small>",
+    buchen_legend8: "8. Data, indirizzo e contatti",
+    buchen_field_date: "Data preferita",
+    buchen_field_time: "Ora preferita",
+    buchen_field_address: "Indirizzo",
+    buchen_field_address_placeholder: "Via, numero civico, quartiere",
+    buchen_field_name: "Nome e cognome",
+    buchen_field_phone: "Telefono",
+    buchen_field_email: "Email",
+    buchen_field_notes: "Note (chiavi, animali domestici, accessi particolari...)",
+    buchen_promo_label: "Hai un codice promozionale? <span class=\"promo-optional\">(facoltativo)</span>",
+    buchen_promo_placeholder: "es. BENVENUTO10",
+    buchen_payment_note: "Non raccogliamo pagamenti qui. A fine servizio ti invieremo un link Stripe sicuro su WhatsApp — nessuna carta salvata in anticipo.",
+    buchen_submit_btn: "Invia richiesta di prenotazione",
+    buchen_summary_h3: "Riepilogo",
+    buchen_summary_total_label: "Prezzo totale stimato",
+    buchen_summary_recurring_p: "Per le pulizie ricorrenti, concordiamo prezzo e frequenza direttamente con te.",
+    buchen_summary_whatsapp_btn: "Scrivici su WhatsApp",
+    buchen_summary_note: "Prezzo indicativo. Confermeremo i dettagli finali via WhatsApp prima dell'intervento.",
+    summary_empty: "Seleziona le opzioni per vedere il prezzo",
+    products_label: "Prodotti forniti da noi",
+    urgent_label: "Richiesta urgente",
+    status_sending: "Invio in corso...",
+    status_success: "Richiesta inviata! Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.",
+    status_error: "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito."
+  }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
 <script src="booking.js" defer></script>
 </body>
 </html>

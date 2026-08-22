@@ -1,6 +1,6 @@
 /* Splendo — i18n.js
    Motore di traduzione minimale, senza framework. Lingua default: tedesco (de).
-   Ogni pagina definisce window.SPLENDO_I18N_PAGE = { de: {...}, en: {...} }
+   Ogni pagina definisce window.SPLENDO_I18N_PAGE = { de: {...}, en: {...}, it: {...} }
    prima di includere questo script. I dizionari comuni (header/footer) sono
    in i18n-common.js. */
 
@@ -9,19 +9,21 @@
 
   var STORAGE_KEY = "splendo-lang";
   var DEFAULT_LANG = "de";
+  var LANGS = ["de", "en", "it"];
 
   function getSavedLang() {
     var saved = null;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    return saved === "de" || saved === "en" ? saved : DEFAULT_LANG;
+    return LANGS.indexOf(saved) !== -1 ? saved : DEFAULT_LANG;
   }
 
   function buildDict() {
-    var common = window.SPLENDO_I18N_COMMON || { de: {}, en: {} };
-    var page = window.SPLENDO_I18N_PAGE || { de: {}, en: {} };
+    var common = window.SPLENDO_I18N_COMMON || { de: {}, en: {}, it: {} };
+    var page = window.SPLENDO_I18N_PAGE || { de: {}, en: {}, it: {} };
     return {
       de: Object.assign({}, common.de, page.de),
-      en: Object.assign({}, common.en, page.en)
+      en: Object.assign({}, common.en, page.en),
+      it: Object.assign({}, common.it, page.it)
     };
   }
 
@@ -38,7 +40,7 @@
   window.SPLENDO_GET_LANG = function () { return currentLang; };
 
   function applyLanguage(lang) {
-    currentLang = lang === "en" ? "en" : "de";
+    currentLang = LANGS.indexOf(lang) !== -1 ? lang : DEFAULT_LANG;
     document.documentElement.setAttribute("lang", currentLang);
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -55,6 +57,12 @@
     });
     var descMeta = document.querySelector('meta[name="description"][data-i18n-content]');
     if (descMeta) descMeta.setAttribute("content", t(descMeta.getAttribute("data-i18n-content"), currentLang));
+    var ogDescMeta = document.querySelector('meta[property="og:description"][data-i18n-content]');
+    if (ogDescMeta) ogDescMeta.setAttribute("content", t(ogDescMeta.getAttribute("data-i18n-content"), currentLang));
+    var titleEl = document.querySelector("title[data-i18n-content]");
+    if (titleEl) document.title = t(titleEl.getAttribute("data-i18n-content"), currentLang);
+    var ogTitleMeta = document.querySelector('meta[property="og:title"][data-i18n-content]');
+    if (ogTitleMeta) ogTitleMeta.setAttribute("content", t(ogTitleMeta.getAttribute("data-i18n-content"), currentLang));
 
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       btn.classList.toggle("is-active", btn.getAttribute("data-lang") === currentLang);

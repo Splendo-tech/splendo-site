@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team — Splendo</title>
-<meta name="description" content="Il team Splendo: le persone che entrano davvero in casa tua, selezionate con cura a Berlino.">
+<title data-i18n-content="team_meta_title">Team — Splendo</title>
+<meta name="description" data-i18n-content="team_meta_description" content="Das Splendo-Team: die Menschen, die wirklich zu dir nach Hause kommen, sorgfältig ausgewählt in Berlin.">
 <link rel="canonical" href="https://splendo.eu/team.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/team.html">
-<meta property="og:title" content="Team — Splendo">
-<meta property="og:description" content="Il team Splendo: le persone che entrano davvero in casa tua, selezionate con cura a Berlino.">
+<meta property="og:title" data-i18n-content="team_meta_title" content="Team — Splendo">
+<meta property="og:description" data-i18n-content="team_meta_description" content="Das Splendo-Team: die Menschen, die wirklich zu dir nach Hause kommen, sorgfältig ausgewählt in Berlin.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,14 +27,21 @@
       <span>Splendo</span>
     </a>
     <nav class="main-nav">
-      <a href="/ablauf.html">Come funziona</a>
-      <a href="/preise.html">Prezzi</a>
-      <a href="/ueber-uns.html">Chi siamo</a>
-      <a href="/team.html">Team</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/kontakt.html">Contatti</a>
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/team.html" data-i18n="nav_team">Team</a>
+      <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
     </nav>
-    <a href="/buchen.html" class="btn btn-gold btn-nav">Prenota ora</a>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
   </div>
 </header>
 
@@ -42,9 +49,9 @@
 
   <section class="page-hero-v2">
     <div class="wrap">
-      <p class="breadcrumb-v2"><a href="/">Home</a> / Team</p>
-      <h1>Il nostro team</h1>
-      <p>Le persone che entrano davvero in casa tua — selezionate con cura, non assegnate a caso.</p>
+      <p class="breadcrumb-v2"><a href="/" data-i18n="team_breadcrumb_home">Startseite</a> / <span data-i18n="nav_team">Team</span></p>
+      <h1 data-i18n="team_hero_h1">Unser Team</h1>
+      <p data-i18n="team_hero_subtitle">Die Menschen, die wirklich zu dir nach Hause kommen — sorgfältig ausgewählt, nicht zufällig zugeteilt.</p>
     </div>
   </section>
 
@@ -60,9 +67,9 @@
               </svg>
             </div>
             <div class="team-info-v2">
-              <h4><span class="legal-placeholder">[Nome]</span></h4>
-              <div class="role"><span class="legal-placeholder">[X] anni di esperienza</span></div>
-              <p><span class="legal-placeholder">[Breve bio da inserire — esperienza, specialità, una frase personale]</span></p>
+              <h4><span class="legal-placeholder" data-i18n="team_placeholder_name">[Name]</span></h4>
+              <div class="role"><span class="legal-placeholder" data-i18n="team_placeholder_experience">[X] Jahre Erfahrung</span></div>
+              <p><span class="legal-placeholder" data-i18n="team_placeholder_bio">[Kurze Bio einfügen — Erfahrung, Spezialgebiet, ein persönlicher Satz]</span></p>
             </div>
           </article>
 
@@ -73,23 +80,23 @@
               </svg>
             </div>
             <div class="team-info-v2">
-              <h4><span class="legal-placeholder">[Nome]</span></h4>
-              <div class="role"><span class="legal-placeholder">[X] anni di esperienza</span></div>
-              <p><span class="legal-placeholder">[Breve bio da inserire — esperienza, specialità, una frase personale]</span></p>
+              <h4><span class="legal-placeholder" data-i18n="team_placeholder_name">[Name]</span></h4>
+              <div class="role"><span class="legal-placeholder" data-i18n="team_placeholder_experience">[X] Jahre Erfahrung</span></div>
+              <p><span class="legal-placeholder" data-i18n="team_placeholder_bio">[Kurze Bio einfügen — Erfahrung, Spezialgebiet, ein persönlicher Satz]</span></p>
             </div>
           </article>
 
           <div class="team-card-v2 add-placeholder">
             <div class="plus">+</div>
-            Stiamo crescendo — presto altri membri del team
+            <span data-i18n="team_growing_note">Wir wachsen — bald weitere Teammitglieder</span>
           </div>
 
         </div>
 
         <div class="cta-join">
-          <h3>Vuoi entrare a far parte del team?</h3>
-          <p>Cerchiamo sempre professionisti esperti e affidabili a Berlino.</p>
-          <a href="mailto:admin@splendo.eu?subject=Candidatura%20Cleaner%20Splendo" class="btn btn-gold">Candidati ora</a>
+          <h3 data-i18n="team_join_h3">Möchtest du Teil des Teams werden?</h3>
+          <p data-i18n="team_join_p">Wir suchen immer erfahrene und zuverlässige Fachkräfte in Berlin.</p>
+          <a href="mailto:admin@splendo.eu?subject=Candidatura%20Cleaner%20Splendo" class="btn btn-gold" data-i18n="team_join_btn">Jetzt bewerben</a>
         </div>
       </div>
     </div>
@@ -105,45 +112,93 @@
           <img src="/logo-icon.png" alt="Splendo" class="footer-logo-icon">
           <div class="logo-word">Splendo</div>
         </div>
-        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <p data-i18n="footer_brand_tagline">Wohnungsreinigung in Berlin, mit Sorgfalt gemacht. Ein persönlicher Service, kein anonymer Marktplatz.</p>
       </div>
       <div class="footer-v2-cols">
         <div class="footer-v2-col">
-          <h4>Naviga</h4>
-          <a href="/ablauf.html">Come funziona</a>
-          <a href="/preise.html">Prezzi</a>
-          <a href="/ueber-uns.html">Chi siamo</a>
-          <a href="/team.html">Team</a>
+          <h4 data-i18n="footer_col_naviga">Navigation</h4>
+          <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+          <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+          <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+          <a href="/team.html" data-i18n="nav_team">Team</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Assistenza</h4>
-          <a href="/kontakt.html">Contatti</a>
+          <h4 data-i18n="footer_col_assistenza">Support</h4>
+          <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
           <a href="https://wa.me/491758990050" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="/faq.html">Domande frequenti</a>
+          <a href="/faq.html" data-i18n="footer_faq">Häufige Fragen</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Legale</h4>
-          <a href="/impressum.html">Impressum</a>
-          <a href="/datenschutz.html">Datenschutz</a>
-          <a href="/agb.html">AGB</a>
+          <h4 data-i18n="footer_col_legale">Rechtliches</h4>
+          <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+          <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+          <a href="/agb.html" data-i18n="footer_agb">AGB</a>
         </div>
       </div>
     </div>
     <div class="footer-v2-bottom">
       <div>© 2026 Splendo — admin@splendo.eu</div>
       <div>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/agb.html">AGB</a>
+        <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+        <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+        <a href="/agb.html" data-i18n="footer_agb">AGB</a>
       </div>
     </div>
   </div>
 </footer>
-<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp_float_label" aria-label="Kontaktiere uns auf WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
 
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    team_meta_title: "Team — Splendo",
+    team_meta_description: "Das Splendo-Team: die Menschen, die wirklich zu dir nach Hause kommen, sorgfältig ausgewählt in Berlin.",
+    team_breadcrumb_home: "Startseite",
+    team_hero_h1: "Unser Team",
+    team_hero_subtitle: "Die Menschen, die wirklich zu dir nach Hause kommen — sorgfältig ausgewählt, nicht zufällig zugeteilt.",
+    team_placeholder_name: "[Name]",
+    team_placeholder_experience: "[X] Jahre Erfahrung",
+    team_placeholder_bio: "[Kurze Bio einfügen — Erfahrung, Spezialgebiet, ein persönlicher Satz]",
+    team_growing_note: "Wir wachsen — bald weitere Teammitglieder",
+    team_join_h3: "Möchtest du Teil des Teams werden?",
+    team_join_p: "Wir suchen immer erfahrene und zuverlässige Fachkräfte in Berlin.",
+    team_join_btn: "Jetzt bewerben"
+  },
+  en: {
+    team_meta_title: "Team — Splendo",
+    team_meta_description: "The Splendo team: the people who actually come into your home, carefully selected in Berlin.",
+    team_breadcrumb_home: "Home",
+    team_hero_h1: "Our team",
+    team_hero_subtitle: "The people who actually come into your home — carefully selected, not randomly assigned.",
+    team_placeholder_name: "[Name]",
+    team_placeholder_experience: "[X] years of experience",
+    team_placeholder_bio: "[Short bio to add — experience, specialty, a personal sentence]",
+    team_growing_note: "We're growing — more team members coming soon",
+    team_join_h3: "Want to join the team?",
+    team_join_p: "We're always looking for experienced, reliable professionals in Berlin.",
+    team_join_btn: "Apply now"
+  },
+  it: {
+    team_meta_title: "Team — Splendo",
+    team_meta_description: "Il team Splendo: le persone che entrano davvero in casa tua, selezionate con cura a Berlino.",
+    team_breadcrumb_home: "Home",
+    team_hero_h1: "Il nostro team",
+    team_hero_subtitle: "Le persone che entrano davvero in casa tua — selezionate con cura, non assegnate a caso.",
+    team_placeholder_name: "[Nome]",
+    team_placeholder_experience: "[X] anni di esperienza",
+    team_placeholder_bio: "[Breve bio da inserire — esperienza, specialità, una frase personale]",
+    team_growing_note: "Stiamo crescendo — presto altri membri del team",
+    team_join_h3: "Vuoi entrare a far parte del team?",
+    team_join_p: "Cerchiamo sempre professionisti esperti e affidabili a Berlino.",
+    team_join_btn: "Candidati ora"
+  }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

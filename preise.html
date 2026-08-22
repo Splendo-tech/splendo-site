@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prezzi — Splendo</title>
-<meta name="description" content="Prezzi chiari per le pulizie di casa a Berlino: livelli di servizio Standard, Deep, Move-in e Move-out, più 15 extra a catalogo.">
+<title data-i18n-content="prices_meta_title">Preise — Splendo</title>
+<meta name="description" data-i18n-content="prices_meta_description" content="Klare Preise für die Wohnungsreinigung in Berlin: die Reinigungsstufen Standard, Deep, Einzug und Auszug, plus 15 Extras im Katalog.">
 <link rel="canonical" href="https://splendo.eu/preise.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/preise.html">
-<meta property="og:title" content="Prezzi — Splendo">
-<meta property="og:description" content="Prezzi chiari per le pulizie di casa a Berlino: livelli di servizio Standard, Deep, Move-in e Move-out, più 15 extra a catalogo.">
+<meta property="og:title" data-i18n-content="prices_meta_title" content="Preise — Splendo">
+<meta property="og:description" data-i18n-content="prices_meta_description" content="Klare Preise für die Wohnungsreinigung in Berlin: die Reinigungsstufen Standard, Deep, Einzug und Auszug, plus 15 Extras im Katalog.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,14 +27,21 @@
       <span>Splendo</span>
     </a>
     <nav class="main-nav">
-      <a href="/ablauf.html">Come funziona</a>
-      <a href="/preise.html">Prezzi</a>
-      <a href="/ueber-uns.html">Chi siamo</a>
-      <a href="/team.html">Team</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/kontakt.html">Contatti</a>
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/team.html" data-i18n="nav_team">Team</a>
+      <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
     </nav>
-    <a href="/buchen.html" class="btn btn-gold btn-nav">Prenota ora</a>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
   </div>
 </header>
 
@@ -42,82 +49,82 @@
 
   <section class="page-hero-v2">
     <div class="wrap">
-      <p class="breadcrumb-v2"><a href="/">Home</a> / Prezzi</p>
-      <h1>Prezzi chiari, nessuna sorpresa</h1>
-      <p>Scegli il livello di pulizia più adatto a te. Nessun costo nascosto, nessun impegno a lungo termine.</p>
+      <p class="breadcrumb-v2"><a href="/" data-i18n="prices_breadcrumb_home">Start</a> / <span data-i18n="nav_prezzi">Preise</span></p>
+      <h1 data-i18n="prices_hero_h1">Klare Preise, keine Überraschungen</h1>
+      <p data-i18n="prices_hero_p">Wähle das Reinigungsniveau, das am besten zu dir passt. Keine versteckten Kosten, keine langfristige Verpflichtung.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <h2 class="section-title">Livelli di servizio</h2>
-      <p style="color:#667; font-size:0.92rem; margin:-30px 0 40px;">Prezzo per Studio / Bilocale / Trilocale, per ogni livello</p>
+      <h2 class="section-title" data-i18n="prices_tiers_h2">Reinigungsstufen</h2>
+      <p style="color:#667; font-size:0.92rem; margin:-30px 0 40px;" data-i18n="prices_tiers_subhead">Preis für Studio / 2-Zimmer-Wohnung / 3-Zimmer-Wohnung, je Reinigungsstufe</p>
 
       <div class="tiers">
         <div class="tier-card">
-          <div class="tier-name">Standard Clean</div>
+          <div class="tier-name" data-i18n="prices_tier_standard_name">Standard Clean</div>
           <div class="tier-prices">
-            <div class="tier-row"><span>Studio</span><strong>79€</strong></div>
-            <div class="tier-row"><span>Bilocale</span><strong>99€</strong></div>
-            <div class="tier-row"><span>Trilocale</span><strong>129€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_studio">Studio</span><strong>79€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_bilocale">2-Zimmer-Wohnung</span><strong>99€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_trilocale">3-Zimmer-Wohnung</span><strong>129€</strong></div>
           </div>
-          <div class="tier-note">Pulizia di routine</div>
+          <div class="tier-note" data-i18n="prices_tier_standard_note">Regelmäßige Reinigung</div>
         </div>
 
         <div class="tier-card featured">
-          <div class="tier-badge">Consigliato</div>
-          <div class="tier-name">Deep Clean</div>
+          <div class="tier-badge" data-i18n="prices_tier_badge">Empfohlen</div>
+          <div class="tier-name" data-i18n="prices_tier_deep_name">Deep Clean</div>
           <div class="tier-prices">
-            <div class="tier-row"><span>Studio</span><strong>103€</strong></div>
-            <div class="tier-row"><span>Bilocale</span><strong>129€</strong></div>
-            <div class="tier-row"><span>Trilocale</span><strong>168€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_studio">Studio</span><strong>103€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_bilocale">2-Zimmer-Wohnung</span><strong>129€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_trilocale">3-Zimmer-Wohnung</span><strong>168€</strong></div>
           </div>
-          <div class="tier-note">Pulizia profonda, +30%</div>
+          <div class="tier-note" data-i18n="prices_tier_deep_note">Tiefenreinigung, +30%</div>
         </div>
 
         <div class="tier-card">
-          <div class="tier-name">Move-in Clean</div>
+          <div class="tier-name" data-i18n="prices_tier_movein_name">Move-in Clean</div>
           <div class="tier-prices">
-            <div class="tier-row"><span>Studio</span><strong>103€</strong></div>
-            <div class="tier-row"><span>Bilocale</span><strong>129€</strong></div>
-            <div class="tier-row"><span>Trilocale</span><strong>168€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_studio">Studio</span><strong>103€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_bilocale">2-Zimmer-Wohnung</span><strong>129€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_trilocale">3-Zimmer-Wohnung</span><strong>168€</strong></div>
           </div>
-          <div class="tier-note">Per chi entra in una nuova casa, +30%</div>
+          <div class="tier-note" data-i18n="prices_tier_movein_note">Für alle, die in eine neue Wohnung einziehen, +30%</div>
         </div>
 
         <div class="tier-card">
-          <div class="tier-name">Move-out Clean</div>
+          <div class="tier-name" data-i18n="prices_tier_moveout_name">Move-out Clean</div>
           <div class="tier-prices">
-            <div class="tier-row"><span>Studio</span><strong>119€</strong></div>
-            <div class="tier-row"><span>Bilocale</span><strong>149€</strong></div>
-            <div class="tier-row"><span>Trilocale</span><strong>194€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_studio">Studio</span><strong>119€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_bilocale">2-Zimmer-Wohnung</span><strong>149€</strong></div>
+            <div class="tier-row"><span data-i18n="prices_size_trilocale">3-Zimmer-Wohnung</span><strong>194€</strong></div>
           </div>
-          <div class="tier-note">Standard Endreinigung, +50%</div>
+          <div class="tier-note" data-i18n="prices_tier_moveout_note">Standard-Endreinigung, +50%</div>
         </div>
       </div>
 
-      <h2 class="section-title">Extra a catalogo</h2>
-      <p style="color:#667; font-size:0.92rem; margin:-30px 0 40px;">Aggiungi solo quello che ti serve</p>
+      <h2 class="section-title" data-i18n="prices_extras_h2">Extras im Katalog</h2>
+      <p style="color:#667; font-size:0.92rem; margin:-30px 0 40px;" data-i18n="prices_extras_subhead">Füge nur hinzu, was du wirklich brauchst</p>
 
       <div class="extras-grid">
-        <div class="extra-item">Forno <strong>+20€</strong></div>
-        <div class="extra-item">Cappa aspirante <strong>+16€</strong></div>
-        <div class="extra-item">Frigorifero <strong>+15€</strong></div>
-        <div class="extra-item">Microonde <strong>+9€</strong></div>
-        <div class="extra-item">Mobile cucina <strong>+60€</strong></div>
-        <div class="extra-item">Piatti a mano <strong>+10€</strong></div>
-        <div class="extra-item">Finestre <strong>+15€/pz</strong></div>
-        <div class="extra-item">Balcone/terrazza <strong>+15€</strong></div>
-        <div class="extra-item">Stiro <strong>+28€</strong></div>
-        <div class="extra-item">Armadio <strong>+13€</strong></div>
-        <div class="extra-item">Lettiera animali <strong>+4€</strong></div>
-        <div class="extra-item">Ore extra <strong>+28€/h</strong></div>
-        <div class="extra-item">Prodotti forniti da noi <strong>+18€</strong></div>
-        <div class="extra-item">Richiesta urgente <strong>+20€</strong></div>
-        <div class="extra-item">Tappezzeria/divani <strong>su richiesta</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_forno">Backofen</span> <strong>+20€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_cappa">Dunstabzugshaube</span> <strong>+16€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_frigorifero">Kühlschrank</span> <strong>+15€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_microonde">Mikrowelle</span> <strong>+9€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_mobile_cucina">Küchenschrank</span> <strong>+60€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_piatti">Geschirr von Hand spülen</span> <strong>+10€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_finestre">Fenster</span> <strong>+15€<span data-i18n="prices_extra_finestre_unit">/Stück</span></strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_balcone">Balkon/Terrasse</span> <strong>+15€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_stiro">Bügeln</span> <strong>+28€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_armadio">Kleiderschrank</span> <strong>+13€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_lettiera">Katzenstreu wechseln</span> <strong>+4€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_ore_extra">Zusätzliche Stunden</span> <strong>+28€/h</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_prodotti">Reinigungsmittel von uns gestellt</span> <strong>+18€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_urgente">Eilanfrage</span> <strong>+20€</strong></div>
+        <div class="extra-item"><span data-i18n="prices_extra_tappezzeria">Polster/Sofas</span> <strong data-i18n="prices_extra_tappezzeria_price">auf Anfrage</strong></div>
       </div>
 
-      <p class="price-cta"><a href="/buchen.html">Prenota e calcola il tuo prezzo →</a></p>
+      <p class="price-cta"><a href="/buchen.html" data-i18n="prices_cta">Jetzt buchen und deinen Preis berechnen →</a></p>
     </div>
   </section>
 
@@ -131,45 +138,174 @@
           <img src="/logo-icon.png" alt="Splendo" class="footer-logo-icon">
           <div class="logo-word">Splendo</div>
         </div>
-        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <p data-i18n="footer_brand_tagline">Wohnungsreinigung in Berlin, mit Sorgfalt gemacht. Ein persönlicher Service, kein anonymer Marktplatz.</p>
       </div>
       <div class="footer-v2-cols">
         <div class="footer-v2-col">
-          <h4>Naviga</h4>
-          <a href="/ablauf.html">Come funziona</a>
-          <a href="/preise.html">Prezzi</a>
-          <a href="/ueber-uns.html">Chi siamo</a>
-          <a href="/team.html">Team</a>
+          <h4 data-i18n="footer_col_naviga">Navigation</h4>
+          <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+          <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+          <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+          <a href="/team.html" data-i18n="nav_team">Team</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Assistenza</h4>
-          <a href="/kontakt.html">Contatti</a>
+          <h4 data-i18n="footer_col_assistenza">Support</h4>
+          <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
           <a href="https://wa.me/491758990050" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="/faq.html">Domande frequenti</a>
+          <a href="/faq.html" data-i18n="footer_faq">Häufige Fragen</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Legale</h4>
-          <a href="/impressum.html">Impressum</a>
-          <a href="/datenschutz.html">Datenschutz</a>
-          <a href="/agb.html">AGB</a>
+          <h4 data-i18n="footer_col_legale">Rechtliches</h4>
+          <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+          <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+          <a href="/agb.html" data-i18n="footer_agb">AGB</a>
         </div>
       </div>
     </div>
     <div class="footer-v2-bottom">
       <div>© 2026 Splendo — admin@splendo.eu</div>
       <div>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/agb.html">AGB</a>
+        <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+        <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+        <a href="/agb.html" data-i18n="footer_agb">AGB</a>
       </div>
     </div>
   </div>
 </footer>
-<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp_float_label" aria-label="Kontaktiere uns auf WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
 
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    prices_meta_title: "Preise — Splendo",
+    prices_meta_description: "Klare Preise für die Wohnungsreinigung in Berlin: die Reinigungsstufen Standard, Deep, Einzug und Auszug, plus 15 Extras im Katalog.",
+    prices_breadcrumb_home: "Start",
+    prices_hero_h1: "Klare Preise, keine Überraschungen",
+    prices_hero_p: "Wähle das Reinigungsniveau, das am besten zu dir passt. Keine versteckten Kosten, keine langfristige Verpflichtung.",
+    prices_tiers_h2: "Reinigungsstufen",
+    prices_tiers_subhead: "Preis für Studio / 2-Zimmer-Wohnung / 3-Zimmer-Wohnung, je Reinigungsstufe",
+    prices_size_studio: "Studio",
+    prices_size_bilocale: "2-Zimmer-Wohnung",
+    prices_size_trilocale: "3-Zimmer-Wohnung",
+    prices_tier_standard_name: "Standard Clean",
+    prices_tier_badge: "Empfohlen",
+    prices_tier_standard_note: "Regelmäßige Reinigung",
+    prices_tier_deep_name: "Deep Clean",
+    prices_tier_deep_note: "Tiefenreinigung, +30%",
+    prices_tier_movein_name: "Move-in Clean",
+    prices_tier_movein_note: "Für alle, die in eine neue Wohnung einziehen, +30%",
+    prices_tier_moveout_name: "Move-out Clean",
+    prices_tier_moveout_note: "Standard-Endreinigung, +50%",
+    prices_extras_h2: "Extras im Katalog",
+    prices_extras_subhead: "Füge nur hinzu, was du wirklich brauchst",
+    prices_extra_forno: "Backofen",
+    prices_extra_cappa: "Dunstabzugshaube",
+    prices_extra_frigorifero: "Kühlschrank",
+    prices_extra_microonde: "Mikrowelle",
+    prices_extra_mobile_cucina: "Küchenschrank",
+    prices_extra_piatti: "Geschirr von Hand spülen",
+    prices_extra_finestre: "Fenster",
+    prices_extra_finestre_unit: "/Stück",
+    prices_extra_balcone: "Balkon/Terrasse",
+    prices_extra_stiro: "Bügeln",
+    prices_extra_armadio: "Kleiderschrank",
+    prices_extra_lettiera: "Katzenstreu wechseln",
+    prices_extra_ore_extra: "Zusätzliche Stunden",
+    prices_extra_prodotti: "Reinigungsmittel von uns gestellt",
+    prices_extra_urgente: "Eilanfrage",
+    prices_extra_tappezzeria: "Polster/Sofas",
+    prices_extra_tappezzeria_price: "auf Anfrage",
+    prices_cta: "Jetzt buchen und deinen Preis berechnen →"
+  },
+  en: {
+    prices_meta_title: "Pricing — Splendo",
+    prices_meta_description: "Clear pricing for home cleaning in Berlin: Standard, Deep, Move-in and Move-out service levels, plus 15 catalog extras.",
+    prices_breadcrumb_home: "Home",
+    prices_hero_h1: "Clear pricing, no surprises",
+    prices_hero_p: "Choose the cleaning level that suits you best. No hidden costs, no long-term commitment.",
+    prices_tiers_h2: "Service levels",
+    prices_tiers_subhead: "Price for Studio / 1-bedroom flat / 2-bedroom flat, per service level",
+    prices_size_studio: "Studio",
+    prices_size_bilocale: "1-bedroom flat",
+    prices_size_trilocale: "2-bedroom flat",
+    prices_tier_standard_name: "Standard Clean",
+    prices_tier_badge: "Recommended",
+    prices_tier_standard_note: "Routine cleaning",
+    prices_tier_deep_name: "Deep Clean",
+    prices_tier_deep_note: "Deep cleaning, +30%",
+    prices_tier_movein_name: "Move-in Clean",
+    prices_tier_movein_note: "For those moving into a new home, +30%",
+    prices_tier_moveout_name: "Move-out Clean",
+    prices_tier_moveout_note: "Standard move-out clean, +50%",
+    prices_extras_h2: "Catalog extras",
+    prices_extras_subhead: "Add only what you need",
+    prices_extra_forno: "Oven",
+    prices_extra_cappa: "Extractor hood",
+    prices_extra_frigorifero: "Fridge",
+    prices_extra_microonde: "Microwave",
+    prices_extra_mobile_cucina: "Kitchen cabinet",
+    prices_extra_piatti: "Hand-washing dishes",
+    prices_extra_finestre: "Windows",
+    prices_extra_finestre_unit: "/each",
+    prices_extra_balcone: "Balcony/terrace",
+    prices_extra_stiro: "Ironing",
+    prices_extra_armadio: "Wardrobe",
+    prices_extra_lettiera: "Pet litter box",
+    prices_extra_ore_extra: "Extra hours",
+    prices_extra_prodotti: "Cleaning products supplied by us",
+    prices_extra_urgente: "Urgent request",
+    prices_extra_tappezzeria: "Upholstery/sofas",
+    prices_extra_tappezzeria_price: "on request",
+    prices_cta: "Book now and calculate your price →"
+  },
+  it: {
+    prices_meta_title: "Prezzi — Splendo",
+    prices_meta_description: "Prezzi chiari per le pulizie di casa a Berlino: livelli di servizio Standard, Deep, Move-in e Move-out, più 15 extra a catalogo.",
+    prices_breadcrumb_home: "Home",
+    prices_hero_h1: "Prezzi chiari, nessuna sorpresa",
+    prices_hero_p: "Scegli il livello di pulizia più adatto a te. Nessun costo nascosto, nessun impegno a lungo termine.",
+    prices_tiers_h2: "Livelli di servizio",
+    prices_tiers_subhead: "Prezzo per Studio / Bilocale / Trilocale, per ogni livello",
+    prices_size_studio: "Studio",
+    prices_size_bilocale: "Bilocale",
+    prices_size_trilocale: "Trilocale",
+    prices_tier_standard_name: "Standard Clean",
+    prices_tier_badge: "Consigliato",
+    prices_tier_standard_note: "Pulizia di routine",
+    prices_tier_deep_name: "Deep Clean",
+    prices_tier_deep_note: "Pulizia profonda, +30%",
+    prices_tier_movein_name: "Move-in Clean",
+    prices_tier_movein_note: "Per chi entra in una nuova casa, +30%",
+    prices_tier_moveout_name: "Move-out Clean",
+    prices_tier_moveout_note: "Standard Endreinigung, +50%",
+    prices_extras_h2: "Extra a catalogo",
+    prices_extras_subhead: "Aggiungi solo quello che ti serve",
+    prices_extra_forno: "Forno",
+    prices_extra_cappa: "Cappa aspirante",
+    prices_extra_frigorifero: "Frigorifero",
+    prices_extra_microonde: "Microonde",
+    prices_extra_mobile_cucina: "Mobile cucina",
+    prices_extra_piatti: "Piatti a mano",
+    prices_extra_finestre: "Finestre",
+    prices_extra_finestre_unit: "/pz",
+    prices_extra_balcone: "Balcone/terrazza",
+    prices_extra_stiro: "Stiro",
+    prices_extra_armadio: "Armadio",
+    prices_extra_lettiera: "Lettiera animali",
+    prices_extra_ore_extra: "Ore extra",
+    prices_extra_prodotti: "Prodotti forniti da noi",
+    prices_extra_urgente: "Richiesta urgente",
+    prices_extra_tappezzeria: "Tappezzeria/divani",
+    prices_extra_tappezzeria_price: "su richiesta",
+    prices_cta: "Prenota e calcola il tuo prezzo →"
+  }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

@@ -91,10 +91,8 @@ a:focus-visible, button:focus-visible {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--navy-ink);
-  margin-right: 32px;
+  white-space: nowrap;
 }
-
-.main-nav a:last-child { margin-right: 0; }
 
 .main-nav a:hover { color: var(--navy); }
 

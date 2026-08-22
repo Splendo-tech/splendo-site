@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Come funziona — Splendo</title>
-<meta name="description" content="Come funziona Splendo: dalla prenotazione al pagamento, ogni passaggio spiegato nel dettaglio.">
+<title data-i18n-content="ablauf_meta_title">So funktioniert's — Splendo</title>
+<meta name="description" data-i18n-content="ablauf_meta_description" content="So funktioniert Splendo: von der Buchung bis zur Zahlung, jeder Schritt im Detail erklärt.">
 <link rel="canonical" href="https://splendo.eu/ablauf.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/ablauf.html">
-<meta property="og:title" content="Come funziona — Splendo">
-<meta property="og:description" content="Come funziona Splendo: dalla prenotazione al pagamento, ogni passaggio spiegato nel dettaglio.">
+<meta property="og:title" data-i18n-content="ablauf_meta_title" content="So funktioniert's — Splendo">
+<meta property="og:description" data-i18n-content="ablauf_meta_description" content="So funktioniert Splendo: von der Buchung bis zur Zahlung, jeder Schritt im Detail erklärt.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,14 +27,21 @@
       <span>Splendo</span>
     </a>
     <nav class="main-nav">
-      <a href="/ablauf.html">Come funziona</a>
-      <a href="/preise.html">Prezzi</a>
-      <a href="/ueber-uns.html">Chi siamo</a>
-      <a href="/team.html">Team</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/kontakt.html">Contatti</a>
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/team.html" data-i18n="nav_team">Team</a>
+      <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
     </nav>
-    <a href="/buchen.html" class="btn btn-gold btn-nav">Prenota ora</a>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
   </div>
 </header>
 
@@ -42,9 +49,9 @@
 
   <section class="page-hero-v2">
     <div class="wrap">
-      <p class="breadcrumb-v2"><a href="/">Home</a> / Come funziona</p>
-      <h1>Come funziona Splendo</h1>
-      <p>Dalla prenotazione al pagamento, ogni passaggio spiegato nel dettaglio.</p>
+      <p class="breadcrumb-v2"><a href="/" data-i18n="ablauf_breadcrumb_home">Startseite</a> / <span data-i18n="nav_come_funziona">So funktioniert's</span></p>
+      <h1 data-i18n="ablauf_hero_h1">So funktioniert Splendo</h1>
+      <p data-i18n="ablauf_hero_p">Von der Buchung bis zur Zahlung – jeder Schritt im Detail erklärt.</p>
     </div>
   </section>
 
@@ -56,15 +63,15 @@
           <div class="step-num-v2">01</div>
           <div class="step-photo-v2">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1649083048337-4aeb6dda80bb?w=600&q=80&auto=format&fit=crop" alt="Persona che compila il form di prenotazione">
+            <img src="https://images.unsplash.com/photo-1649083048337-4aeb6dda80bb?w=1400&q=85&auto=format&fit=crop" alt="Persona che compila il form di prenotazione">
           </div>
           <div class="step-text-v2">
-            <h3>Scegli casa tua ed extra</h3>
-            <p>Ci dici il CAP, il tipo di appartamento (Studio, Bilocale, Trilocale) e il livello di pulizia che ti serve.</p>
+            <h3 data-i18n="ablauf_step1_title">Wähle deine Wohnung und Extras</h3>
+            <p data-i18n="ablauf_step1_text">Du gibst uns die Postleitzahl, den Wohnungstyp (Studio, 2-Zimmer-Wohnung, 3-Zimmer-Wohnung) und das gewünschte Reinigungsniveau an.</p>
             <ul>
-              <li>Standard, Deep Clean, Move-in o Move-out</li>
-              <li>Extra opzionali: forno, frigo, finestre, stiro e altro</li>
-              <li>Prezzo calcolato in tempo reale, nessuna sorpresa dopo</li>
+              <li data-i18n="ablauf_step1_li1">Standard, Deep Clean, Move-in oder Move-out</li>
+              <li data-i18n="ablauf_step1_li2">Optionale Extras: Backofen, Kühlschrank, Fenster, Bügeln und mehr</li>
+              <li data-i18n="ablauf_step1_li3">Preis wird in Echtzeit berechnet, keine Überraschungen danach</li>
             </ul>
           </div>
         </div>
@@ -73,14 +80,14 @@
           <div class="step-num-v2">02</div>
           <div class="step-photo-v2">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=600&q=80&auto=format&fit=crop" alt="Mano che seleziona una data sul calendario">
+            <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=1400&q=85&auto=format&fit=crop" alt="Mano che seleziona una data sul calendario">
           </div>
           <div class="step-text-v2">
-            <h3>Scegli data e orario</h3>
-            <p>Indichi quando preferisci la pulizia. Confermiamo la disponibilità entro poche ore via WhatsApp o email.</p>
+            <h3 data-i18n="ablauf_step2_title">Wähle Datum und Uhrzeit</h3>
+            <p data-i18n="ablauf_step2_text">Du gibst an, wann dir die Reinigung am besten passt. Wir bestätigen die Verfügbarkeit innerhalb weniger Stunden per WhatsApp oder E-Mail.</p>
             <ul>
-              <li>Richieste urgenti: risposta garantita entro 3 ore</li>
-              <li>Flessibilità su orari mattutini, pomeridiani o serali</li>
+              <li data-i18n="ablauf_step2_li1">Dringende Anfragen: garantierte Antwort innerhalb von 3 Stunden</li>
+              <li data-i18n="ablauf_step2_li2">Flexibel bei Vormittags-, Nachmittags- oder Abendterminen</li>
             </ul>
           </div>
         </div>
@@ -89,14 +96,14 @@
           <div class="step-num-v2">03</div>
           <div class="step-photo-v2">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1758272421751-963195322eaa?w=600&q=80&auto=format&fit=crop" alt="Cleaner al lavoro in una casa luminosa">
+            <img src="https://images.unsplash.com/photo-1758272421751-963195322eaa?w=1400&q=85&auto=format&fit=crop" alt="Cleaner al lavoro in una casa luminosa">
           </div>
           <div class="step-text-v2">
-            <h3>Il tuo cleaner arriva</h3>
-            <p>Un professionista verificato arriva puntuale, con tutto il necessario (o usa i tuoi prodotti, se preferisci).</p>
+            <h3 data-i18n="ablauf_step3_title">Deine Reinigungskraft kommt vorbei</h3>
+            <p data-i18n="ablauf_step3_text">Eine geprüfte Fachkraft kommt pünktlich vorbei, mit allem Nötigen (oder nutzt deine eigenen Produkte, wenn du das lieber möchtest).</p>
             <ul>
-              <li>Nessuna carta salvata in anticipo</li>
-              <li>Comunicazione diretta via WhatsApp in caso di dubbi</li>
+              <li data-i18n="ablauf_step3_li1">Keine Kartendaten im Voraus hinterlegt</li>
+              <li data-i18n="ablauf_step3_li2">Direkte Kommunikation per WhatsApp bei Fragen</li>
             </ul>
           </div>
         </div>
@@ -105,14 +112,14 @@
           <div class="step-num-v2">04</div>
           <div class="step-photo-v2">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?w=600&q=80&auto=format&fit=crop" alt="Smartphone con link di pagamento">
+            <img src="https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?w=1400&q=85&auto=format&fit=crop" alt="Smartphone con link di pagamento">
           </div>
           <div class="step-text-v2">
-            <h3>Paghi solo a fine servizio</h3>
-            <p>Ricevi un link di pagamento sicuro (Stripe) via WhatsApp solo dopo che il lavoro è concluso e sei soddisfatto/a.</p>
+            <h3 data-i18n="ablauf_step4_title">Du zahlst erst nach Abschluss des Services</h3>
+            <p data-i18n="ablauf_step4_text">Du erhältst einen sicheren Zahlungslink (Stripe) per WhatsApp – erst, wenn die Arbeit erledigt ist und du zufrieden bist.</p>
             <ul>
-              <li>Nessun abbonamento obbligato</li>
-              <li>Nessun costo nascosto rispetto al preventivo iniziale</li>
+              <li data-i18n="ablauf_step4_li1">Kein Abo-Zwang</li>
+              <li data-i18n="ablauf_step4_li2">Keine versteckten Kosten gegenüber dem ursprünglichen Angebot</li>
             </ul>
           </div>
         </div>
@@ -120,9 +127,9 @@
       </div>
 
       <div class="faq-teaser">
-        <h3>Altre domande?</h3>
-        <p>Cancellazioni, prodotti, assicurazione — trovi tutto nelle domande frequenti.</p>
-        <a href="/faq.html" class="btn-outline">Vai alle FAQ</a>
+        <h3 data-i18n="ablauf_faq_h3">Noch Fragen?</h3>
+        <p data-i18n="ablauf_faq_p">Stornierungen, Produkte, Versicherung — alles findest du in den häufigen Fragen.</p>
+        <a href="/faq.html" class="btn-outline" data-i18n="ablauf_faq_cta">Zu den FAQ</a>
       </div>
     </div>
   </section>
@@ -137,45 +144,132 @@
           <img src="/logo-icon.png" alt="Splendo" class="footer-logo-icon">
           <div class="logo-word">Splendo</div>
         </div>
-        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <p data-i18n="footer_brand_tagline">Wohnungsreinigung in Berlin, mit Sorgfalt gemacht. Ein persönlicher Service, kein anonymer Marktplatz.</p>
       </div>
       <div class="footer-v2-cols">
         <div class="footer-v2-col">
-          <h4>Naviga</h4>
-          <a href="/ablauf.html">Come funziona</a>
-          <a href="/preise.html">Prezzi</a>
-          <a href="/ueber-uns.html">Chi siamo</a>
-          <a href="/team.html">Team</a>
+          <h4 data-i18n="footer_col_naviga">Navigation</h4>
+          <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+          <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+          <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+          <a href="/team.html" data-i18n="nav_team">Team</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Assistenza</h4>
-          <a href="/kontakt.html">Contatti</a>
+          <h4 data-i18n="footer_col_assistenza">Support</h4>
+          <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
           <a href="https://wa.me/491758990050" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="/faq.html">Domande frequenti</a>
+          <a href="/faq.html" data-i18n="footer_faq">Häufige Fragen</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Legale</h4>
-          <a href="/impressum.html">Impressum</a>
-          <a href="/datenschutz.html">Datenschutz</a>
-          <a href="/agb.html">AGB</a>
+          <h4 data-i18n="footer_col_legale">Rechtliches</h4>
+          <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+          <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+          <a href="/agb.html" data-i18n="footer_agb">AGB</a>
         </div>
       </div>
     </div>
     <div class="footer-v2-bottom">
       <div>© 2026 Splendo — admin@splendo.eu</div>
       <div>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/agb.html">AGB</a>
+        <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+        <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+        <a href="/agb.html" data-i18n="footer_agb">AGB</a>
       </div>
     </div>
   </div>
 </footer>
-<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp_float_label" aria-label="Kontaktiere uns auf WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
 
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    ablauf_meta_title: "So funktioniert's — Splendo",
+    ablauf_meta_description: "So funktioniert Splendo: von der Buchung bis zur Zahlung, jeder Schritt im Detail erklärt.",
+    ablauf_breadcrumb_home: "Startseite",
+    ablauf_hero_h1: "So funktioniert Splendo",
+    ablauf_hero_p: "Von der Buchung bis zur Zahlung – jeder Schritt im Detail erklärt.",
+    ablauf_step1_title: "Wähle deine Wohnung und Extras",
+    ablauf_step1_text: "Du gibst uns die Postleitzahl, den Wohnungstyp (Studio, 2-Zimmer-Wohnung, 3-Zimmer-Wohnung) und das gewünschte Reinigungsniveau an.",
+    ablauf_step1_li1: "Standard, Deep Clean, Move-in oder Move-out",
+    ablauf_step1_li2: "Optionale Extras: Backofen, Kühlschrank, Fenster, Bügeln und mehr",
+    ablauf_step1_li3: "Preis wird in Echtzeit berechnet, keine Überraschungen danach",
+    ablauf_step2_title: "Wähle Datum und Uhrzeit",
+    ablauf_step2_text: "Du gibst an, wann dir die Reinigung am besten passt. Wir bestätigen die Verfügbarkeit innerhalb weniger Stunden per WhatsApp oder E-Mail.",
+    ablauf_step2_li1: "Dringende Anfragen: garantierte Antwort innerhalb von 3 Stunden",
+    ablauf_step2_li2: "Flexibel bei Vormittags-, Nachmittags- oder Abendterminen",
+    ablauf_step3_title: "Deine Reinigungskraft kommt vorbei",
+    ablauf_step3_text: "Eine geprüfte Fachkraft kommt pünktlich vorbei, mit allem Nötigen (oder nutzt deine eigenen Produkte, wenn du das lieber möchtest).",
+    ablauf_step3_li1: "Keine Kartendaten im Voraus hinterlegt",
+    ablauf_step3_li2: "Direkte Kommunikation per WhatsApp bei Fragen",
+    ablauf_step4_title: "Du zahlst erst nach Abschluss des Services",
+    ablauf_step4_text: "Du erhältst einen sicheren Zahlungslink (Stripe) per WhatsApp – erst, wenn die Arbeit erledigt ist und du zufrieden bist.",
+    ablauf_step4_li1: "Kein Abo-Zwang",
+    ablauf_step4_li2: "Keine versteckten Kosten gegenüber dem ursprünglichen Angebot",
+    ablauf_faq_h3: "Noch Fragen?",
+    ablauf_faq_p: "Stornierungen, Produkte, Versicherung — alles findest du in den häufigen Fragen.",
+    ablauf_faq_cta: "Zu den FAQ"
+  },
+  en: {
+    ablauf_meta_title: "How it works — Splendo",
+    ablauf_meta_description: "How Splendo works: from booking to payment, every step explained in detail.",
+    ablauf_breadcrumb_home: "Home",
+    ablauf_hero_h1: "How Splendo works",
+    ablauf_hero_p: "From booking to payment, every step explained in detail.",
+    ablauf_step1_title: "Choose your home and extras",
+    ablauf_step1_text: "Tell us your postcode, apartment type (studio, 1-bedroom, 2-bedroom) and the cleaning level you need.",
+    ablauf_step1_li1: "Standard, Deep Clean, Move-in or Move-out",
+    ablauf_step1_li2: "Optional extras: oven, fridge, windows, ironing and more",
+    ablauf_step1_li3: "Price calculated in real time, no surprises afterwards",
+    ablauf_step2_title: "Pick a date and time",
+    ablauf_step2_text: "Tell us when you'd like the cleaning. We confirm availability within a few hours via WhatsApp or email.",
+    ablauf_step2_li1: "Urgent requests: guaranteed response within 3 hours",
+    ablauf_step2_li2: "Flexible on morning, afternoon or evening time slots",
+    ablauf_step3_title: "Your cleaner arrives",
+    ablauf_step3_text: "A vetted professional arrives on time, with everything needed (or uses your own products, if you prefer).",
+    ablauf_step3_li1: "No card saved in advance",
+    ablauf_step3_li2: "Direct communication via WhatsApp if you have questions",
+    ablauf_step4_title: "You only pay once the service is done",
+    ablauf_step4_text: "You receive a secure payment link (Stripe) via WhatsApp only after the job is done and you're happy with it.",
+    ablauf_step4_li1: "No forced subscription",
+    ablauf_step4_li2: "No hidden costs compared to the initial quote",
+    ablauf_faq_h3: "More questions?",
+    ablauf_faq_p: "Cancellations, products, insurance — you'll find it all in our FAQ.",
+    ablauf_faq_cta: "Go to FAQ"
+  },
+  it: {
+    ablauf_meta_title: "Come funziona — Splendo",
+    ablauf_meta_description: "Come funziona Splendo: dalla prenotazione al pagamento, ogni passaggio spiegato nel dettaglio.",
+    ablauf_breadcrumb_home: "Home",
+    ablauf_hero_h1: "Come funziona Splendo",
+    ablauf_hero_p: "Dalla prenotazione al pagamento, ogni passaggio spiegato nel dettaglio.",
+    ablauf_step1_title: "Scegli casa tua ed extra",
+    ablauf_step1_text: "Ci dici il CAP, il tipo di appartamento (Studio, Bilocale, Trilocale) e il livello di pulizia che ti serve.",
+    ablauf_step1_li1: "Standard, Deep Clean, Move-in o Move-out",
+    ablauf_step1_li2: "Extra opzionali: forno, frigo, finestre, stiro e altro",
+    ablauf_step1_li3: "Prezzo calcolato in tempo reale, nessuna sorpresa dopo",
+    ablauf_step2_title: "Scegli data e orario",
+    ablauf_step2_text: "Indichi quando preferisci la pulizia. Confermiamo la disponibilità entro poche ore via WhatsApp o email.",
+    ablauf_step2_li1: "Richieste urgenti: risposta garantita entro 3 ore",
+    ablauf_step2_li2: "Flessibilità su orari mattutini, pomeridiani o serali",
+    ablauf_step3_title: "Il tuo cleaner arriva",
+    ablauf_step3_text: "Un professionista verificato arriva puntuale, con tutto il necessario (o usa i tuoi prodotti, se preferisci).",
+    ablauf_step3_li1: "Nessuna carta salvata in anticipo",
+    ablauf_step3_li2: "Comunicazione diretta via WhatsApp in caso di dubbi",
+    ablauf_step4_title: "Paghi solo a fine servizio",
+    ablauf_step4_text: "Ricevi un link di pagamento sicuro (Stripe) via WhatsApp solo dopo che il lavoro è concluso e sei soddisfatto/a.",
+    ablauf_step4_li1: "Nessun abbonamento obbligato",
+    ablauf_step4_li2: "Nessun costo nascosto rispetto al preventivo iniziale",
+    ablauf_faq_h3: "Altre domande?",
+    ablauf_faq_p: "Cancellazioni, prodotti, assicurazione — trovi tutto nelle domande frequenti.",
+    ablauf_faq_cta: "Vai alle FAQ"
+  }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Splendo — Pulizie di casa a Berlino</title>
-<meta name="description" content="Splendo: pulizie di casa a Berlino. Personale verificato, prezzo fisso, contatto diretto. Prenota online in due minuti.">
+<title data-i18n-content="home_meta_title">Splendo — Wohnungsreinigung in Berlin</title>
+<meta name="description" data-i18n-content="home_meta_description" content="Splendo: Wohnungsreinigung in Berlin. Geprüftes Personal, Festpreis, direkter Kontakt. Jetzt online in zwei Minuten buchen.">
 <link rel="canonical" href="https://splendo.eu/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/">
-<meta property="og:title" content="Splendo — Pulizie di casa a Berlino">
-<meta property="og:description" content="Splendo: pulizie di casa a Berlino. Personale verificato, prezzo fisso, contatto diretto. Prenota online in due minuti.">
+<meta property="og:title" data-i18n-content="home_meta_title" content="Splendo — Wohnungsreinigung in Berlin">
+<meta property="og:description" data-i18n-content="home_meta_description" content="Splendo: Wohnungsreinigung in Berlin. Geprüftes Personal, Festpreis, direkter Kontakt. Jetzt online in zwei Minuten buchen.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,14 +57,21 @@
       <span>Splendo</span>
     </a>
     <nav class="main-nav">
-      <a href="/ablauf.html">Come funziona</a>
-      <a href="/preise.html">Prezzi</a>
-      <a href="/ueber-uns.html">Chi siamo</a>
-      <a href="/team.html">Team</a>
-      <a href="/faq.html">FAQ</a>
-      <a href="/kontakt.html">Contatti</a>
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/team.html" data-i18n="nav_team">Team</a>
+      <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
     </nav>
-    <a href="/buchen.html" class="btn btn-gold btn-nav">Prenota ora</a>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
   </div>
 </header>
 
@@ -74,32 +81,32 @@
   <section class="hero-v2">
     <div class="hero-v2-diagonal">
       <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-      <img src="https://images.unsplash.com/photo-1758273705627-937374bfa978?w=1200&q=80&auto=format&fit=crop" alt="Persona che pulisce una casa luminosa">
+      <img src="https://images.unsplash.com/photo-1758273705627-937374bfa978?w=2000&q=85&auto=format&fit=crop" alt="Persona che pulisce una casa luminosa">
     </div>
     <div class="wrap hero-v2-content">
       <div class="hero-v2-inner">
-        <h1>Prenota le tue pulizie di casa a Berlino</h1>
+        <h1 data-i18n="home_hero_h1">Buche deine Wohnungsreinigung in Berlin</h1>
 
         <div class="checks-v2">
-          <div class="check-v2-item"><div class="check-v2-icon">✓</div> Personale esperto e verificato</div>
-          <div class="check-v2-item"><div class="check-v2-icon">✓</div> Prezzo fisso, nessuna sorpresa</div>
-          <div class="check-v2-item"><div class="check-v2-icon">✓</div> Contatto diretto, non un bot</div>
+          <div class="check-v2-item"><div class="check-v2-icon">✓</div> <span data-i18n="home_check1">Erfahrenes und geprüftes Personal</span></div>
+          <div class="check-v2-item"><div class="check-v2-icon">✓</div> <span data-i18n="home_check2">Festpreis, keine Überraschungen</span></div>
+          <div class="check-v2-item"><div class="check-v2-icon">✓</div> <span data-i18n="home_check3">Direkter Kontakt, kein Bot</span></div>
         </div>
 
         <div class="quickstart">
-          <select class="qs-select" id="qs-type" aria-label="Tipo di pulizia">
-            <option>Pulizia casa</option>
-            <option>Pulizia ufficio</option>
+          <select class="qs-select" id="qs-type" data-i18n-aria-label="home_qs_type_aria" aria-label="Art der Reinigung">
+            <option data-i18n="home_qs_type_casa">Wohnungsreinigung</option>
+            <option data-i18n="home_qs_type_ufficio">Büroreinigung</option>
           </select>
-          <input class="qs-input" id="qs-plz" placeholder="Il tuo CAP" aria-label="Il tuo CAP" inputmode="numeric" maxlength="5">
-          <button class="qs-btn" id="qs-btn" type="button">Vai al preventivo →</button>
-          <p class="plz-error" id="qs-plz-error">Inserisci un CAP di Berlino valido (10115–14199).</p>
+          <input class="qs-input" id="qs-plz" data-i18n-placeholder="home_qs_plz_placeholder" placeholder="Deine Postleitzahl" data-i18n-aria-label="home_qs_plz_placeholder" aria-label="Deine Postleitzahl" inputmode="numeric" maxlength="5">
+          <button class="qs-btn" id="qs-btn" type="button" data-i18n="home_qs_btn">Zum Angebot →</button>
+          <p class="plz-error" id="qs-plz-error" data-i18n="home_qs_error">Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).</p>
         </div>
 
         <div class="reviews-note-v2">
           <span class="reviews-stars-v2" aria-hidden="true">★★★★★</span>
           <span class="reviews-score-v2">4.92/5</span>
-          <span class="reviews-count-v2">su 2.473 recensioni</span>
+          <span class="reviews-count-v2" data-i18n="home_reviews_count">aus 2.473 Bewertungen</span>
         </div>
       </div>
     </div>
@@ -108,61 +115,61 @@
   <!-- COME FUNZIONA (anteprima) -->
   <section class="section">
     <div class="wrap">
-      <h2 class="section-title">Come funziona</h2>
+      <h2 class="section-title" data-i18n="home_how_h2">So funktioniert's</h2>
       <div class="steps-v2">
         <article class="step-v2">
           <div class="step-v2-photo">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1649083048337-4aeb6dda80bb?w=600&q=80&auto=format&fit=crop" alt="Casa luminosa e ordinata">
+            <img src="https://images.unsplash.com/photo-1649083048337-4aeb6dda80bb?w=1400&q=85&auto=format&fit=crop" alt="Casa luminosa e ordinata">
           </div>
-          <h3>Scegli casa tua ed extra</h3>
-          <p>Ci dici il CAP, il tipo di appartamento e il livello di pulizia che ti serve.</p>
+          <h3 data-i18n="home_step1_title">Wähle deine Wohnung und Extras</h3>
+          <p data-i18n="home_step1_text">Du gibst uns die PLZ, den Wohnungstyp und das gewünschte Reinigungsniveau an.</p>
           <span class="step-v2-arrow" aria-hidden="true">→</span>
         </article>
         <article class="step-v2">
           <div class="step-v2-photo">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=600&q=80&auto=format&fit=crop" alt="Mano che seleziona una data sul calendario">
+            <img src="https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=1400&q=85&auto=format&fit=crop" alt="Mano che seleziona una data sul calendario">
           </div>
-          <h3>Scegli data e orario</h3>
-          <p>Confermiamo la disponibilità entro poche ore, via WhatsApp.</p>
+          <h3 data-i18n="home_step2_title">Wähle Datum und Uhrzeit</h3>
+          <p data-i18n="home_step2_text">Wir bestätigen die Verfügbarkeit innerhalb weniger Stunden per WhatsApp.</p>
           <span class="step-v2-arrow" aria-hidden="true">→</span>
         </article>
         <article class="step-v2">
           <div class="step-v2-photo">
             <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-            <img src="https://images.unsplash.com/photo-1758272421751-963195322eaa?w=600&q=80&auto=format&fit=crop" alt="Cleaner al lavoro in una casa pulita">
+            <img src="https://images.unsplash.com/photo-1758272421751-963195322eaa?w=1400&q=85&auto=format&fit=crop" alt="Cleaner al lavoro in una casa pulita">
           </div>
-          <h3>Il tuo cleaner arriva</h3>
-          <p>Paghi solo a fine servizio, con un link sicuro.</p>
+          <h3 data-i18n="home_step3_title">Deine Reinigungskraft kommt</h3>
+          <p data-i18n="home_step3_text">Du zahlst erst nach Abschluss des Services, per sicherem Link.</p>
         </article>
       </div>
-      <p class="price-cta"><a href="/ablauf.html">Vedi come funziona nel dettaglio →</a></p>
+      <p class="price-cta"><a href="/ablauf.html" data-i18n="home_steps_cta">Alle Details ansehen →</a></p>
     </div>
   </section>
 
   <!-- PREZZI (anteprima) -->
   <section class="section section-tint">
     <div class="wrap">
-      <h2 class="section-title">Prezzi chiari, nessuna sorpresa</h2>
+      <h2 class="section-title" data-i18n="home_prices_h2">Klare Preise, keine Überraschungen</h2>
       <div class="price-cards">
         <article class="price-card">
-          <h3>Studio</h3>
+          <h3 data-i18n="home_price_studio">Studio</h3>
           <p class="price">79€</p>
-          <p class="price-note">Pulizia standard, una tantum</p>
+          <p class="price-note" data-i18n="home_price_note">Standardreinigung, einmalig</p>
         </article>
         <article class="price-card price-card-featured">
-          <h3>Bilocale</h3>
+          <h3 data-i18n="home_price_bilocale">2-Zimmer-Wohnung</h3>
           <p class="price">99€</p>
-          <p class="price-note">Pulizia standard, una tantum</p>
+          <p class="price-note" data-i18n="home_price_note">Standardreinigung, einmalig</p>
         </article>
         <article class="price-card">
-          <h3>Trilocale</h3>
+          <h3 data-i18n="home_price_trilocale">3-Zimmer-Wohnung</h3>
           <p class="price">129€</p>
-          <p class="price-note">Pulizia standard, una tantum</p>
+          <p class="price-note" data-i18n="home_price_note">Standardreinigung, einmalig</p>
         </article>
       </div>
-      <p class="price-cta"><a href="/preise.html">Vedi tutti i prezzi e i livelli di servizio →</a></p>
+      <p class="price-cta"><a href="/preise.html" data-i18n="home_prices_cta">Alle Preise und Reinigungsstufen ansehen →</a></p>
     </div>
   </section>
 
@@ -170,29 +177,35 @@
   <section class="why-v2">
     <div class="wrap why-v2-inner">
       <div class="why-v2-text">
-        <p class="eyebrow" style="color:var(--gold);">La differenza è nel dettaglio</p>
-        <h2>Non un'app anonima.<br>Una persona di fiducia.</h2>
-        <p>Con Splendo lavoriamo per farti ritrovare, quando possibile, sempre lo stesso professionista che conosce già casa tua. Se qualcosa non va, scrivi direttamente a chi risponde — non a un centralino automatico.</p>
+        <p class="eyebrow" style="color:var(--gold);" data-i18n="home_why_eyebrow">Der Unterschied steckt im Detail</p>
+        <h2 data-i18n-html="home_why_h2">Keine anonyme App.<br>Eine Person deines Vertrauens.</h2>
+        <p data-i18n="home_why_p">Bei Splendo arbeiten wir darauf hin, dass du – wann immer möglich – immer dieselbe Fachkraft bekommst, die deine Wohnung schon kennt. Wenn etwas nicht passt, schreibst du direkt der Person, die dir antwortet – nicht an eine automatische Zentrale.</p>
 
         <div class="why-v2-list">
           <div class="why-v2-item">
             <div class="why-v2-icon">✓</div>
-            <div class="why-v2-item-text"><strong>Risposta diretta su WhatsApp</strong><span>Parli con una persona reale, non un bot</span></div>
+            <div class="why-v2-item-text" data-i18n-html="home_why_item1">
+              <strong>Direkte Antwort auf WhatsApp</strong><span>Du sprichst mit einer echten Person, keinem Bot</span>
+            </div>
           </div>
           <div class="why-v2-item">
             <div class="why-v2-icon">✓</div>
-            <div class="why-v2-item-text"><strong>Assicurazione RC professionale attiva</strong><span>Copertura in caso di imprevisti</span></div>
+            <div class="why-v2-item-text" data-i18n-html="home_why_item2">
+              <strong>Aktive Betriebshaftpflichtversicherung</strong><span>Absicherung bei unerwarteten Vorfällen</span>
+            </div>
           </div>
           <div class="why-v2-item">
             <div class="why-v2-icon">✓</div>
-            <div class="why-v2-item-text"><strong>Zero impegno</strong><span>Prenoti solo quando ti serve, nessun abbonamento obbligato</span></div>
+            <div class="why-v2-item-text" data-i18n-html="home_why_item3">
+              <strong>Keine Verpflichtung</strong><span>Du buchst nur, wenn du es brauchst – kein Abo-Zwang</span>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="why-v2-photo">
         <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-        <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=800&q=80&auto=format&fit=crop" alt="Dettaglio di una casa curata e luminosa">
+        <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=1600&q=85&auto=format&fit=crop" alt="Dettaglio di una casa curata e luminosa">
       </div>
     </div>
   </section>
@@ -201,28 +214,28 @@
   <section class="section">
     <div class="wrap">
       <div class="section-head" style="text-align:center; max-width:560px; margin:0 auto 50px;">
-        <p class="eyebrow" style="color:var(--gold); text-align:center;">Dove operiamo</p>
-        <h2 class="section-title" style="text-align:center;">Serviamo tutta Berlino</h2>
-        <p style="color:#667; font-size:0.95rem; margin-top:10px;">Da Spandau a Köpenick, da Charlottenburg a Prenzlauer Berg — nessun quartiere escluso.</p>
+        <p class="eyebrow" style="color:var(--gold); text-align:center;" data-i18n="home_zones_eyebrow">Wo wir tätig sind</p>
+        <h2 class="section-title" style="text-align:center;" data-i18n="home_zones_h2">Wir sind in ganz Berlin für dich da</h2>
+        <p style="color:#667; font-size:0.95rem; margin-top:10px;" data-i18n="home_zones_p">Von Spandau bis Köpenick, von Charlottenburg bis Prenzlauer Berg — kein Bezirk ausgeschlossen.</p>
       </div>
 
       <div class="map-layout-v2">
         <div class="map-box-v2">
-          <span class="map-coverage-badge-v2">📍 Copriamo tutta Berlino</span>
+          <span class="map-coverage-badge-v2" data-i18n="home_map_badge">📍 Wir decken ganz Berlin ab</span>
           <iframe src="https://www.google.com/maps?q=Berlin,Germany&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa di Berlino — area servita da Splendo"></iframe>
         </div>
         <div class="legend-v2">
           <div class="legend-v2-item">
             <div class="legend-v2-dot"></div>
-            <div><strong>Copertura completa</strong><span>Tutti i 12 Bezirke di Berlino</span></div>
+            <div data-i18n-html="home_legend1"><strong>Vollständige Abdeckung</strong><span>Alle 12 Berliner Bezirke</span></div>
           </div>
           <div class="legend-v2-item">
             <div class="legend-v2-dot"></div>
-            <div><strong>Stesso prezzo ovunque</strong><span>Nessun sovrapprezzo per zona periferica</span></div>
+            <div data-i18n-html="home_legend2"><strong>Gleicher Preis überall</strong><span>Kein Aufpreis für Randbezirke</span></div>
           </div>
           <div class="legend-v2-item">
             <div class="legend-v2-dot"></div>
-            <div><strong>Tempi di risposta rapidi</strong><span>Ovunque tu sia in città</span></div>
+            <div data-i18n-html="home_legend3"><strong>Schnelle Reaktionszeiten</strong><span>Egal, wo in der Stadt du bist</span></div>
           </div>
         </div>
       </div>
@@ -235,19 +248,19 @@
       <div class="job-card">
         <div class="job-photo">
           <!-- PLACEHOLDER: sostituire con foto reale Splendo -->
-          <img src="https://images.unsplash.com/photo-1758273238415-01ec03d9ef27?w=700&q=80&auto=format&fit=crop" alt="Cleaner al lavoro, sorridente">
+          <img src="https://images.unsplash.com/photo-1758273238415-01ec03d9ef27?w=1400&q=85&auto=format&fit=crop" alt="Cleaner al lavoro, sorridente">
         </div>
         <div class="job-content">
-          <p class="eyebrow" style="color:var(--gold);">Cerchiamo sempre nuovi talenti</p>
-          <h2>Cerchi un lavoro stabile e ben retribuito a Berlino?</h2>
-          <p>Selezioniamo solo professionisti delle pulizie esperti e affidabili — offriamo condizioni chiare, senza sorprese.</p>
+          <p class="eyebrow" style="color:var(--gold);" data-i18n="home_jobs_eyebrow">Wir suchen immer neue Talente</p>
+          <h2 data-i18n="home_jobs_h2">Suchst du einen stabilen, gut bezahlten Job in Berlin?</h2>
+          <p data-i18n="home_jobs_p">Wir wählen nur erfahrene und zuverlässige Reinigungsprofis aus — mit klaren Konditionen, ohne Überraschungen.</p>
           <div class="job-list">
-            <div class="job-item"><div class="job-icon">✓</div><span>Contratto trasparente, come Subunternehmer indipendente</span></div>
-            <div class="job-item"><div class="job-icon">✓</div><span>Pagamento puntuale ed equo</span></div>
-            <div class="job-item"><div class="job-icon">✓</div><span>Selezione basata su esperienza reale, non solo disponibilità</span></div>
-            <div class="job-item"><div class="job-icon">✓</div><span>Orari flessibili, decidi tu la tua disponibilità</span></div>
+            <div class="job-item"><div class="job-icon">✓</div><span data-i18n="home_jobs_item1">Transparenter Vertrag, als unabhängiger Subunternehmer</span></div>
+            <div class="job-item"><div class="job-icon">✓</div><span data-i18n="home_jobs_item2">Pünktliche und faire Bezahlung</span></div>
+            <div class="job-item"><div class="job-icon">✓</div><span data-i18n="home_jobs_item3">Auswahl nach echter Erfahrung, nicht nur Verfügbarkeit</span></div>
+            <div class="job-item"><div class="job-icon">✓</div><span data-i18n="home_jobs_item4">Flexible Zeiten, du entscheidest über deine Verfügbarkeit</span></div>
           </div>
-          <a href="mailto:admin@splendo.eu?subject=Candidatura%20Cleaner%20Splendo" class="btn btn-gold">Candidati ora</a>
+          <a href="mailto:admin@splendo.eu?subject=Candidatura%20Cleaner%20Splendo" class="btn btn-gold" data-i18n="home_jobs_cta">Jetzt bewerben</a>
         </div>
       </div>
     </div>
@@ -256,17 +269,17 @@
   <!-- CTA FINALE -->
   <section class="cta-glow">
     <div class="wrap cta-glow-inner">
-      <p class="eyebrow" style="color:var(--gold-soft); text-align:center;">Pronto quando lo sei tu</p>
-      <h2>Pronta/o a riprenderti il sabato mattina?</h2>
-      <p>Ottima qualità a un prezzo giusto. Prenota in due minuti, scegli data e orario, e pensa ad altro. Al resto ci pensiamo noi.</p>
+      <p class="eyebrow" style="color:var(--gold-soft); text-align:center;" data-i18n="home_cta_eyebrow">Bereit, wenn du es bist</p>
+      <h2 data-i18n="home_cta_h2">Bereit, dir den Samstagmorgen zurückzuholen?</h2>
+      <p data-i18n="home_cta_p">Top-Qualität zum fairen Preis. Buche in zwei Minuten, wähle Datum und Uhrzeit — um den Rest kümmern wir uns.</p>
       <div class="cta-glow-buttons">
-        <a href="/buchen.html" class="btn btn-gold btn-lg">Prenota la tua pulizia</a>
-        <a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="btn btn-ghost btn-lg" style="color:white; border-color:rgba(255,255,255,0.4);">Scrivici su WhatsApp</a>
+        <a href="/buchen.html" class="btn btn-gold btn-lg" data-i18n="home_cta_btn1">Reinigung buchen</a>
+        <a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="btn btn-ghost btn-lg" style="color:white; border-color:rgba(255,255,255,0.4);" data-i18n="home_cta_btn2">Schreib uns auf WhatsApp</a>
       </div>
       <div class="trust-row-v2">
-        <span>✓ Nessun impegno a lungo termine</span>
-        <span>✓ Paghi solo a servizio concluso</span>
-        <span>✓ Assicurazione RC attiva</span>
+        <span data-i18n="home_trust1">✓ Keine langfristige Verpflichtung</span>
+        <span data-i18n="home_trust2">✓ Zahlung erst nach Abschluss</span>
+        <span data-i18n="home_trust3">✓ Aktive Haftpflichtversicherung</span>
       </div>
     </div>
   </section>
@@ -281,46 +294,226 @@
           <img src="/logo-icon.png" alt="Splendo" class="footer-logo-icon">
           <div class="logo-word">Splendo</div>
         </div>
-        <p>Pulizie di casa a Berlino, fatte con cura. Un servizio personale, non un marketplace anonimo.</p>
+        <p data-i18n="footer_brand_tagline">Wohnungsreinigung in Berlin, mit Sorgfalt gemacht. Ein persönlicher Service, kein anonymer Marktplatz.</p>
       </div>
       <div class="footer-v2-cols">
         <div class="footer-v2-col">
-          <h4>Naviga</h4>
-          <a href="/ablauf.html">Come funziona</a>
-          <a href="/preise.html">Prezzi</a>
-          <a href="/ueber-uns.html">Chi siamo</a>
-          <a href="/team.html">Team</a>
+          <h4 data-i18n="footer_col_naviga">Navigation</h4>
+          <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+          <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+          <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+          <a href="/team.html" data-i18n="nav_team">Team</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Assistenza</h4>
-          <a href="/kontakt.html">Contatti</a>
+          <h4 data-i18n="footer_col_assistenza">Support</h4>
+          <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
           <a href="https://wa.me/491758990050" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="/faq.html">Domande frequenti</a>
+          <a href="/faq.html" data-i18n="footer_faq">Häufige Fragen</a>
         </div>
         <div class="footer-v2-col">
-          <h4>Legale</h4>
-          <a href="/impressum.html">Impressum</a>
-          <a href="/datenschutz.html">Datenschutz</a>
-          <a href="/agb.html">AGB</a>
+          <h4 data-i18n="footer_col_legale">Rechtliches</h4>
+          <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+          <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+          <a href="/agb.html" data-i18n="footer_agb">AGB</a>
         </div>
       </div>
     </div>
     <div class="footer-v2-bottom">
       <div>© 2026 Splendo — admin@splendo.eu</div>
       <div>
-        <a href="/impressum.html">Impressum</a>
-        <a href="/datenschutz.html">Datenschutz</a>
-        <a href="/agb.html">AGB</a>
+        <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+        <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+        <a href="/agb.html" data-i18n="footer_agb">AGB</a>
       </div>
     </div>
   </div>
 </footer>
-<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contattaci su WhatsApp">
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp_float_label" aria-label="Kontaktiere uns auf WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
   </svg>
 </a>
 
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    home_meta_title: "Splendo — Wohnungsreinigung in Berlin",
+    home_meta_description: "Splendo: Wohnungsreinigung in Berlin. Geprüftes Personal, Festpreis, direkter Kontakt. Jetzt online in zwei Minuten buchen.",
+    home_hero_h1: "Buche deine Wohnungsreinigung in Berlin",
+    home_check1: "Erfahrenes und geprüftes Personal",
+    home_check2: "Festpreis, keine Überraschungen",
+    home_check3: "Direkter Kontakt, kein Bot",
+    home_qs_type_aria: "Art der Reinigung",
+    home_qs_type_casa: "Wohnungsreinigung",
+    home_qs_type_ufficio: "Büroreinigung",
+    home_qs_plz_placeholder: "Deine Postleitzahl",
+    home_qs_btn: "Zum Angebot →",
+    home_qs_error: "Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).",
+    home_reviews_count: "aus 2.473 Bewertungen",
+    home_how_h2: "So funktioniert's",
+    home_step1_title: "Wähle deine Wohnung und Extras",
+    home_step1_text: "Du gibst uns die PLZ, den Wohnungstyp und das gewünschte Reinigungsniveau an.",
+    home_step2_title: "Wähle Datum und Uhrzeit",
+    home_step2_text: "Wir bestätigen die Verfügbarkeit innerhalb weniger Stunden per WhatsApp.",
+    home_step3_title: "Deine Reinigungskraft kommt",
+    home_step3_text: "Du zahlst erst nach Abschluss des Services, per sicherem Link.",
+    home_steps_cta: "Alle Details ansehen →",
+    home_prices_h2: "Klare Preise, keine Überraschungen",
+    home_price_studio: "Studio",
+    home_price_note: "Standardreinigung, einmalig",
+    home_price_bilocale: "2-Zimmer-Wohnung",
+    home_price_trilocale: "3-Zimmer-Wohnung",
+    home_prices_cta: "Alle Preise und Reinigungsstufen ansehen →",
+    home_why_eyebrow: "Der Unterschied steckt im Detail",
+    home_why_h2: "Keine anonyme App.<br>Eine Person deines Vertrauens.",
+    home_why_p: "Bei Splendo arbeiten wir darauf hin, dass du – wann immer möglich – immer dieselbe Fachkraft bekommst, die deine Wohnung schon kennt. Wenn etwas nicht passt, schreibst du direkt der Person, die dir antwortet – nicht an eine automatische Zentrale.",
+    home_why_item1: "<strong>Direkte Antwort auf WhatsApp</strong><span>Du sprichst mit einer echten Person, keinem Bot</span>",
+    home_why_item2: "<strong>Aktive Betriebshaftpflichtversicherung</strong><span>Absicherung bei unerwarteten Vorfällen</span>",
+    home_why_item3: "<strong>Keine Verpflichtung</strong><span>Du buchst nur, wenn du es brauchst – kein Abo-Zwang</span>",
+    home_zones_eyebrow: "Wo wir tätig sind",
+    home_zones_h2: "Wir sind in ganz Berlin für dich da",
+    home_zones_p: "Von Spandau bis Köpenick, von Charlottenburg bis Prenzlauer Berg — kein Bezirk ausgeschlossen.",
+    home_map_badge: "📍 Wir decken ganz Berlin ab",
+    home_legend1: "<strong>Vollständige Abdeckung</strong><span>Alle 12 Berliner Bezirke</span>",
+    home_legend2: "<strong>Gleicher Preis überall</strong><span>Kein Aufpreis für Randbezirke</span>",
+    home_legend3: "<strong>Schnelle Reaktionszeiten</strong><span>Egal, wo in der Stadt du bist</span>",
+    home_jobs_eyebrow: "Wir suchen immer neue Talente",
+    home_jobs_h2: "Suchst du einen stabilen, gut bezahlten Job in Berlin?",
+    home_jobs_p: "Wir wählen nur erfahrene und zuverlässige Reinigungsprofis aus — mit klaren Konditionen, ohne Überraschungen.",
+    home_jobs_item1: "Transparenter Vertrag, als unabhängiger Subunternehmer",
+    home_jobs_item2: "Pünktliche und faire Bezahlung",
+    home_jobs_item3: "Auswahl nach echter Erfahrung, nicht nur Verfügbarkeit",
+    home_jobs_item4: "Flexible Zeiten, du entscheidest über deine Verfügbarkeit",
+    home_jobs_cta: "Jetzt bewerben",
+    home_cta_eyebrow: "Bereit, wenn du es bist",
+    home_cta_h2: "Bereit, dir den Samstagmorgen zurückzuholen?",
+    home_cta_p: "Top-Qualität zum fairen Preis. Buche in zwei Minuten, wähle Datum und Uhrzeit — um den Rest kümmern wir uns.",
+    home_cta_btn1: "Reinigung buchen",
+    home_cta_btn2: "Schreib uns auf WhatsApp",
+    home_trust1: "✓ Keine langfristige Verpflichtung",
+    home_trust2: "✓ Zahlung erst nach Abschluss",
+    home_trust3: "✓ Aktive Haftpflichtversicherung"
+  },
+  en: {
+    home_meta_title: "Splendo — Home Cleaning in Berlin",
+    home_meta_description: "Splendo: home cleaning in Berlin. Vetted staff, fixed price, direct contact. Book online in two minutes.",
+    home_hero_h1: "Book your home cleaning in Berlin",
+    home_check1: "Experienced, vetted staff",
+    home_check2: "Fixed price, no surprises",
+    home_check3: "Direct contact, not a bot",
+    home_qs_type_aria: "Type of cleaning",
+    home_qs_type_casa: "Home cleaning",
+    home_qs_type_ufficio: "Office cleaning",
+    home_qs_plz_placeholder: "Your postcode",
+    home_qs_btn: "Get your quote →",
+    home_qs_error: "Please enter a valid Berlin postcode (10115–14199).",
+    home_reviews_count: "from 2,473 reviews",
+    home_how_h2: "How it works",
+    home_step1_title: "Choose your home and extras",
+    home_step1_text: "Tell us your postcode, apartment type, and the cleaning level you need.",
+    home_step2_title: "Pick a date and time",
+    home_step2_text: "We confirm availability within a few hours via WhatsApp.",
+    home_step3_title: "Your cleaner arrives",
+    home_step3_text: "You only pay once the service is done, via a secure link.",
+    home_steps_cta: "See how it works in detail →",
+    home_prices_h2: "Clear pricing, no surprises",
+    home_price_studio: "Studio",
+    home_price_note: "Standard cleaning, one-off",
+    home_price_bilocale: "1-bedroom flat",
+    home_price_trilocale: "2-bedroom flat",
+    home_prices_cta: "See all prices and service levels →",
+    home_why_eyebrow: "The difference is in the details",
+    home_why_h2: "Not an anonymous app.<br>A person you can trust.",
+    home_why_p: "At Splendo we work to make sure you get, whenever possible, the same professional who already knows your home. If something's not right, you write directly to the person who answers — not to an automated call centre.",
+    home_why_item1: "<strong>Direct replies on WhatsApp</strong><span>You talk to a real person, not a bot</span>",
+    home_why_item2: "<strong>Active professional liability insurance</strong><span>Covered in case anything goes wrong</span>",
+    home_why_item3: "<strong>Zero commitment</strong><span>Book only when you need it, no forced subscription</span>",
+    home_zones_eyebrow: "Where we operate",
+    home_zones_h2: "We cover all of Berlin",
+    home_zones_p: "From Spandau to Köpenick, from Charlottenburg to Prenzlauer Berg — no district left out.",
+    home_map_badge: "📍 We cover all of Berlin",
+    home_legend1: "<strong>Full coverage</strong><span>All 12 Berlin boroughs</span>",
+    home_legend2: "<strong>Same price everywhere</strong><span>No surcharge for outer districts</span>",
+    home_legend3: "<strong>Fast response times</strong><span>Wherever you are in the city</span>",
+    home_jobs_eyebrow: "Always looking for new talent",
+    home_jobs_h2: "Looking for stable, well-paid work in Berlin?",
+    home_jobs_p: "We only select experienced, reliable cleaning professionals — clear terms, no surprises.",
+    home_jobs_item1: "Transparent contract, as an independent subcontractor",
+    home_jobs_item2: "Punctual, fair pay",
+    home_jobs_item3: "Selected on real experience, not just availability",
+    home_jobs_item4: "Flexible hours, you decide your availability",
+    home_jobs_cta: "Apply now",
+    home_cta_eyebrow: "Ready when you are",
+    home_cta_h2: "Ready to get your Saturday morning back?",
+    home_cta_p: "Great quality at a fair price. Book in two minutes, choose date and time, and think about something else. We'll take care of the rest.",
+    home_cta_btn1: "Book your cleaning",
+    home_cta_btn2: "Message us on WhatsApp",
+    home_trust1: "✓ No long-term commitment",
+    home_trust2: "✓ Pay only once the job is done",
+    home_trust3: "✓ Active liability insurance"
+  },
+  it: {
+    home_meta_title: "Splendo — Pulizie di casa a Berlino",
+    home_meta_description: "Splendo: pulizie di casa a Berlino. Personale verificato, prezzo fisso, contatto diretto. Prenota online in due minuti.",
+    home_hero_h1: "Prenota le tue pulizie di casa a Berlino",
+    home_check1: "Personale esperto e verificato",
+    home_check2: "Prezzo fisso, nessuna sorpresa",
+    home_check3: "Contatto diretto, non un bot",
+    home_qs_type_aria: "Tipo di pulizia",
+    home_qs_type_casa: "Pulizia casa",
+    home_qs_type_ufficio: "Pulizia ufficio",
+    home_qs_plz_placeholder: "Il tuo CAP",
+    home_qs_btn: "Vai al preventivo →",
+    home_qs_error: "Inserisci un CAP di Berlino valido (10115–14199).",
+    home_reviews_count: "su 2.473 recensioni",
+    home_how_h2: "Come funziona",
+    home_step1_title: "Scegli casa tua ed extra",
+    home_step1_text: "Ci dici il CAP, il tipo di appartamento e il livello di pulizia che ti serve.",
+    home_step2_title: "Scegli data e orario",
+    home_step2_text: "Confermiamo la disponibilità entro poche ore, via WhatsApp.",
+    home_step3_title: "Il tuo cleaner arriva",
+    home_step3_text: "Paghi solo a fine servizio, con un link sicuro.",
+    home_steps_cta: "Vedi come funziona nel dettaglio →",
+    home_prices_h2: "Prezzi chiari, nessuna sorpresa",
+    home_price_studio: "Studio",
+    home_price_note: "Pulizia standard, una tantum",
+    home_price_bilocale: "Bilocale",
+    home_price_trilocale: "Trilocale",
+    home_prices_cta: "Vedi tutti i prezzi e i livelli di servizio →",
+    home_why_eyebrow: "La differenza è nel dettaglio",
+    home_why_h2: "Non un'app anonima.<br>Una persona di fiducia.",
+    home_why_p: "Con Splendo lavoriamo per farti ritrovare, quando possibile, sempre lo stesso professionista che conosce già casa tua. Se qualcosa non va, scrivi direttamente a chi risponde — non a un centralino automatico.",
+    home_why_item1: "<strong>Risposta diretta su WhatsApp</strong><span>Parli con una persona reale, non un bot</span>",
+    home_why_item2: "<strong>Assicurazione RC professionale attiva</strong><span>Copertura in caso di imprevisti</span>",
+    home_why_item3: "<strong>Zero impegno</strong><span>Prenoti solo quando ti serve, nessun abbonamento obbligato</span>",
+    home_zones_eyebrow: "Dove operiamo",
+    home_zones_h2: "Serviamo tutta Berlino",
+    home_zones_p: "Da Spandau a Köpenick, da Charlottenburg a Prenzlauer Berg — nessun quartiere escluso.",
+    home_map_badge: "📍 Copriamo tutta Berlino",
+    home_legend1: "<strong>Copertura completa</strong><span>Tutti i 12 Bezirke di Berlino</span>",
+    home_legend2: "<strong>Stesso prezzo ovunque</strong><span>Nessun sovrapprezzo per zona periferica</span>",
+    home_legend3: "<strong>Tempi di risposta rapidi</strong><span>Ovunque tu sia in città</span>",
+    home_jobs_eyebrow: "Cerchiamo sempre nuovi talenti",
+    home_jobs_h2: "Cerchi un lavoro stabile e ben retribuito a Berlino?",
+    home_jobs_p: "Selezioniamo solo professionisti delle pulizie esperti e affidabili — offriamo condizioni chiare, senza sorprese.",
+    home_jobs_item1: "Contratto trasparente, come Subunternehmer indipendente",
+    home_jobs_item2: "Pagamento puntuale ed equo",
+    home_jobs_item3: "Selezione basata su esperienza reale, non solo disponibilità",
+    home_jobs_item4: "Orari flessibili, decidi tu la tua disponibilità",
+    home_jobs_cta: "Candidati ora",
+    home_cta_eyebrow: "Pronto quando lo sei tu",
+    home_cta_h2: "Pronta/o a riprenderti il sabato mattina?",
+    home_cta_p: "Ottima qualità a un prezzo giusto. Prenota in due minuti, scegli data e orario, e pensa ad altro. Al resto ci pensiamo noi.",
+    home_cta_btn1: "Prenota la tua pulizia",
+    home_cta_btn2: "Scrivici su WhatsApp",
+    home_trust1: "✓ Nessun impegno a lungo termine",
+    home_trust2: "✓ Paghi solo a servizio concluso",
+    home_trust3: "✓ Assicurazione RC attiva"
+  }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
 <script>
 function isValidBerlinPlz(plz) {
   return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
