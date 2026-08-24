@@ -616,6 +616,12 @@ a:focus-visible, button:focus-visible {
   font-size: 0.92rem;
 }
 
+.extra-price-free {
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
 .extra-price-quote a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
 .counter {

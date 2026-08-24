@@ -151,7 +151,8 @@
 
     extras.forEach(function (item) {
       total += item.price;
-      rows.push({ label: item.displayLabel, amountLabel: "+" + eur(item.price) });
+      var amountLabel = item.price > 0 ? "+" + eur(item.price) : t("included_label", "Inklusive");
+      rows.push({ label: item.displayLabel, amountLabel: amountLabel });
     });
 
     if (tappezzeria) {
