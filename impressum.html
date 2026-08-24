@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impressum — Splendo</title>
-<meta name="description" content="Impressum von Splendo.">
+<title data-i18n-content="impressum_meta_title">Impressum — Splendo</title>
+<meta name="description" data-i18n-content="impressum_meta_description" content="Impressum von Splendo.">
 <link rel="canonical" href="https://splendo.eu/impressum.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/impressum.html">
-<meta property="og:title" content="Impressum — Splendo">
-<meta property="og:description" content="Impressum von Splendo.">
+<meta property="og:title" data-i18n-content="impressum_meta_title" content="Impressum — Splendo">
+<meta property="og:description" data-i18n-content="impressum_meta_description" content="Impressum von Splendo.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
 <meta property="og:locale" content="de_DE">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +46,8 @@
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Rechtliches</p>
-      <h1>Impressum</h1>
+      <p class="eyebrow" data-i18n="footer_col_legale">Rechtliches</p>
+      <h1 data-i18n="impressum_h1">Impressum</h1>
     </div>
   </section>
 
@@ -61,22 +61,22 @@
           10587 Berlin
         </p>
 
-        <h2>Kontakt</h2>
-        <p>
+        <h2 data-i18n="impressum_h2_kontakt">Kontakt</h2>
+        <p data-i18n-html="impressum_kontakt_p">
           Telefon: +49 175 8990050<br>
           E-Mail: <a href="mailto:admin@splendo.eu">admin@splendo.eu</a>
         </p>
 
-        <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <h2 data-i18n="impressum_h2_streit">Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+        <p data-i18n="impressum_streit_p">Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
-        <h2>Zentrale Kontaktstelle nach dem Digital Services Act – DSA (Verordnung (EU) 2022/2065)</h2>
-        <p>Unsere zentrale Kontaktstelle für Nutzer und Behörden nach Art. 11, 12 DSA erreichen Sie wie folgt:</p>
-        <p>
+        <h2 data-i18n="impressum_h2_dsa">Zentrale Kontaktstelle nach dem Digital Services Act – DSA (Verordnung (EU) 2022/2065)</h2>
+        <p data-i18n="impressum_dsa_p1">Unsere zentrale Kontaktstelle für Nutzer und Behörden nach Art. 11, 12 DSA erreichen Sie wie folgt:</p>
+        <p data-i18n-html="impressum_kontakt_p">
           E-Mail: <a href="mailto:admin@splendo.eu">admin@splendo.eu</a><br>
           Telefon: +49 175 8990050
         </p>
-        <p>Die für den Kontakt zur Verfügung stehenden Sprachen sind: Deutsch, Englisch.</p>
+        <p data-i18n="impressum_dsa_p2">Die für den Kontakt zur Verfügung stehenden Sprachen sind: Deutsch, Englisch.</p>
 
       </div>
     </div>
@@ -100,7 +100,46 @@
   </svg>
 </a>
 
-
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: {
+    impressum_meta_title: "Impressum — Splendo",
+    impressum_meta_description: "Impressum von Splendo.",
+    impressum_h1: "Impressum",
+    impressum_h2_kontakt: "Kontakt",
+    impressum_kontakt_p: "Telefon: +49 175 8990050<br>E-Mail: <a href=\"mailto:admin@splendo.eu\">admin@splendo.eu</a>",
+    impressum_h2_streit: "Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle",
+    impressum_streit_p: "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+    impressum_h2_dsa: "Zentrale Kontaktstelle nach dem Digital Services Act – DSA (Verordnung (EU) 2022/2065)",
+    impressum_dsa_p1: "Unsere zentrale Kontaktstelle für Nutzer und Behörden nach Art. 11, 12 DSA erreichen Sie wie folgt:",
+    impressum_dsa_p2: "Die für den Kontakt zur Verfügung stehenden Sprachen sind: Deutsch, Englisch."
+  },
+  en: {
+    impressum_meta_title: "Imprint — Splendo",
+    impressum_meta_description: "Legal notice (Impressum) for Splendo.",
+    impressum_h1: "Imprint",
+    impressum_h2_kontakt: "Contact",
+    impressum_kontakt_p: "Phone: +49 175 8990050<br>Email: <a href=\"mailto:admin@splendo.eu\">admin@splendo.eu</a>",
+    impressum_h2_streit: "Consumer dispute resolution / universal conciliation body",
+    impressum_streit_p: "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+    impressum_h2_dsa: "Central point of contact under the Digital Services Act – DSA (Regulation (EU) 2022/2065)",
+    impressum_dsa_p1: "Our central point of contact for users and authorities under Art. 11, 12 DSA can be reached as follows:",
+    impressum_dsa_p2: "The languages available for contact are: German, English."
+  },
+  it: {
+    impressum_meta_title: "Note legali — Splendo",
+    impressum_meta_description: "Note legali (Impressum) di Splendo.",
+    impressum_h1: "Note legali",
+    impressum_h2_kontakt: "Contatto",
+    impressum_kontakt_p: "Telefono: +49 175 8990050<br>E-mail: <a href=\"mailto:admin@splendo.eu\">admin@splendo.eu</a>",
+    impressum_h2_streit: "Risoluzione delle controversie dei consumatori / Organismo di conciliazione universale",
+    impressum_streit_p: "Non siamo disposti né obbligati a partecipare a procedure di risoluzione delle controversie dinanzi a un organismo di conciliazione dei consumatori.",
+    impressum_h2_dsa: "Punto di contatto centrale ai sensi del Digital Services Act – DSA (Regolamento (UE) 2022/2065)",
+    impressum_dsa_p1: "Il nostro punto di contatto centrale per utenti e autorità ai sensi degli artt. 11, 12 DSA è raggiungibile come segue:",
+    impressum_dsa_p2: "Le lingue disponibili per il contatto sono: tedesco, inglese."
+  }
+};
+</script>
 <script src="i18n-common.js"></script>
 <script src="i18n.js"></script>
 </body>
