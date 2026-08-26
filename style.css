@@ -70,7 +70,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .logo-icon-img {
-  height: 42px;
+  height: 52px;
   width: auto;
   display: block;
 }
@@ -1037,14 +1037,9 @@ a:focus-visible, button:focus-visible {
   .header-actions { gap: 8px; }
   .btn-nav { padding: 8px 14px; font-size: 0.82rem; }
   .lang-btn { padding: 5px 8px; font-size: 0.72rem; }
-  .logo-icon-img { height: 34px; }
-  .logo { font-size: 1.25rem; gap: 7px; }
+  .logo-icon-img { height: 42px; }
   .whatsapp-float { width: 48px; height: 48px; bottom: 16px; right: 16px; }
   .whatsapp-float svg { width: 24px; height: 24px; }
-}
-
-@media (max-width: 400px) {
-  .logo span { display: none; }
 }
 
 /* =========================================================
@@ -1436,10 +1431,7 @@ a:focus-visible, button:focus-visible {
 
 .footer-v2-brand { max-width: 280px; }
 .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.footer-logo-icon { height: 34px; width: auto; display: block; }
-.footer-v2-brand .logo-word {
-  font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; color: var(--white); margin-bottom: 0;
-}
+.footer-logo-icon { height: 42px; width: auto; display: block; }
 .footer-v2-brand p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.55); }
 
 .footer-v2-cols { display: flex; gap: 56px; }
