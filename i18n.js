@@ -75,8 +75,27 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
-      btn.addEventListener("click", function () { applyLanguage(btn.getAttribute("data-lang")); });
+      btn.addEventListener("click", function () {
+        applyLanguage(btn.getAttribute("data-lang"));
+        closeMobileNav();
+      });
     });
     applyLanguage(currentLang);
+
+    var header = document.querySelector(".site-header");
+    var hamburger = document.querySelector(".hamburger-btn");
+    function closeMobileNav() {
+      if (header) header.classList.remove("nav-open");
+      if (hamburger) hamburger.setAttribute("aria-expanded", "false");
+    }
+    if (hamburger && header) {
+      hamburger.addEventListener("click", function () {
+        var isOpen = header.classList.toggle("nav-open");
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+      });
+      header.querySelectorAll(".main-nav a, .header-actions a").forEach(function (link) {
+        link.addEventListener("click", closeMobileNav);
+      });
+    }
   });
 })();
