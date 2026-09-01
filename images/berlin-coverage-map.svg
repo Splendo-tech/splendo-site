@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stilisierte Karte von Berlin mit den von Splendo abgedeckten Bezirken">
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAF8F4"/>
+      <stop offset="100%" stop-color="#F0ECE2"/>
+    </linearGradient>
+    <linearGradient id="berlin-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F3864"/>
+      <stop offset="100%" stop-color="#2B3350"/>
+    </linearGradient>
+    <clipPath id="berlin-clip">
+      <path d="M330 55 C280 60 235 85 205 120 C175 108 130 118 108 150 C82 148 55 168 58 200 C35 218 30 252 52 278 C42 305 55 335 82 348 C80 378 102 405 132 412 C140 440 168 460 200 458 C222 478 258 480 285 465 C315 478 352 472 372 450 C405 458 438 442 452 415 C485 415 512 392 518 360 C548 352 568 325 565 295 C588 278 598 248 585 220 C595 192 585 160 558 145 C555 118 532 96 502 92 C492 65 465 48 435 50 C418 30 388 22 362 32 C348 18 322 18 308 32 C295 22 272 25 262 40 C288 42 312 48 330 55 Z"/>
+    </clipPath>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="480" fill="url(#bg-grad)"/>
+
+  <path d="M330 55 C280 60 235 85 205 120 C175 108 130 118 108 150 C82 148 55 168 58 200 C35 218 30 252 52 278 C42 305 55 335 82 348 C80 378 102 405 132 412 C140 440 168 460 200 458 C222 478 258 480 285 465 C315 478 352 472 372 450 C405 458 438 442 452 415 C485 415 512 392 518 360 C548 352 568 325 565 295 C588 278 598 248 585 220 C595 192 585 160 558 145 C555 118 532 96 502 92 C492 65 465 48 435 50 C418 30 388 22 362 32 C348 18 322 18 308 32 C295 22 272 25 262 40 C288 42 312 48 330 55 Z"
+        transform="translate(140,0) scale(1.0)"
+        fill="url(#berlin-grad)"/>
+
+  <g clip-path="url(#berlin-clip)" transform="translate(140,0)">
+    <rect width="800" height="480" fill="url(#grid)"/>
+    <path d="M40 130 C120 160 160 140 220 190 C280 240 260 280 330 300 C390 318 420 300 470 330 C510 352 520 380 560 400"
+          fill="none" stroke="#BF9000" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+  </g>
+
+  <g transform="translate(140,0)" fill="#E8C560">
+    <circle cx="300" cy="255" r="7"/>
+    <circle cx="180" cy="190" r="5"/>
+    <circle cx="130" cy="290" r="5"/>
+    <circle cx="230" cy="130" r="5"/>
+    <circle cx="380" cy="180" r="5"/>
+    <circle cx="420" cy="330" r="5"/>
+    <circle cx="220" cy="380" r="5"/>
+    <circle cx="340" cy="390" r="5"/>
+    <circle cx="150" cy="130" r="5"/>
+  </g>
+
+  <g transform="translate(140,0)" font-family="Inter, Arial, sans-serif" font-size="13" fill="#FAF8F4" opacity="0.9">
+    <text x="308" y="248" font-weight="600">Mitte</text>
+    <text x="188" y="184">Charlottenburg</text>
+    <text x="95" y="308">Spandau</text>
+    <text x="175" y="140">Reinickendorf</text>
+    <text x="388" y="174">Pankow</text>
+    <text x="428" y="335">Köpenick</text>
+    <text x="140" y="405">Tempelhof</text>
+    <text x="348" y="412">Neukölln</text>
+  </g>
+</svg>

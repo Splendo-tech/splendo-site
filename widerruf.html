@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n-content="widerruf_meta_title">Widerruf — Splendo</title>
+<meta name="description" data-i18n-content="widerruf_meta_description" content="Vertrag bei Splendo online widerrufen.">
+<link rel="canonical" href="https://splendo.eu/widerruf.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://splendo.eu/widerruf.html">
+<meta property="og:title" data-i18n-content="widerruf_meta_title" content="Widerruf — Splendo">
+<meta property="og:description" data-i18n-content="widerruf_meta_description" content="Vertrag bei Splendo online widerrufen.">
+<meta property="og:image" content="https://splendo.eu/logo-icon.png">
+<meta property="og:locale" content="de_DE">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="logo">
+      <img src="logo-icon.png" alt="Splendo" class="logo-icon-img">
+    </a>
+    <nav class="main-nav">
+      <a href="/ablauf.html" data-i18n="nav_come_funziona">So funktioniert's</a>
+      <a href="/preise.html" data-i18n="nav_prezzi">Preise</a>
+      <a href="/ueber-uns.html" data-i18n="nav_chi_siamo">Über uns</a>
+      <a href="/kontakt.html" data-i18n="nav_contatti">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" data-i18n-aria-label="lang_switch_label" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn is-active" data-lang="de">DE</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+      <a href="/buchen.html" class="btn btn-gold btn-nav" data-i18n="btn_prenota">Jetzt buchen</a>
+    </div>
+    <button type="button" class="hamburger-btn" aria-label="Menü" aria-expanded="false" data-i18n-aria-label="hamburger_label">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="footer_col_legale">Rechtliches</p>
+      <h1>Widerruf</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="legal-content" style="max-width:620px;">
+
+        <p class="legal-lang-note" style="color:#98a2b3; font-size:0.85rem; margin-bottom:24px;">Dieser Rechtstext ist ausschließlich in deutscher Sprache verbindlich. / This legal text is binding only in German. / Questo testo legale è vincolante solo in tedesco.</p>
+
+        <p>Wenn Sie einen mit Splendo geschlossenen Vertrag widerrufen möchten, können Sie das hier in zwei Schritten tun. Die vollständige Widerrufsbelehrung finden Sie in unseren <a href="/agb.html#widerrufsbelehrung">AGB, Teil 2</a>.</p>
+
+        <div id="widerruf-step-1">
+          <button type="button" id="btn-start-widerruf" class="btn btn-gold btn-lg" style="margin-top:16px;">Vertrag widerrufen</button>
+        </div>
+
+        <form id="widerruf-form" style="display:none; margin-top:24px;" novalidate>
+          <div class="field" style="margin-bottom:16px;">
+            <label for="w-name">Name des/der Verbraucher(s)</label>
+            <input type="text" id="w-name" name="w-name" required>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label for="w-buchung">Buchungsnummer / Bezeichnung des Vertrags</label>
+            <input type="text" id="w-buchung" name="w-buchung" placeholder="z. B. Datum der Buchung oder erhaltene Bestätigung" required>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label for="w-email">E-Mail (für die Eingangsbestätigung)</label>
+            <input type="email" id="w-email" name="w-email" required>
+          </div>
+          <button type="submit" class="btn btn-gold btn-lg btn-block">Widerruf bestätigen</button>
+          <p id="widerruf-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div id="widerruf-confirmation" style="display:none; margin-top:24px; padding:20px; border-radius:12px; background:#F0ECE2;">
+          <h3 style="margin-top:0;">Widerruf eingegangen</h3>
+          <p id="widerruf-confirmation-text"></p>
+        </div>
+
+        <h2 style="margin-top:56px;">Alternative: Muster-Widerrufsformular per Post oder E-Mail</h2>
+        <p style="color:#98a2b3; font-size:0.85rem;">Sie können den Widerruf auch formlos oder mit diesem Formular schriftlich erklären, statt die Online-Funktion oben zu nutzen.</p>
+        <p><em>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</em></p>
+        <p>An: Splendo — Mattia Palesa, Pfalzburger Straße 65, 10719 Berlin, E-Mail: <a href="mailto:admin@splendo.eu">admin@splendo.eu</a></p>
+        <p>Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*)</p>
+        <p>_______________________________________________</p>
+        <p>Bestellt am (*) / erhalten am (*): _______________</p>
+        <p>Name des/der Verbraucher(s): _______________</p>
+        <p>Anschrift des/der Verbraucher(s): _______________</p>
+        <p>Unterschrift des/der Verbraucher(s) <em>(nur bei Mitteilung auf Papier)</em>: _______________</p>
+        <p>Datum: _______________</p>
+        <p style="color:#98a2b3; font-size:0.85rem;"><em>(*) Unzutreffendes streichen.</em></p>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Splendo<span class="spark" aria-hidden="true">✦</span></div>
+    <nav class="footer-nav">
+      <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
+      <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
+      <a href="/agb.html" data-i18n="footer_agb">AGB</a>
+      <a href="/widerruf.html" data-i18n="footer_widerruf">Widerruf</a>
+    </nav>
+    <a class="footer-contact" href="mailto:admin@splendo.eu">admin@splendo.eu</a>
+  </div>
+</footer>
+<a href="https://wa.me/491758990050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Kontaktiere uns auf WhatsApp" data-i18n-aria-label="whatsapp_float_label">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.55 1.36 5.11L2 22l5.13-1.35a9.9 9.9 0 0 0 4.91 1.31h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.16 0 4.19.84 5.72 2.37a8.07 8.07 0 0 1 2.38 5.72c0 4.46-3.63 8.09-8.1 8.09h-.01a8.1 8.1 0 0 1-4.1-1.12l-.29-.17-3.05.8.81-2.97-.19-.3a8.06 8.06 0 0 1-1.24-4.3c0-4.46 3.63-8.12 8.07-8.12zm-4.35 4.56c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.68 4.19 3.7.58.25 1.04.4 1.4.51.59.19 1.12.16 1.55.1.47-.07 1.44-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47z"/>
+  </svg>
+</a>
+
+<script>
+window.SPLENDO_I18N_PAGE = {
+  de: { widerruf_meta_title: "Widerruf — Splendo", widerruf_meta_description: "Vertrag bei Splendo online widerrufen." },
+  en: { widerruf_meta_title: "Withdrawal — Splendo", widerruf_meta_description: "Withdraw a contract with Splendo online." },
+  it: { widerruf_meta_title: "Recesso — Splendo", widerruf_meta_description: "Recedi online da un contratto con Splendo." }
+};
+</script>
+<script src="i18n-common.js"></script>
+<script src="i18n.js"></script>
+<script>
+(function () {
+  "use strict";
+  var WEB3FORMS_ACCESS_KEY = "476e51d4-8223-4645-b4b2-04755e570b05";
+
+  var step1 = document.getElementById("widerruf-step-1");
+  var startBtn = document.getElementById("btn-start-widerruf");
+  var form = document.getElementById("widerruf-form");
+  var statusEl = document.getElementById("widerruf-status");
+  var confirmationBox = document.getElementById("widerruf-confirmation");
+  var confirmationText = document.getElementById("widerruf-confirmation-text");
+
+  startBtn.addEventListener("click", function () {
+    step1.style.display = "none";
+    form.style.display = "block";
+    document.getElementById("w-name").focus();
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var name = document.getElementById("w-name").value.trim();
+    var buchung = document.getElementById("w-buchung").value.trim();
+    var email = document.getElementById("w-email").value.trim();
+
+    var now = new Date();
+    var timestamp = now.toISOString();
+    var displayTimestamp = now.toLocaleString("de-DE", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" }) + " Uhr";
+    var declaration = "Hiermit widerrufe ich, " + name + ", den mit Splendo abgeschlossenen Vertrag über die Erbringung der Reinigungsleistung (Buchung/Referenz: " + buchung + ").";
+
+    statusEl.textContent = "Wird gesendet...";
+    statusEl.className = "form-status";
+
+    var payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: "Widerruf eingegangen — " + name,
+      from_name: "Splendo Website — Widerruf",
+      replyto: email,
+      ccemail: email,
+      name: name,
+      buchungsnummer: buchung,
+      email: email,
+      widerrufserklaerung: declaration,
+      eingegangen_am: displayTimestamp,
+      eingegangen_am_iso: timestamp
+    };
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.style.display = "none";
+          confirmationText.textContent = declaration + " Eingegangen am " + displayTimestamp + ". Splendo wurde automatisch benachrichtigt und meldet sich zeitnah unter " + email + ".";
+          confirmationBox.style.display = "block";
+        } else {
+          throw new Error(data.message || "Errore invio");
+        }
+      })
+      .catch(function () {
+        statusEl.textContent = "Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an admin@splendo.eu.";
+        statusEl.className = "form-status is-error";
+      });
+  });
+})();
+</script>
+</body>
+</html>

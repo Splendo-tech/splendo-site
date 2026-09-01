@@ -12,9 +12,7 @@
 <meta property="og:description" data-i18n-content="buchen_meta_description" content="Buche deine Wohnungsreinigung in Berlin. Wähle Wohnungstyp, Reinigungsstufe und Extras — jetzt noch keine Zahlung nötig.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
 <meta property="og:locale" content="de_DE">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts.css">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -342,7 +340,12 @@
 
         <p class="form-payment-note" data-i18n="buchen_payment_note">Wir erfassen hier keine Zahlung. Nach Abschluss des Services senden wir dir einen sicheren Stripe-Link per WhatsApp — keine Karte wird im Voraus gespeichert.</p>
 
-        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn">Buchungsanfrage senden</button>
+        <label class="consent-check">
+          <input type="checkbox" id="widerruf-consent" required>
+          <span>Ich verlange ausdrücklich, dass Splendo mit der Reinigungsleistung vor Ablauf der Widerrufsfrist beginnt. Mir ist bekannt, dass ich mein Widerrufsrecht verliere, sobald die Leistung vollständig erbracht ist.</span>
+        </label>
+
+        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn" id="booking-submit-btn" disabled>Buchungsanfrage senden</button>
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
 
@@ -395,6 +398,7 @@
           <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
           <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
           <a href="/agb.html" data-i18n="footer_agb">AGB</a>
+          <a href="/widerruf.html" data-i18n="footer_widerruf">Widerruf</a>
         </div>
       </div>
     </div>
@@ -404,6 +408,7 @@
         <a href="/impressum.html" data-i18n="footer_impressum">Impressum</a>
         <a href="/datenschutz.html" data-i18n="footer_datenschutz">Datenschutz</a>
         <a href="/agb.html" data-i18n="footer_agb">AGB</a>
+        <a href="/widerruf.html" data-i18n="footer_widerruf">Widerruf</a>
       </div>
     </div>
   </div>
