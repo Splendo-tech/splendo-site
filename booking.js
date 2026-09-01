@@ -308,7 +308,8 @@
       haustiere: form.querySelector("#pets").value || "Keine Angabe",
       notizen: form.querySelector("#note").value,
       einwilligung_vorzeitiger_beginn_356_bgb: WIDERRUF_CONSENT_TEXT,
-      einwilligung_zeitstempel: new Date().toISOString()
+      einwilligung_zeitstempel: new Date().toISOString(),
+      rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html — AGB & Widerrufsbelehrung: https://splendo.eu/agb.html — Widerruf online: https://splendo.eu/widerruf.html"
     };
 
     fetch("https://api.web3forms.com/submit", {
