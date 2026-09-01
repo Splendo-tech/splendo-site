@@ -13,6 +13,10 @@
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
 <meta property="og:locale" content="de_DE">
 <meta name="robots" content="noindex, nofollow">
+<!-- TODO: EN/IT content is served from this same URL via client-side language switching,
+     not separate localized URLs — there is no hreflang to point to, so Google only ever
+     indexes the German-rendered version. EN/IT copy is reachable only to visitors who
+     switch language manually after landing. Fixing this needs per-language URLs. -->
 <link rel="stylesheet" href="/fonts.css">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="style.css">
@@ -56,38 +60,40 @@
     <div class="wrap">
       <div class="legal-content" style="max-width:620px;">
 
-        <p class="legal-lang-note" style="color:#98a2b3; font-size:0.85rem; margin-bottom:24px;">Dieser Rechtstext ist ausschließlich in deutscher Sprache verbindlich. / This legal text is binding only in German. / Questo testo legale è vincolante solo in tedesco.</p>
+        <p class="legal-lang-note" style="color:#98a2b3; font-size:0.85rem; margin-bottom:24px;">Der Widerrufstext (die verbindliche Erklärung) ist ausschließlich in deutscher Sprache verbindlich. Das übrige Seiteninhalt ist übersetzt. / The withdrawal declaration itself is binding only in German. The rest of this page is translated. / Il testo del recesso è vincolante solo in tedesco. Il resto della pagina è tradotto.</p>
 
-        <p>Wenn Sie einen mit Splendo geschlossenen Vertrag widerrufen möchten, können Sie das hier in zwei Schritten tun. Die vollständige Widerrufsbelehrung finden Sie in unseren <a href="/agb.html#widerrufsbelehrung">AGB, Teil 2</a>.</p>
+        <p data-i18n-html="widerruf_intro_p">Wenn du einen mit Splendo geschlossenen Vertrag widerrufen möchtest, geht das hier in zwei Schritten. Die vollständige Widerrufsbelehrung findest du in unseren <a href="/agb.html#widerrufsbelehrung">AGB, Teil 2</a>.</p>
 
         <div id="widerruf-step-1">
-          <button type="button" id="btn-start-widerruf" class="btn btn-gold btn-lg" style="margin-top:16px;">Vertrag widerrufen</button>
+          <button type="button" id="btn-start-widerruf" class="btn btn-gold btn-lg" style="margin-top:16px;" data-i18n="widerruf_start_btn">Vertrag widerrufen</button>
         </div>
 
         <form id="widerruf-form" style="display:none; margin-top:24px;" novalidate>
           <div class="field" style="margin-bottom:16px;">
-            <label for="w-name">Name des/der Verbraucher(s)</label>
+            <label for="w-name" data-i18n="widerruf_field_name_label">Dein Name</label>
             <input type="text" id="w-name" name="w-name" required>
           </div>
           <div class="field" style="margin-bottom:16px;">
-            <label for="w-buchung">Buchungsnummer / Bezeichnung des Vertrags</label>
-            <input type="text" id="w-buchung" name="w-buchung" placeholder="z. B. Datum der Buchung oder erhaltene Bestätigung" required>
+            <label for="w-buchung" data-i18n="widerruf_field_booking_label">Buchungsnummer oder Referenz</label>
+            <input type="text" id="w-buchung" name="w-buchung" placeholder="z. B. Buchungsdatum oder Bestätigung" data-i18n-placeholder="widerruf_field_booking_placeholder" required>
           </div>
           <div class="field" style="margin-bottom:16px;">
-            <label for="w-email">E-Mail (für die Eingangsbestätigung)</label>
+            <label for="w-email" data-i18n="widerruf_field_email_label">E-Mail (für die Bestätigung)</label>
             <input type="email" id="w-email" name="w-email" required>
           </div>
-          <button type="submit" class="btn btn-gold btn-lg btn-block">Widerruf bestätigen</button>
+          <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="widerruf_confirm_btn">Widerruf bestätigen</button>
           <p id="widerruf-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
 
         <div id="widerruf-confirmation" style="display:none; margin-top:24px; padding:20px; border-radius:12px; background:#F0ECE2;">
-          <h3 style="margin-top:0;">Widerruf eingegangen</h3>
-          <p id="widerruf-confirmation-text"></p>
+          <h3 style="margin-top:0;" data-i18n="widerruf_confirmation_h3">Widerruf eingegangen</h3>
+          <p id="widerruf-declaration-de" style="font-weight:600;"></p>
+          <p id="widerruf-declaration-translation" style="font-size:0.9rem; color:#667; display:none;"></p>
+          <p id="widerruf-confirmation-suffix"></p>
         </div>
 
-        <h2 style="margin-top:56px;">Alternative: Muster-Widerrufsformular per Post oder E-Mail</h2>
-        <p style="color:#98a2b3; font-size:0.85rem;">Sie können den Widerruf auch formlos oder mit diesem Formular schriftlich erklären, statt die Online-Funktion oben zu nutzen.</p>
+        <h2 style="margin-top:56px;" data-i18n="widerruf_alt_h2">Alternative: Muster-Widerrufsformular per Post oder E-Mail</h2>
+        <p style="color:#98a2b3; font-size:0.85rem;" data-i18n="widerruf_alt_p">Du kannst den Widerruf auch formlos oder mit diesem Formular schriftlich erklären, statt die Online-Funktion oben zu nutzen.</p>
         <p><em>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</em></p>
         <p>An: Splendo, Pfalzburger Straße 65, 10719 Berlin, E-Mail: <a href="mailto:admin@splendo.eu">admin@splendo.eu</a></p>
         <p>Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*)</p>
@@ -124,9 +130,63 @@
 
 <script>
 window.SPLENDO_I18N_PAGE = {
-  de: { widerruf_meta_title: "Widerruf — Splendo", widerruf_meta_description: "Vertrag bei Splendo online widerrufen." },
-  en: { widerruf_meta_title: "Withdrawal — Splendo", widerruf_meta_description: "Withdraw a contract with Splendo online." },
-  it: { widerruf_meta_title: "Recesso — Splendo", widerruf_meta_description: "Recedi online da un contratto con Splendo." }
+  de: {
+    widerruf_meta_title: "Widerruf — Splendo",
+    widerruf_meta_description: "Vertrag bei Splendo online widerrufen.",
+    widerruf_intro_p: "Wenn du einen mit Splendo geschlossenen Vertrag widerrufen möchtest, geht das hier in zwei Schritten. Die vollständige Widerrufsbelehrung findest du in unseren <a href=\"/agb.html#widerrufsbelehrung\">AGB, Teil 2</a>.",
+    widerruf_start_btn: "Vertrag widerrufen",
+    widerruf_field_name_label: "Dein Name",
+    widerruf_field_booking_label: "Buchungsnummer oder Referenz",
+    widerruf_field_booking_placeholder: "z. B. Buchungsdatum oder Bestätigung",
+    widerruf_field_email_label: "E-Mail (für die Bestätigung)",
+    widerruf_confirm_btn: "Widerruf bestätigen",
+    widerruf_sending_status: "Wird gesendet …",
+    widerruf_error_status: "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu.",
+    widerruf_confirmation_h3: "Widerruf eingegangen",
+    widerruf_confirmation_suffix: " Eingegangen am {time}. Splendo wurde automatisch benachrichtigt und meldet sich zeitnah unter {email}.",
+    widerruf_translation_label: "",
+    widerruf_translation_text: "",
+    widerruf_alt_h2: "Alternative: Muster-Widerrufsformular per Post oder E-Mail",
+    widerruf_alt_p: "Du kannst den Widerruf auch formlos oder mit diesem Formular schriftlich erklären, statt die Online-Funktion oben zu nutzen."
+  },
+  en: {
+    widerruf_meta_title: "Withdrawal — Splendo",
+    widerruf_meta_description: "Withdraw a contract with Splendo online.",
+    widerruf_intro_p: "If you'd like to withdraw from a contract with Splendo, you can do it here in two steps. The full withdrawal policy is in our <a href=\"/agb.html#widerrufsbelehrung\">Terms, Part 2</a>.",
+    widerruf_start_btn: "Withdraw from contract",
+    widerruf_field_name_label: "Your name",
+    widerruf_field_booking_label: "Booking number or reference",
+    widerruf_field_booking_placeholder: "e.g. booking date or confirmation",
+    widerruf_field_email_label: "Email (for your confirmation)",
+    widerruf_confirm_btn: "Confirm withdrawal",
+    widerruf_sending_status: "Sending …",
+    widerruf_error_status: "Something went wrong. Email us directly at admin@splendo.eu.",
+    widerruf_confirmation_h3: "Withdrawal received",
+    widerruf_confirmation_suffix: " Received on {time}. Splendo has been notified automatically and will get back to you at {email} shortly.",
+    widerruf_translation_label: "Translation, not legally binding:",
+    widerruf_translation_text: "I, {name}, hereby withdraw from the contract concluded with Splendo for the cleaning service (booking/reference: {buchung}).",
+    widerruf_alt_h2: "Alternative: withdrawal form by post or email",
+    widerruf_alt_p: "You can also declare the withdrawal informally, or in writing using this form, instead of using the online option above."
+  },
+  it: {
+    widerruf_meta_title: "Recesso — Splendo",
+    widerruf_meta_description: "Recedi online da un contratto con Splendo.",
+    widerruf_intro_p: "Se vuoi recedere da un contratto con Splendo, puoi farlo qui in due passaggi. Trovi l'informativa completa sul recesso nelle nostre <a href=\"/agb.html#widerrufsbelehrung\">CGC, Parte 2</a>.",
+    widerruf_start_btn: "Recedi dal contratto",
+    widerruf_field_name_label: "Il tuo nome",
+    widerruf_field_booking_label: "Numero di prenotazione o riferimento",
+    widerruf_field_booking_placeholder: "es. data della prenotazione o conferma",
+    widerruf_field_email_label: "Email (per la conferma)",
+    widerruf_confirm_btn: "Conferma il recesso",
+    widerruf_sending_status: "Invio in corso…",
+    widerruf_error_status: "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu.",
+    widerruf_confirmation_h3: "Recesso ricevuto",
+    widerruf_confirmation_suffix: " Ricevuto il {time}. Splendo è stata avvisata automaticamente e ti risponderà a breve su {email}.",
+    widerruf_translation_label: "Traduzione, non vincolante:",
+    widerruf_translation_text: "Con la presente, io, {name}, recedo dal contratto concluso con Splendo per l'erogazione del servizio di pulizia (prenotazione/riferimento: {buchung}).",
+    widerruf_alt_h2: "Alternativa: modulo di recesso per posta o email",
+    widerruf_alt_p: "Puoi anche dichiarare il recesso in forma libera, o per iscritto con questo modulo, invece di usare la funzione online qui sopra."
+  }
 };
 </script>
 <script src="i18n-common.js"></script>
@@ -141,7 +201,37 @@ window.SPLENDO_I18N_PAGE = {
   var form = document.getElementById("widerruf-form");
   var statusEl = document.getElementById("widerruf-status");
   var confirmationBox = document.getElementById("widerruf-confirmation");
-  var confirmationText = document.getElementById("widerruf-confirmation-text");
+  var declarationDeEl = document.getElementById("widerruf-declaration-de");
+  var declarationTranslationEl = document.getElementById("widerruf-declaration-translation");
+  var confirmationSuffixEl = document.getElementById("widerruf-confirmation-suffix");
+
+  function t(key, fallback) {
+    return window.SPLENDO_T ? window.SPLENDO_T(key) : fallback;
+  }
+
+  function lang() {
+    return window.SPLENDO_GET_LANG ? window.SPLENDO_GET_LANG() : "de";
+  }
+
+  // Berlin wall-clock time as a proper ISO 8601 string, with the correct
+  // CET/CEST offset — independent of the visitor's own timezone.
+  function berlinIsoTimestamp(date) {
+    var parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+    }).formatToParts(date);
+    var map = {};
+    parts.forEach(function (p) { map[p.type] = p.value; });
+    var localAsUtc = new Date(Date.UTC(map.year, map.month - 1, map.day, map.hour, map.minute, map.second));
+    var offsetMinutes = Math.round((localAsUtc.getTime() - date.getTime()) / 60000);
+    var sign = offsetMinutes >= 0 ? "+" : "-";
+    var abs = Math.abs(offsetMinutes);
+    var oh = String(Math.floor(abs / 60)).padStart(2, "0");
+    var om = String(abs % 60).padStart(2, "0");
+    return map.year + "-" + map.month + "-" + map.day + "T" + map.hour + ":" + map.minute + ":" + map.second + sign + oh + ":" + om;
+  }
+
+  var LOCALE_MAP = { de: "de-DE", en: "en-GB", it: "it-IT" };
 
   startBtn.addEventListener("click", function () {
     step1.style.display = "none";
@@ -157,11 +247,14 @@ window.SPLENDO_I18N_PAGE = {
     var email = document.getElementById("w-email").value.trim();
 
     var now = new Date();
-    var timestamp = now.toISOString();
-    var displayTimestamp = now.toLocaleString("de-DE", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" }) + " Uhr";
+    var isoBerlin = berlinIsoTimestamp(now);
+    var internalDisplay = now.toLocaleString("de-DE", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" }) + " Uhr";
+    var customerLocale = LOCALE_MAP[lang()] || "de-DE";
+    var customerDisplay = now.toLocaleString(customerLocale, { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" });
+
     var declaration = "Hiermit widerrufe ich, " + name + ", den mit Splendo abgeschlossenen Vertrag über die Erbringung der Reinigungsleistung (Buchung/Referenz: " + buchung + ").";
 
-    statusEl.textContent = "Wird gesendet...";
+    statusEl.textContent = t("widerruf_sending_status", "Wird gesendet …");
     statusEl.className = "form-status";
 
     var payload = {
@@ -174,8 +267,8 @@ window.SPLENDO_I18N_PAGE = {
       buchungsnummer: buchung,
       email: email,
       widerrufserklaerung: declaration,
-      eingegangen_am: displayTimestamp,
-      eingegangen_am_iso: timestamp
+      eingegangen_am: internalDisplay,
+      eingegangen_am_iso: isoBerlin
     };
 
     fetch("https://api.web3forms.com/submit", {
@@ -187,14 +280,21 @@ window.SPLENDO_I18N_PAGE = {
       .then(function (data) {
         if (data.success) {
           form.style.display = "none";
-          confirmationText.textContent = declaration + " Eingegangen am " + displayTimestamp + ". Splendo wurde automatisch benachrichtigt und meldet sich zeitnah unter " + email + ".";
+          declarationDeEl.textContent = declaration;
+          var translationText = t("widerruf_translation_text", "").replace("{name}", name).replace("{buchung}", buchung);
+          var translationLabel = t("widerruf_translation_label", "");
+          if (translationText && translationLabel) {
+            declarationTranslationEl.textContent = translationLabel + " " + translationText;
+            declarationTranslationEl.style.display = "block";
+          }
+          confirmationSuffixEl.textContent = t("widerruf_confirmation_suffix", "").replace("{time}", customerDisplay).replace("{email}", email);
           confirmationBox.style.display = "block";
         } else {
-          throw new Error(data.message || "Errore invio");
+          throw new Error(data.message || "Web3Forms error");
         }
       })
       .catch(function () {
-        statusEl.textContent = "Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an admin@splendo.eu.";
+        statusEl.textContent = t("widerruf_error_status", "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu.");
         statusEl.className = "form-status is-error";
       });
   });

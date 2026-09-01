@@ -645,6 +645,15 @@ a:focus-visible, button:focus-visible {
 
 .consent-check input { width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; margin-top: 2px; }
 
+.consent-translation {
+  display: block;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 0.85em;
+  color: #667;
+}
+.consent-translation:empty { display: none; }
+
 .extra-name small { display: block; font-weight: 400; opacity: 0.6; font-size: 0.82rem; margin-top: 2px; }
 
 .extra-price {

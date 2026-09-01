@@ -342,7 +342,10 @@
 
         <label class="consent-check">
           <input type="checkbox" id="widerruf-consent" required>
-          <span>Ich verlange ausdrücklich, dass Splendo mit der Reinigungsleistung vor Ablauf der Widerrufsfrist beginnt. Mir ist bekannt, dass ich mein Widerrufsrecht verliere, sobald die Leistung vollständig erbracht ist.</span>
+          <span>
+            Ich verlange ausdrücklich, dass Splendo mit der Reinigungsleistung vor Ablauf der Widerrufsfrist beginnt. Mir ist bekannt, dass ich mein Widerrufsrecht verliere, sobald die Leistung vollständig erbracht ist.
+            <small class="consent-translation" data-i18n-html="buchen_consent_translation"></small>
+          </span>
         </label>
 
         <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn" id="booking-submit-btn" disabled>Buchungsanfrage senden</button>
@@ -480,6 +483,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_promo_label: "Hast du einen Rabattcode? <span class=\"promo-optional\">(optional)</span>",
     buchen_promo_placeholder: "z.B. WILLKOMMEN10",
     buchen_payment_note: "Wir erfassen hier keine Zahlung. Nach Abschluss des Services senden wir dir einen sicheren Stripe-Link per WhatsApp — keine Karte wird im Voraus gespeichert.",
+    buchen_consent_translation: "",
     buchen_submit_btn: "Buchungsanfrage senden",
     buchen_summary_h3: "Zusammenfassung",
     buchen_summary_total_label: "Geschätzter Gesamtpreis",
@@ -490,7 +494,7 @@ window.SPLENDO_I18N_PAGE = {
     products_label: "Reinigungsprodukte von uns",
     urgent_label: "Dringende Anfrage",
     status_sending: "Wird gesendet...",
-    status_success: "Anfrage gesendet! Wir melden uns innerhalb weniger Stunden per WhatsApp, um Termin und Endpreis zu bestätigen. Die Zahlung erfolgt erst nach Abschluss des Services.",
+    status_success: "Anfrage gesendet. Wir melden uns innerhalb weniger Stunden per WhatsApp, um Termin und Endpreis zu bestätigen. Die Zahlung erfolgt erst nach Abschluss des Services.",
     status_error: "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu, wir antworten sofort.",
     included_label: "Inklusive"
   },
@@ -553,6 +557,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_promo_label: "Got a promo code? <span class=\"promo-optional\">(optional)</span>",
     buchen_promo_placeholder: "e.g. WELCOME10",
     buchen_payment_note: "We don't collect payment here. Once the service is done, we'll send you a secure Stripe link on WhatsApp — no card saved in advance.",
+    buchen_consent_translation: "Translation, not legally binding: I expressly request that Splendo begins the cleaning service before the withdrawal period expires. I am aware that I lose my right of withdrawal once the service has been performed in full.",
     buchen_submit_btn: "Send booking request",
     buchen_summary_h3: "Summary",
     buchen_summary_total_label: "Estimated total price",
@@ -563,7 +568,7 @@ window.SPLENDO_I18N_PAGE = {
     products_label: "Products supplied by us",
     urgent_label: "Urgent request",
     status_sending: "Sending...",
-    status_success: "Request sent! We'll contact you within a few hours on WhatsApp to confirm date and final price. Payment happens only once the service is done.",
+    status_success: "Request sent. We'll contact you within a few hours on WhatsApp to confirm date and final price. Payment happens only once the service is done.",
     status_error: "Something went wrong. Write to us directly at admin@splendo.eu, we'll reply right away.",
     included_label: "Included"
   },
@@ -626,6 +631,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_promo_label: "Hai un codice promozionale? <span class=\"promo-optional\">(facoltativo)</span>",
     buchen_promo_placeholder: "es. BENVENUTO10",
     buchen_payment_note: "Non raccogliamo pagamenti qui. A fine servizio ti invieremo un link Stripe sicuro su WhatsApp — nessuna carta salvata in anticipo.",
+    buchen_consent_translation: "Traduzione, non vincolante: chiedo espressamente che Splendo inizi il servizio prima della scadenza dei 14 giorni. So che perdo il diritto di recesso una volta che la prestazione è stata eseguita per intero.",
     buchen_submit_btn: "Invia richiesta di prenotazione",
     buchen_summary_h3: "Riepilogo",
     buchen_summary_total_label: "Prezzo totale stimato",
@@ -636,7 +642,7 @@ window.SPLENDO_I18N_PAGE = {
     products_label: "Prodotti forniti da noi",
     urgent_label: "Richiesta urgente",
     status_sending: "Invio in corso...",
-    status_success: "Richiesta inviata! Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.",
+    status_success: "Richiesta inviata. Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.",
     status_error: "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito.",
     included_label: "Incluso"
   }
