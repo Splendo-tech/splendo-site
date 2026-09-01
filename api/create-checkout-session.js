@@ -14,7 +14,16 @@ const { computeTotal } = require("./_pricing");
 // later, e.g. via a Stripe SetupIntent now and a PaymentIntent created by
 // the cron job closer to the date). Not built yet — out of scope for launch.
 const MAX_DAYS_AHEAD = 7;
-const SITE_URL = "https://splendo.eu";
+const PRODUCTION_SITE_URL = "https://splendo.eu";
+
+// Derive the origin from the actual request (so Preview deployments send
+// customers back to the Preview URL, not to production) instead of a
+// hardcoded constant. Vercel passes the original Host header through.
+function siteUrlFromRequest(req) {
+  const host = req.headers && req.headers.host;
+  if (!host) return PRODUCTION_SITE_URL;
+  return "https://" + host;
+}
 
 function berlinTodayISODate() {
   const parts = new Intl.DateTimeFormat("en-CA", {
@@ -174,8 +183,8 @@ module.exports = async (req, res) => {
         metadata
       },
       metadata,
-      success_url: SITE_URL + "/buchen-success.html?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: SITE_URL + "/buchen.html"
+      success_url: siteUrlFromRequest(req) + "/buchen-success.html?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: siteUrlFromRequest(req) + "/buchen.html"
     });
 
     res.status(200).json({ url: session.url });
