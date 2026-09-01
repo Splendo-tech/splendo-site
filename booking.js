@@ -230,6 +230,25 @@
     if (plz && plzField) plzField.value = plz;
   })();
 
+  // ---- Limite di 7 giorni per la prenotazione online (vedi api/create-checkout-session.js) ----
+  var MAX_DAYS_AHEAD = 7;
+  (function limitDatePicker() {
+    var dataField = document.getElementById("data");
+    if (!dataField) return;
+    var max = new Date();
+    max.setDate(max.getDate() + MAX_DAYS_AHEAD);
+    dataField.max = max.toISOString().slice(0, 10);
+    var min = new Date();
+    dataField.min = min.toISOString().slice(0, 10);
+  })();
+
+  function daysFromToday(dateStr) {
+    var target = new Date(dateStr + "T00:00:00");
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return Math.round((target.getTime() - today.getTime()) / 86400000);
+  }
+
   // ---- Validazione CAP di Berlino (10115–14199) ----
   function isValidBerlinPlz(plz) {
     return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
@@ -256,27 +275,61 @@
     });
   }
 
-  // ---- Invio form ----
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+  // ---- Chiavi selezione per il calcolo prezzo lato server (api/_pricing.js) ----
+  function getApartmentKey() {
+    var input = form.querySelector('input[name="apartment"]:checked');
+    return input ? input.value.toLowerCase() : null;
+  }
 
-    if (plzField && !isValidBerlinPlz(plzField.value.trim())) {
-      plzError.classList.add("visible");
-      plzField.classList.add("is-invalid");
-      plzField.focus();
-      plzField.scrollIntoView({ block: "center", behavior: "smooth" });
-      return;
-    }
+  function getServiceLevelKey() {
+    var input = form.querySelector('input[name="service-level"]:checked');
+    return input ? input.value.toLowerCase() : "standardreinigung";
+  }
 
-    if (consentCheckbox && !consentCheckbox.checked) {
-      consentCheckbox.focus();
-      consentCheckbox.scrollIntoView({ block: "center", behavior: "smooth" });
-      return;
-    }
+  function isRecurringFrequency() {
+    var input = form.querySelector('input[name="frequency"]:checked');
+    return !!(input && input.dataset.recurring === "true");
+  }
 
-    statusEl.textContent = t("status_sending", "Invio in corso...");
-    statusEl.className = "form-status";
+  function getExtraKeys() {
+    var nodes = form.querySelectorAll('input[name="extra"]:checked');
+    var keys = [];
+    nodes.forEach(function (node) {
+      if (node.dataset.key) keys.push(node.dataset.key);
+    });
+    return keys;
+  }
 
+  function getCounterSelections() {
+    var out = {};
+    counters.forEach(function (row) {
+      var valueEl = row.querySelector(".counter-value");
+      var qty = parseInt(valueEl.dataset.value, 10) || 0;
+      if (qty > 0 && row.dataset.counter) out[row.dataset.counter] = qty;
+    });
+    return out;
+  }
+
+  function whatsappFallback(message) {
+    var note = document.getElementById("whatsapp-fallback-note");
+    if (!note) return;
+    note.innerHTML = "";
+    var p = document.createElement("p");
+    p.textContent = message;
+    var link = document.createElement("a");
+    link.href = "https://wa.me/491758990050";
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.className = "btn btn-gold";
+    link.style.marginTop = "10px";
+    link.textContent = t("buchen_whatsapp_fallback_btn", "Auf WhatsApp schreiben");
+    note.appendChild(p);
+    note.appendChild(link);
+    note.style.display = "block";
+    note.scrollIntoView({ block: "center", behavior: "smooth" });
+  }
+
+  function submitViaWeb3Forms() {
     var apartment = getSelectedApartment();
     var serviceLevel = getSelectedServiceLevel();
     var frequency = getSelectedFrequency();
@@ -307,6 +360,7 @@
       email: form.querySelector("#email").value,
       haustiere: form.querySelector("#pets").value || "Keine Angabe",
       notizen: form.querySelector("#note").value,
+      hinweis: "Individuelle Anfrage (4+ Zimmer oder wiederkehrend) — Preis und Zahlung werden manuell per WhatsApp vereinbart, keine Kartenreservierung.",
       einwilligung_vorzeitiger_beginn_356_bgb: WIDERRUF_CONSENT_TEXT,
       einwilligung_zeitstempel: new Date().toISOString(),
       rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html — AGB & Widerrufsbelehrung: https://splendo.eu/agb.html — Widerruf online: https://splendo.eu/widerruf.html"
@@ -320,7 +374,7 @@
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.success) {
-          statusEl.textContent = t("status_success", "Richiesta inviata! Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.");
+          statusEl.textContent = t("status_success", "Richiesta inviata. Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.");
           statusEl.className = "form-status is-success";
           form.reset();
           counters.forEach(function (row) {
@@ -330,12 +384,134 @@
           });
           renderSummary();
         } else {
-          throw new Error(data.message || "Errore invio");
+          throw new Error(data.message || "Web3Forms error");
         }
       })
       .catch(function () {
         statusEl.textContent = t("status_error", "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito.");
         statusEl.className = "form-status is-error";
       });
+  }
+
+  function submitViaStripe() {
+    var apartment = getSelectedApartment();
+    var serviceLevel = getSelectedServiceLevel();
+    var frequency = getSelectedFrequency();
+    var extras = getCheckedExtras().concat(getCounterItems());
+    var products = getProducts();
+    var urgent = getUrgent();
+
+    var body = {
+      selections: {
+        apartment: getApartmentKey(),
+        serviceLevel: getServiceLevelKey(),
+        extras: getExtraKeys(),
+        counters: getCounterSelections(),
+        urgent: !!(document.getElementById("urgent") && document.getElementById("urgent").checked),
+        products: !!(document.getElementById("products") && document.getElementById("products").checked),
+        recurring: isRecurringFrequency()
+      },
+      labels: {
+        wohnungstyp: apartment ? apartment.deLabel : "",
+        artDerReinigung: serviceLevel.deLabel || "Standardreinigung",
+        haeufigkeit: frequency ? frequency.deLabel : "",
+        extras: extras.map(function (i) { return i.deLabel; }).join(", ") || "Keine",
+        dringendeAnfrage: urgent ? ("Ja (+" + eur(urgent.amount) + ")") : "Nein",
+        reinigungsprodukte: products ? ("Ja (+" + eur(products.amount) + ")") : "Nein"
+      },
+      contact: {
+        name: form.querySelector("#nome").value,
+        email: form.querySelector("#email").value,
+        telefono: form.querySelector("#telefono").value,
+        adresse: form.querySelector("#indirizzo").value,
+        plz: form.querySelector("#plz").value,
+        datum: form.querySelector("#data").value,
+        ora: form.querySelector("#ora").value,
+        haustiere: form.querySelector("#pets").value || "Keine Angabe",
+        notizen: form.querySelector("#note").value,
+        promo: form.querySelector("#promo").value || ""
+      },
+      consent: {
+        accepted: !!(consentCheckbox && consentCheckbox.checked),
+        text: WIDERRUF_CONSENT_TEXT,
+        timestamp: new Date().toISOString()
+      }
+    };
+
+    fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (result.ok && result.data.url) {
+          window.location.href = result.data.url;
+          return;
+        }
+        if (result.data.error === "date_too_far") {
+          statusEl.textContent = "";
+          statusEl.className = "form-status";
+          whatsappFallback(t("buchen_whatsapp_fallback_date", "Online-Buchung ist nur bis 7 Tage im Voraus möglich."));
+          return;
+        }
+        throw new Error((result.data && result.data.error) || "checkout error");
+      })
+      .catch(function () {
+        statusEl.textContent = t("status_error", "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito.");
+        statusEl.className = "form-status is-error";
+      });
+  }
+
+  // ---- Invio form ----
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (plzField && !isValidBerlinPlz(plzField.value.trim())) {
+      plzError.classList.add("visible");
+      plzField.classList.add("is-invalid");
+      plzField.focus();
+      plzField.scrollIntoView({ block: "center", behavior: "smooth" });
+      return;
+    }
+
+    if (consentCheckbox && !consentCheckbox.checked) {
+      consentCheckbox.focus();
+      consentCheckbox.scrollIntoView({ block: "center", behavior: "smooth" });
+      return;
+    }
+
+    var whatsappNote = document.getElementById("whatsapp-fallback-note");
+    if (whatsappNote) whatsappNote.style.display = "none";
+
+    var apartmentKey = getApartmentKey();
+    var recurring = isRecurringFrequency();
+
+    // Apartments needing a custom quote, and recurring bookings, never had a
+    // single fixed total to hold — those keep going straight to Mattia via
+    // WhatsApp/Web3Forms exactly as before, no card involved.
+    if (apartmentKey === "4+" || recurring) {
+      statusEl.textContent = t("status_sending", "Invio in corso...");
+      statusEl.className = "form-status";
+      submitViaWeb3Forms();
+      return;
+    }
+
+    // Bookings further out than 7 days can't get a card hold that survives
+    // to the appointment — send those to WhatsApp instead of attempting
+    // checkout (the server enforces this too; this is just to avoid a
+    // pointless round trip).
+    var dateVal = form.querySelector("#data").value;
+    var diff = dateVal ? daysFromToday(dateVal) : 0;
+    if (diff > MAX_DAYS_AHEAD || diff < 0) {
+      whatsappFallback(t("buchen_whatsapp_fallback_date", "Online-Buchung ist nur bis 7 Tage im Voraus möglich."));
+      return;
+    }
+
+    statusEl.textContent = t("status_sending", "Invio in corso...");
+    statusEl.className = "form-status";
+    submitViaStripe();
   });
 })();
