@@ -29,13 +29,20 @@ module.exports = async (req, res) => {
       expand: ["payment_intent"]
     });
     const pi = session.payment_intent;
+    const md = session.metadata || {};
     res.status(200).json({
       amount: pi ? pi.amount : session.amount_total,
       currency: pi ? pi.currency : session.currency,
       status: pi ? pi.status : session.payment_status,
-      datum: session.metadata ? session.metadata.bevorzugtes_datum : null,
-      uhrzeit: session.metadata ? session.metadata.bevorzugte_uhrzeit : null,
-      wohnungstyp: session.metadata ? session.metadata.wohnungstyp : null
+      paymentIntentId: pi ? pi.id : null,
+      datum: md.bevorzugtes_datum || null,
+      uhrzeit: md.bevorzugte_uhrzeit || null,
+      wohnungstyp: md.wohnungstyp || null,
+      // Full metadata so the success page can send the Web3Forms
+      // notification itself (from the customer's own browser — Web3Forms
+      // blocks server-to-server calls behind Cloudflare on the free plan,
+      // see api/stripe-webhook.js).
+      metadata: md
     });
   } catch (err) {
     console.error("checkout-session lookup error:", err.message);

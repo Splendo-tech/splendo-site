@@ -1,10 +1,17 @@
 /* Splendo — POST /api/stripe-webhook
    Confirms the card authorisation succeeded (Checkout Session completed
-   with a manual-capture PaymentIntent) and forwards the booking, plus
-   the PaymentIntent ID, to Web3Forms — the same inbox Mattia already
-   uses for every other booking. Capture/cancel/partial-capture is done
-   later from the Stripe Dashboard directly (see AGB § 7); this endpoint
-   only records that the hold exists.
+   with a manual-capture PaymentIntent) — logged server-side as the audit
+   trail. Capture/cancel/partial-capture is done later from the Stripe
+   Dashboard directly (see AGB § 7); this endpoint only records that the
+   hold exists.
+
+   The Web3Forms notification to Mattia is sent from buchen-success.html
+   instead of from here — Web3Forms's own docs say server-to-server calls
+   aren't supported on the free plan, and in practice Cloudflare blocks
+   this endpoint's calls to Web3Forms with a bot challenge (confirmed via
+   a real failed delivery: HTTP 403, "Just a moment..."). The success page
+   runs in the customer's own browser, same as the regular booking form
+   that already works reliably, so it doesn't hit that block.
 
    TODO: build a simple admin page for capture/cancel/partial-capture
    instead of the Stripe Dashboard, once there's enough booking volume
@@ -13,8 +20,6 @@
 
 const Stripe = require("stripe");
 
-const WEB3FORMS_ACCESS_KEY = "476e51d4-8223-4645-b4b2-04755e570b05";
-
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
     const chunks = [];
@@ -22,63 +27,6 @@ function getRawBody(req) {
     req.on("end", () => resolve(Buffer.concat(chunks)));
     req.on("error", reject);
   });
-}
-
-async function notifyWeb3Forms(session, paymentIntentId, amountHeld) {
-  const md = session.metadata || {};
-  const payload = {
-    access_key: WEB3FORMS_ACCESS_KEY,
-    subject: "Karte autorisiert — " + (md.name || "Splendo-Buchung"),
-    from_name: "Splendo Website — Stripe",
-    name: md.name || "",
-    email: md.email || "",
-    telefon: md.telefon || "",
-    adresse: md.adresse || "",
-    postleitzahl: md.postleitzahl || "",
-    wohnungstyp: md.wohnungstyp || "",
-    art_der_reinigung: md.art_der_reinigung || "",
-    haeufigkeit: md.haeufigkeit || "",
-    extras: md.extras || "Keine",
-    dringende_anfrage: md.dringende_anfrage || "Nein",
-    reinigungsprodukte: md.reinigungsprodukte || "Nein",
-    rabattcode: md.rabattcode || "Kein Rabattcode",
-    bevorzugtes_datum: md.bevorzugtes_datum || "",
-    bevorzugte_uhrzeit: md.bevorzugte_uhrzeit || "",
-    haustiere: md.haustiere || "Keine Angabe",
-    notizen: md.notizen || "",
-    einwilligung_vorzeitiger_beginn_356_bgb: md.einwilligung_vorzeitiger_beginn_356_bgb || "",
-    einwilligung_zeitstempel: md.einwilligung_zeitstempel || "",
-    stripe_payment_intent_id: paymentIntentId,
-    stripe_betrag_gehalten: (amountHeld / 100).toFixed(2) + " €",
-    stripe_status: "Karte autorisiert (Betrag gehalten, noch nicht abgebucht). Abbuchen im Stripe-Dashboard nach Serviceabschluss.",
-    rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html — AGB & Widerrufsbelehrung: https://splendo.eu/agb.html — Widerruf online: https://splendo.eu/widerruf.html"
-  };
-
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(payload)
-  });
-
-  // Web3Forms is expected to return JSON, but under rate-limiting or an
-  // outage it can return an HTML page instead — read as text first so a
-  // non-JSON response produces a clear, diagnosable error instead of an
-  // opaque JSON.parse crash. Stripe retries this webhook on a non-2xx
-  // response, so throwing here (rather than swallowing the failure) is
-  // deliberate — it gives a transient Web3Forms problem a chance to clear
-  // before the notification is lost for good.
-  const rawText = await res.text();
-  let data;
-  try {
-    data = JSON.parse(rawText);
-  } catch (e) {
-    throw new Error(
-      "Web3Forms returned a non-JSON response (HTTP " + res.status + "): " + rawText.slice(0, 200)
-    );
-  }
-  if (!data.success) {
-    throw new Error("Web3Forms notification failed: " + (data.message || "unknown error"));
-  }
 }
 
 module.exports = async (req, res) => {
@@ -117,20 +65,19 @@ module.exports = async (req, res) => {
       if (paymentIntentId) {
         const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
         if (paymentIntent.status === "requires_capture") {
-          // This is the manual-capture authorisation succeeding — the
-          // card has a hold, nothing has been charged yet.
-          await notifyWeb3Forms(session, paymentIntentId, paymentIntent.amount);
+          console.log(
+            "Authorisation confirmed: " + paymentIntentId +
+            ", " + (paymentIntent.amount / 100).toFixed(2) + " " + paymentIntent.currency.toUpperCase() +
+            ", held (not charged). Customer: " + (session.metadata && session.metadata.email)
+          );
         } else {
-          console.warn("checkout.session.completed but PaymentIntent status is " + paymentIntent.status + ", not requires_capture — skipping notification");
+          console.warn("checkout.session.completed but PaymentIntent status is " + paymentIntent.status + ", not requires_capture");
         }
       }
     }
     res.status(200).json({ received: true });
   } catch (err) {
     console.error("Webhook handling error:", err.message);
-    // Respond 500 so Stripe retries delivery — the authorisation itself
-    // already succeeded on Stripe's side either way, this only affects
-    // whether Mattia's notification email goes out.
     res.status(500).json({ error: err.message });
   }
 };
