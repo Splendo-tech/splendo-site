@@ -152,18 +152,27 @@ window.SPLENDO_I18N_PAGE = {
     return;
   }
 
+  var sessionData = null;
+
+  function renderSummary() {
+    if (!sessionData) return;
+    var betrag = (sessionData.amount / 100).toFixed(2);
+    var template = t("success_summary_template", "");
+    summaryEl.textContent = template
+      .replace("{datum}", sessionData.datum || "—")
+      .replace("{uhrzeit}", sessionData.uhrzeit || "—")
+      .replace("{betrag}", betrag);
+  }
+  document.addEventListener("splendo:langchange", renderSummary);
+
   fetch("/api/checkout-session?session_id=" + encodeURIComponent(sessionId))
     .then(function (res) {
       if (!res.ok) throw new Error("lookup failed");
       return res.json();
     })
     .then(function (data) {
-      var betrag = (data.amount / 100).toFixed(2);
-      var template = t("success_summary_template", "");
-      summaryEl.textContent = template
-        .replace("{datum}", data.datum || "—")
-        .replace("{uhrzeit}", data.uhrzeit || "—")
-        .replace("{betrag}", betrag);
+      sessionData = data;
+      renderSummary();
       loadingEl.style.display = "none";
       contentEl.style.display = "block";
     })
