@@ -80,6 +80,7 @@ module.exports = async (req, res) => {
   const requiredFields = ["name", "email", "telefono", "adresse", "plz", "datum", "ora"];
   for (const field of requiredFields) {
     if (!contact[field] || String(contact[field]).trim() === "") {
+      console.warn("create-checkout-session rejected: missing field " + field, { selections, contactKeys: Object.keys(contact) });
       res.status(400).json({ error: "Missing required field: " + field });
       return;
     }
@@ -88,6 +89,7 @@ module.exports = async (req, res) => {
   // The § 356 Abs. 4 consent checkbox must have been ticked — the client
   // already gates the submit button on this, but we don't trust the client.
   if (!consent.accepted || !consent.text || !consent.timestamp) {
+    console.warn("create-checkout-session rejected: missing consent", consent);
     res.status(400).json({ error: "Missing withdrawal consent" });
     return;
   }
@@ -98,16 +100,19 @@ module.exports = async (req, res) => {
   // recurring frequencies (no fixed one-off total to hold).
   const requestedDate = String(contact.datum || "");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(requestedDate)) {
+    console.warn("create-checkout-session rejected: invalid date format", requestedDate);
     res.status(400).json({ error: "Invalid date" });
     return;
   }
   const today = berlinTodayISODate();
   const diff = daysBetween(today, requestedDate);
   if (diff < 0) {
+    console.warn("create-checkout-session rejected: date in the past", { requestedDate, today });
     res.status(400).json({ error: "Date is in the past" });
     return;
   }
   if (diff > MAX_DAYS_AHEAD) {
+    console.warn("create-checkout-session rejected: date too far", { requestedDate, today, diff });
     res.status(409).json({
       error: "date_too_far",
       message: "Online booking is only available up to 7 days ahead — a card hold can't survive longer than that. Please arrange this date on WhatsApp instead."
@@ -116,6 +121,7 @@ module.exports = async (req, res) => {
   }
 
   if (selections.apartment === "4+") {
+    console.warn("create-checkout-session rejected: apartment 4+ (quote only)");
     res.status(409).json({
       error: "quote_only",
       message: "This apartment size needs a custom quote — please book it on WhatsApp instead."
@@ -123,6 +129,7 @@ module.exports = async (req, res) => {
     return;
   }
   if (selections.recurring === true) {
+    console.warn("create-checkout-session rejected: recurring frequency");
     res.status(409).json({
       error: "recurring_not_supported",
       message: "Recurring bookings are arranged and priced per visit on WhatsApp, not through online pre-authorisation."
