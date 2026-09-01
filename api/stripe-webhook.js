@@ -59,7 +59,23 @@ async function notifyWeb3Forms(session, paymentIntentId, amountHeld) {
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(payload)
   });
-  const data = await res.json();
+
+  // Web3Forms is expected to return JSON, but under rate-limiting or an
+  // outage it can return an HTML page instead — read as text first so a
+  // non-JSON response produces a clear, diagnosable error instead of an
+  // opaque JSON.parse crash. Stripe retries this webhook on a non-2xx
+  // response, so throwing here (rather than swallowing the failure) is
+  // deliberate — it gives a transient Web3Forms problem a chance to clear
+  // before the notification is lost for good.
+  const rawText = await res.text();
+  let data;
+  try {
+    data = JSON.parse(rawText);
+  } catch (e) {
+    throw new Error(
+      "Web3Forms returned a non-JSON response (HTTP " + res.status + "): " + rawText.slice(0, 200)
+    );
+  }
   if (!data.success) {
     throw new Error("Web3Forms notification failed: " + (data.message || "unknown error"));
   }
