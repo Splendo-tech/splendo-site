@@ -4,6 +4,7 @@
   --navy-ink: #2B3350;
   --gold: #BF9000;
   --gold-soft: #E8C560;
+  --gold-text: #866500; /* darker than --gold; meets WCAG AA 4.5:1 for small text on white/cream */
   --cream: #FAF8F4;
   --tint: #FBF3DF;
   --white: #FFFFFF;
@@ -35,6 +36,23 @@ a { color: inherit; text-decoration: none; }
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  z-index: 1000;
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -671,11 +689,11 @@ a:focus-visible, button:focus-visible {
 
 .extra-price-free {
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-text);
   white-space: nowrap;
 }
 
-.extra-price-quote a { color: var(--gold); font-weight: 600; text-decoration: underline; }
+.extra-price-quote a { color: var(--gold-text); font-weight: 600; text-decoration: underline; }
 
 .counter {
   display: flex;
@@ -1661,7 +1679,7 @@ a:focus-visible, button:focus-visible {
   color: var(--navy-ink);
 }
 
-.extra-item strong { color: var(--gold); white-space: nowrap; }
+.extra-item strong { color: var(--gold-text); white-space: nowrap; }
 
 @media (max-width: 860px) {
   .tiers { flex-direction: column; }
@@ -1876,7 +1894,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .team-info-v2 .role {
-  color: var(--gold);
+  color: var(--gold-text);
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1949,7 +1967,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .contact-card-v2 p { color: #667; font-size: 0.85rem; margin: 0 0 14px; }
-.contact-card-v2 a { color: var(--gold); font-weight: 600; font-size: 0.85rem; text-decoration: none; }
+.contact-card-v2 a { color: var(--gold-text); font-weight: 600; font-size: 0.85rem; text-decoration: none; }
 .contact-card-v2 a:hover { text-decoration: underline; }
 
 .map-and-zones-v2 {

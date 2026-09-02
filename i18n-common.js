@@ -21,7 +21,8 @@ window.SPLENDO_I18N_COMMON = {
     footer_col_legale: "Rechtliches",
     lang_switch_label: "Sprache wählen",
     whatsapp_float_label: "Kontaktiere uns auf WhatsApp",
-    hamburger_label: "Menü"
+    hamburger_label: "Menü",
+    skip_to_content: "Zum Inhalt springen"
   },
   en: {
     nav_come_funziona: "How it works",
@@ -42,7 +43,8 @@ window.SPLENDO_I18N_COMMON = {
     footer_col_legale: "Legal",
     lang_switch_label: "Choose language",
     whatsapp_float_label: "Contact us on WhatsApp",
-    hamburger_label: "Menu"
+    hamburger_label: "Menu",
+    skip_to_content: "Skip to content"
   },
   it: {
     nav_come_funziona: "Come funziona",
@@ -63,6 +65,7 @@ window.SPLENDO_I18N_COMMON = {
     footer_col_legale: "Legale",
     lang_switch_label: "Seleziona lingua",
     whatsapp_float_label: "Contattaci su WhatsApp",
-    hamburger_label: "Menu"
+    hamburger_label: "Menu",
+    skip_to_content: "Vai al contenuto"
   }
 };
