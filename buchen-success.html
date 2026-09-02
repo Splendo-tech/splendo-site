@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n-content="success_meta_title">Buchung bestätigt — Splendo</title>
+<title data-i18n-content="success_meta_title">Buchung bestätigt - Splendo</title>
 <meta name="description" data-i18n-content="success_meta_description" content="Deine Buchung bei Splendo ist bestätigt.">
 <link rel="canonical" href="https://splendo.eu/buchen-success.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/buchen-success.html">
-<meta property="og:title" data-i18n-content="success_meta_title" content="Buchung bestätigt — Splendo">
+<meta property="og:title" data-i18n-content="success_meta_title" content="Buchung bestätigt - Splendo">
 <meta property="og:description" data-i18n-content="success_meta_description" content="Deine Buchung bei Splendo ist bestätigt.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
 <meta property="og:locale" content="de_DE">
@@ -66,7 +66,7 @@
       </div>
 
       <div id="success-error" style="display:none;">
-        <p data-i18n="success_error_text">Wir konnten deine Buchung gerade nicht laden. Wenn du eine Bestätigung von Stripe erhalten hast, ist deine Karte trotzdem korrekt autorisiert — schreib uns einfach kurz auf WhatsApp, falls du unsicher bist.</p>
+        <p data-i18n="success_error_text">Wir konnten deine Buchung gerade nicht laden. Wenn du eine Bestätigung von Stripe erhalten hast, ist deine Karte trotzdem korrekt autorisiert - schreib uns einfach kurz auf WhatsApp, falls du unsicher bist.</p>
       </div>
 
     </div>
@@ -94,37 +94,37 @@
 <script>
 window.SPLENDO_I18N_PAGE = {
   de: {
-    success_meta_title: "Buchung bestätigt — Splendo",
+    success_meta_title: "Buchung bestätigt - Splendo",
     success_meta_description: "Deine Buchung bei Splendo ist bestätigt.",
     success_h1: "Buchung bestätigt",
     success_loading: "Wir laden die Bestätigung…",
     success_hold_explainer: "Bei der Buchung wird der Betrag auf deiner Karte nur reserviert, nicht abgebucht. Die Abbuchung erfolgt erst nach Abschluss der Reinigung.",
     success_next_steps: "Wir bestätigen dir Termin und Details in Kürze per WhatsApp oder E-Mail.",
     success_home_btn: "Zurück zur Startseite",
-    success_error_text: "Wir konnten deine Buchung gerade nicht laden. Wenn du eine Bestätigung von Stripe erhalten hast, ist deine Karte trotzdem korrekt autorisiert — schreib uns einfach kurz auf WhatsApp, falls du unsicher bist.",
-    success_summary_template: "Termin am {datum} um {uhrzeit} Uhr — {betrag} € wurden auf deiner Karte reserviert."
+    success_error_text: "Wir konnten deine Buchung gerade nicht laden. Wenn du eine Bestätigung von Stripe erhalten hast, ist deine Karte trotzdem korrekt autorisiert - schreib uns einfach kurz auf WhatsApp, falls du unsicher bist.",
+    success_summary_template: "Termin am {datum} um {uhrzeit} Uhr - {betrag} € wurden auf deiner Karte reserviert."
   },
   en: {
-    success_meta_title: "Booking confirmed — Splendo",
+    success_meta_title: "Booking confirmed - Splendo",
     success_meta_description: "Your Splendo booking is confirmed.",
     success_h1: "Booking confirmed",
     success_loading: "Loading your confirmation…",
     success_hold_explainer: "When you book, the amount is only held on your card, not charged. It is charged after the cleaning is completed.",
     success_next_steps: "We'll confirm the appointment and details shortly by WhatsApp or email.",
     success_home_btn: "Back to the homepage",
-    success_error_text: "We couldn't load your booking right now. If you got a confirmation from Stripe, your card is still correctly authorised — just message us on WhatsApp if you're unsure.",
-    success_summary_template: "Appointment on {datum} at {uhrzeit} — €{betrag} has been held on your card."
+    success_error_text: "We couldn't load your booking right now. If you got a confirmation from Stripe, your card is still correctly authorised - just message us on WhatsApp if you're unsure.",
+    success_summary_template: "Appointment on {datum} at {uhrzeit} - €{betrag} has been held on your card."
   },
   it: {
-    success_meta_title: "Prenotazione confermata — Splendo",
+    success_meta_title: "Prenotazione confermata - Splendo",
     success_meta_description: "La tua prenotazione Splendo è confermata.",
     success_h1: "Prenotazione confermata",
     success_loading: "Stiamo caricando la conferma…",
     success_hold_explainer: "Alla prenotazione l'importo viene solo bloccato sulla carta, non addebitato. L'addebito avviene a servizio completato.",
     success_next_steps: "Ti confermiamo appuntamento e dettagli a breve su WhatsApp o email.",
     success_home_btn: "Torna alla home",
-    success_error_text: "Non siamo riusciti a caricare la tua prenotazione in questo momento. Se hai ricevuto una conferma da Stripe, la tua carta è comunque autorizzata correttamente — scrivici pure su WhatsApp se hai dubbi.",
-    success_summary_template: "Appuntamento il {datum} alle {uhrzeit} — {betrag} € sono stati bloccati sulla tua carta."
+    success_error_text: "Non siamo riusciti a caricare la tua prenotazione in questo momento. Se hai ricevuto una conferma da Stripe, la tua carta è comunque autorizzata correttamente - scrivici pure su WhatsApp se hai dubbi.",
+    success_summary_template: "Appuntamento il {datum} alle {uhrzeit} - {betrag} € sono stati bloccati sulla tua carta."
   }
 };
 </script>
@@ -161,8 +161,8 @@ window.SPLENDO_I18N_PAGE = {
       var betrag = (data.amount / 100).toFixed(2);
       var template = t("success_summary_template", "");
       summaryEl.textContent = template
-        .replace("{datum}", data.datum || "—")
-        .replace("{uhrzeit}", data.uhrzeit || "—")
+        .replace("{datum}", data.datum || "-")
+        .replace("{uhrzeit}", data.uhrzeit || "-")
         .replace("{betrag}", betrag);
       loadingEl.style.display = "none";
       contentEl.style.display = "block";

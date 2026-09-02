@@ -1,4 +1,4 @@
-/* Splendo — booking.js
+/* Splendo - booking.js
    Calcolo prezzo live + invio form di prenotazione via Web3Forms (nessun backend proprio).
    Le etichette mostrate seguono la lingua attiva (lette dal DOM già tradotto da i18n.js).
    L'email interna usa sempre le etichette tedesche (attributo data-de). */
@@ -137,7 +137,7 @@
 
     if (apartment) {
       if (apartment.isQuote) {
-        rows.push({ label: apartment.displayLabel, amountLabel: apartment.quoteLabel || "—" });
+        rows.push({ label: apartment.displayLabel, amountLabel: apartment.quoteLabel || "-" });
       } else {
         var adjustedPrice = Math.round(apartment.price * serviceLevel.multiplier);
         total += adjustedPrice;
@@ -156,7 +156,7 @@
     });
 
     if (tappezzeria) {
-      rows.push({ label: tappezzeria.displayLabel, amountLabel: "—" });
+      rows.push({ label: tappezzeria.displayLabel, amountLabel: "-" });
     }
 
     if (products) {
@@ -340,7 +340,7 @@
 
     var payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "Neue Splendo-Buchungsanfrage — " + (form.querySelector("#nome").value || ""),
+      subject: "Neue Splendo-Buchungsanfrage - " + (form.querySelector("#nome").value || ""),
       from_name: "Splendo Website",
       postleitzahl: form.querySelector("#plz").value,
       wohnungstyp: apartment ? apartment.deLabel : "",
@@ -360,10 +360,10 @@
       email: form.querySelector("#email").value,
       haustiere: form.querySelector("#pets").value || "Keine Angabe",
       notizen: form.querySelector("#note").value,
-      hinweis: "Individuelle Anfrage (4+ Zimmer oder wiederkehrend) — Preis und Zahlung werden manuell per WhatsApp vereinbart, keine Kartenreservierung.",
+      hinweis: "Individuelle Anfrage (4+ Zimmer oder wiederkehrend) - Preis und Zahlung werden manuell per WhatsApp vereinbart, keine Kartenreservierung.",
       einwilligung_vorzeitiger_beginn_356_bgb: WIDERRUF_CONSENT_TEXT,
       einwilligung_zeitstempel: new Date().toISOString(),
-      rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html — AGB & Widerrufsbelehrung: https://splendo.eu/agb.html — Widerruf online: https://splendo.eu/widerruf.html"
+      rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html - AGB & Widerrufsbelehrung: https://splendo.eu/agb.html - Widerruf online: https://splendo.eu/widerruf.html"
     };
 
     fetch("https://api.web3forms.com/submit", {
@@ -490,7 +490,7 @@
     var recurring = isRecurringFrequency();
 
     // Apartments needing a custom quote, and recurring bookings, never had a
-    // single fixed total to hold — those keep going straight to Mattia via
+    // single fixed total to hold - those keep going straight to Mattia via
     // WhatsApp/Web3Forms exactly as before, no card involved.
     if (apartmentKey === "4+" || recurring) {
       statusEl.textContent = t("status_sending", "Invio in corso...");
@@ -500,7 +500,7 @@
     }
 
     // Bookings further out than 7 days can't get a card hold that survives
-    // to the appointment — send those to WhatsApp instead of attempting
+    // to the appointment - send those to WhatsApp instead of attempting
     // checkout (the server enforces this too; this is just to avoid a
     // pointless round trip).
     var dateVal = form.querySelector("#data").value;

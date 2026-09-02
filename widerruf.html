@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n-content="widerruf_meta_title">Widerruf — Splendo</title>
+<title data-i18n-content="widerruf_meta_title">Widerruf - Splendo</title>
 <meta name="description" data-i18n-content="widerruf_meta_description" content="Vertrag bei Splendo online widerrufen.">
 <link rel="canonical" href="https://splendo.eu/widerruf.html">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://splendo.eu/widerruf.html">
-<meta property="og:title" data-i18n-content="widerruf_meta_title" content="Widerruf — Splendo">
+<meta property="og:title" data-i18n-content="widerruf_meta_title" content="Widerruf - Splendo">
 <meta property="og:description" data-i18n-content="widerruf_meta_description" content="Vertrag bei Splendo online widerrufen.">
 <meta property="og:image" content="https://splendo.eu/logo-icon.png">
 <meta property="og:locale" content="de_DE">
 <meta name="robots" content="noindex, nofollow">
 <!-- TODO: EN/IT content is served from this same URL via client-side language switching,
-     not separate localized URLs — there is no hreflang to point to, so Google only ever
+     not separate localized URLs - there is no hreflang to point to, so Google only ever
      indexes the German-rendered version. EN/IT copy is reachable only to visitors who
      switch language manually after landing. Fixing this needs per-language URLs. -->
 <link rel="stylesheet" href="/fonts.css">
@@ -131,7 +131,7 @@
 <script>
 window.SPLENDO_I18N_PAGE = {
   de: {
-    widerruf_meta_title: "Widerruf — Splendo",
+    widerruf_meta_title: "Widerruf - Splendo",
     widerruf_meta_description: "Vertrag bei Splendo online widerrufen.",
     widerruf_intro_p: "Wenn du einen mit Splendo geschlossenen Vertrag widerrufen möchtest, geht das hier in zwei Schritten. Die vollständige Widerrufsbelehrung findest du in unseren <a href=\"/agb.html#widerrufsbelehrung\">AGB, Teil 2</a>.",
     widerruf_start_btn: "Vertrag widerrufen",
@@ -150,7 +150,7 @@ window.SPLENDO_I18N_PAGE = {
     widerruf_alt_p: "Du kannst den Widerruf auch formlos oder mit diesem Formular schriftlich erklären, statt die Online-Funktion oben zu nutzen."
   },
   en: {
-    widerruf_meta_title: "Withdrawal — Splendo",
+    widerruf_meta_title: "Withdrawal - Splendo",
     widerruf_meta_description: "Withdraw a contract with Splendo online.",
     widerruf_intro_p: "If you'd like to withdraw from a contract with Splendo, you can do it here in two steps. The full withdrawal policy is in our <a href=\"/agb.html#widerrufsbelehrung\">Terms, Part 2</a>.",
     widerruf_start_btn: "Withdraw from contract",
@@ -169,7 +169,7 @@ window.SPLENDO_I18N_PAGE = {
     widerruf_alt_p: "You can also declare the withdrawal informally, or in writing using this form, instead of using the online option above."
   },
   it: {
-    widerruf_meta_title: "Recesso — Splendo",
+    widerruf_meta_title: "Recesso - Splendo",
     widerruf_meta_description: "Recedi online da un contratto con Splendo.",
     widerruf_intro_p: "Se vuoi recedere da un contratto con Splendo, puoi farlo qui in due passaggi. Trovi l'informativa completa sul recesso nelle nostre <a href=\"/agb.html#widerrufsbelehrung\">CGC, Parte 2</a>.",
     widerruf_start_btn: "Recedi dal contratto",
@@ -214,7 +214,7 @@ window.SPLENDO_I18N_PAGE = {
   }
 
   // Berlin wall-clock time as a proper ISO 8601 string, with the correct
-  // CET/CEST offset — independent of the visitor's own timezone.
+  // CET/CEST offset - independent of the visitor's own timezone.
   function berlinIsoTimestamp(date) {
     var parts = new Intl.DateTimeFormat("en-CA", {
       timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit",
@@ -259,8 +259,8 @@ window.SPLENDO_I18N_PAGE = {
 
     var payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "Widerruf eingegangen — " + name,
-      from_name: "Splendo Website — Widerruf",
+      subject: "Widerruf eingegangen - " + name,
+      from_name: "Splendo Website - Widerruf",
       replyto: email,
       ccemail: email,
       name: name,

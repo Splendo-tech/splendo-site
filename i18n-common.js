@@ -1,4 +1,4 @@
-/* Splendo — i18n-common.js
+/* Splendo - i18n-common.js
    Testi condivisi su tutte le pagine: header, nav, footer, CTA ricorrenti. */
 
 window.SPLENDO_I18N_COMMON = {
