@@ -312,6 +312,17 @@
       rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html - AGB & Widerrufsbelehrung: https://splendo.eu/agb.html - Widerruf online: https://splendo.eu/widerruf.html"
     };
 
+    // Best-effort backup copy to a Google Sheet. Fire-and-forget: never lets
+    // a Sheets outage block or fail the actual booking, which always goes
+    // through Web3Forms below regardless of what happens here.
+    try {
+      fetch("/api/log-booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+    } catch (e) {}
+
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
