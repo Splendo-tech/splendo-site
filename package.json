@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.js",
+    "sync-partials": "node scripts/build.js",
     "test": "node scripts/check-tags.js && node scripts/check-i18n.js && node scripts/build.js --check",
     "hooks:install": "bash scripts/install-hooks.sh"
   }

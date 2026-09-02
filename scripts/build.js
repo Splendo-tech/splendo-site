@@ -5,7 +5,7 @@
    plain static HTML — this only removes the need to hand-edit the same
    markup in 12 files every time the nav or footer changes.
 
-   Run `npm run build` after editing a file in /_partials. It also runs
+   Run `npm run sync-partials` after editing a file in /_partials. It also runs
    automatically as part of `npm test` / the pre-push hook, so a page
    can never drift from its partial without the check catching it. */
 
@@ -69,7 +69,7 @@ function main() {
 
     if (content !== original) {
       if (checkOnly) {
-        console.error(`  FAIL  ${page} — out of sync with _partials/${variant} (run 'npm run build')`);
+        console.error(`  FAIL  ${page} — out of sync with _partials/${variant} (run 'npm run sync-partials')`);
         failed++;
       } else {
         fs.writeFileSync(pagePath, content, "utf-8");
