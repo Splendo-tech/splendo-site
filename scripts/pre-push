@@ -1,0 +1,19 @@
+#!/bin/sh
+# Splendo — pre-push guard. Installed via `npm run hooks:install`.
+# Runs the same checks CI would run, before anything reaches origin —
+# catches the class of bug that shipped straight to production twice
+# this week (mismatched content, i18n leakage) before it can happen again.
+
+echo "Running pre-push checks..."
+npm test
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "pre-push: checks failed — push aborted."
+  echo "Fix the issues above, or run 'git push --no-verify' to skip this (not recommended)."
+  exit 1
+fi
+
+echo "pre-push: all checks passed."
+exit 0

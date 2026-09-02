@@ -1,0 +1,9 @@
+{
+  "name": "splendo-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/check-tags.js && node scripts/check-i18n.js",
+    "hooks:install": "bash scripts/install-hooks.sh"
+  }
+}
