@@ -1,5 +1,4 @@
 {
-  "buildCommand": false,
   "redirects": [
     { "source": "/prenota.html", "destination": "/buchen.html", "permanent": true },
     { "source": "/prezzi.html", "destination": "/preise.html", "permanent": true },
