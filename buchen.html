@@ -145,7 +145,7 @@
     <div class="wrap">
       <p class="breadcrumb-v2"><a href="/">Home</a> / <span data-i18n="buchen_breadcrumb">Buchen</span></p>
       <h1 data-i18n="buchen_h1">Buche deine Reinigung</h1>
-      <p data-i18n="buchen_hero_p">Zwei Minuten zum Ausfüllen, keine Verpflichtung, keine gespeicherte Karte. Du zahlst erst nach Abschluss des Services.</p>
+      <p data-i18n="buchen_hero_p">Zwei Minuten zum Ausfüllen. Du hinterlegst eine Zahlungsmethode, abgebucht wird erst nach Abschluss des Services.</p>
       <div class="progress-strip">
         <div class="progress-dot active"></div>
         <div class="progress-dot"></div>
@@ -432,7 +432,7 @@
           <input type="text" id="promo" name="promo" placeholder="z.B. WILLKOMMEN10" data-i18n-placeholder="buchen_promo_placeholder">
         </div>
 
-        <p class="form-payment-note" data-i18n="buchen_payment_note">Wir erfassen hier keine Zahlung. Nach Abschluss des Services senden wir dir einen sicheren Stripe-Link per WhatsApp - keine Karte wird im Voraus gespeichert.</p>
+        <p class="form-payment-note" data-i18n="buchen_payment_note">Am Ende der Buchung hinterlegst du eine Zahlungsmethode über unseren Partner Stripe. Abgebucht wird erst nach Abschluss der Reinigung.</p>
 
         <label class="consent-check">
           <input type="checkbox" id="widerruf-consent" required>
@@ -442,7 +442,12 @@
           </span>
         </label>
 
-        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn" id="booking-submit-btn" disabled>Buchungsanfrage senden</button>
+        <p class="form-payment-note payment-method-note">
+          Für die Buchung hinterlegst du eine Zahlungsmethode. Es wird jetzt nichts abgebucht. Der Rechnungsbetrag wird nach Abschluss der Reinigung von der hinterlegten Karte eingezogen.
+          <small class="consent-translation" data-i18n-html="buchen_payment_consent_translation"></small>
+        </p>
+
+        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn" id="booking-submit-btn" disabled>Zahlungsmethode hinterlegen</button>
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
 
@@ -525,7 +530,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_meta_description: "Buche deine Wohnungsreinigung in Berlin. Wähle Wohnungstyp, Reinigungsstufe und Extras - jetzt noch keine Zahlung nötig.",
     buchen_breadcrumb: "Buchen",
     buchen_h1: "Buche deine Reinigung",
-    buchen_hero_p: "Zwei Minuten zum Ausfüllen, keine Verpflichtung, keine gespeicherte Karte. Du zahlst erst nach Abschluss des Services.",
+    buchen_hero_p: "Zwei Minuten zum Ausfüllen. Du hinterlegst eine Zahlungsmethode, abgebucht wird erst nach Abschluss des Services.",
     buchen_legend1: "1. Postleitzahl",
     buchen_plz_label: "PLZ",
     buchen_plz_placeholder: "z.B. 10115",
@@ -578,9 +583,10 @@ window.SPLENDO_I18N_PAGE = {
     buchen_field_notes: "Notizen (Schlüssel, besondere Zugänge...)",
     buchen_promo_label: "Hast du einen Rabattcode? <span class=\"promo-optional\">(optional)</span>",
     buchen_promo_placeholder: "z.B. WILLKOMMEN10",
-    buchen_payment_note: "Wir erfassen hier keine Zahlung. Nach Abschluss des Services senden wir dir einen sicheren Stripe-Link per WhatsApp - keine Karte wird im Voraus gespeichert.",
+    buchen_payment_note: "Am Ende der Buchung hinterlegst du eine Zahlungsmethode über unseren Partner Stripe. Abgebucht wird erst nach Abschluss der Reinigung.",
     buchen_consent_translation: "",
-    buchen_submit_btn: "Buchungsanfrage senden",
+    buchen_payment_consent_translation: "",
+    buchen_submit_btn: "Zahlungsmethode hinterlegen",
     buchen_summary_h3: "Zusammenfassung",
     buchen_summary_total_label: "Geschätzter Gesamtpreis",
     buchen_summary_recurring_p: "Für wiederkehrende Reinigungen vereinbaren wir Preis und Häufigkeit direkt mit dir.",
@@ -589,8 +595,8 @@ window.SPLENDO_I18N_PAGE = {
     summary_empty: "Wähle die Optionen, um den Preis zu sehen",
     products_label: "Reinigungsprodukte von uns",
     urgent_label: "Dringende Anfrage",
-    status_sending: "Wird gesendet...",
-    status_success: "Anfrage gesendet. Wir melden uns innerhalb weniger Stunden per WhatsApp, um Termin und Endpreis zu bestätigen. Die Zahlung erfolgt erst nach Abschluss des Services.",
+    status_redirecting: "Weiterleitung zur sicheren Zahlungsseite...",
+    status_cancelled: "Die Buchung wurde nicht bestätigt - die Karte wurde nicht gespeichert. Du kannst es jederzeit erneut versuchen.",
     status_error: "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu, wir antworten sofort.",
     included_label: "Inklusive"
   },
@@ -599,7 +605,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_meta_description: "Book your home cleaning in Berlin. Choose apartment type, cleaning level and extras - no payment required now.",
     buchen_breadcrumb: "Book",
     buchen_h1: "Book your cleaning",
-    buchen_hero_p: "Two minutes to complete, no commitment, no card saved. You only pay once the service is done.",
+    buchen_hero_p: "Two minutes to complete. You store a payment method, charged only once the service is done.",
     buchen_legend1: "1. Postcode",
     buchen_plz_label: "Postcode",
     buchen_plz_placeholder: "e.g. 10115",
@@ -652,9 +658,10 @@ window.SPLENDO_I18N_PAGE = {
     buchen_field_notes: "Notes (keys, special access...)",
     buchen_promo_label: "Got a promo code? <span class=\"promo-optional\">(optional)</span>",
     buchen_promo_placeholder: "e.g. WELCOME10",
-    buchen_payment_note: "We don't collect payment here. Once the service is done, we'll send you a secure Stripe link on WhatsApp - no card saved in advance.",
+    buchen_payment_note: "At the end of the booking you'll store a payment method with our partner Stripe. Nothing is charged until the cleaning is completed.",
     buchen_consent_translation: "Translation, not legally binding: I expressly request that Splendo begins the cleaning service before the withdrawal period expires. I am aware that I lose my right of withdrawal once the service has been performed in full.",
-    buchen_submit_btn: "Send booking request",
+    buchen_payment_consent_translation: "To book, you store a payment method. Nothing is charged now. The invoice amount is charged to the stored card after the cleaning is completed.",
+    buchen_submit_btn: "Save payment method",
     buchen_summary_h3: "Summary",
     buchen_summary_total_label: "Estimated total price",
     buchen_summary_recurring_p: "For recurring cleanings, we agree on price and frequency directly with you.",
@@ -663,8 +670,8 @@ window.SPLENDO_I18N_PAGE = {
     summary_empty: "Select the options to see the price",
     products_label: "Products supplied by us",
     urgent_label: "Urgent request",
-    status_sending: "Sending...",
-    status_success: "Request sent. We'll contact you within a few hours on WhatsApp to confirm date and final price. Payment happens only once the service is done.",
+    status_redirecting: "Redirecting to the secure payment page...",
+    status_cancelled: "The booking wasn't confirmed - no card was saved. You can try again anytime.",
     status_error: "Something went wrong. Write to us directly at admin@splendo.eu, we'll reply right away.",
     included_label: "Included"
   },
@@ -673,7 +680,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_meta_description: "Prenota la tua pulizia di casa a Berlino. Scegli appartamento, livello di pulizia ed extra - nessun pagamento richiesto ora.",
     buchen_breadcrumb: "Prenota",
     buchen_h1: "Prenota la tua pulizia",
-    buchen_hero_p: "Due minuti per completare, nessun impegno, nessuna carta salvata. Paghi solo a servizio concluso.",
+    buchen_hero_p: "Due minuti per completare. Registri un metodo di pagamento, l'addebito avviene solo a servizio concluso.",
     buchen_legend1: "1. CAP",
     buchen_plz_label: "CAP",
     buchen_plz_placeholder: "es. 10115",
@@ -726,9 +733,10 @@ window.SPLENDO_I18N_PAGE = {
     buchen_field_notes: "Note (chiavi, accessi particolari...)",
     buchen_promo_label: "Hai un codice promozionale? <span class=\"promo-optional\">(facoltativo)</span>",
     buchen_promo_placeholder: "es. BENVENUTO10",
-    buchen_payment_note: "Non raccogliamo pagamenti qui. A fine servizio ti invieremo un link Stripe sicuro su WhatsApp - nessuna carta salvata in anticipo.",
+    buchen_payment_note: "Alla fine della prenotazione registrerai un metodo di pagamento tramite il nostro partner Stripe. L'addebito avviene solo a pulizia conclusa.",
     buchen_consent_translation: "Traduzione, non vincolante: chiedo espressamente che Splendo inizi il servizio prima della scadenza dei 14 giorni. So che perdo il diritto di recesso una volta che la prestazione è stata eseguita per intero.",
-    buchen_submit_btn: "Invia richiesta di prenotazione",
+    buchen_payment_consent_translation: "Per prenotare registri un metodo di pagamento. Ora non viene addebitato nulla. L'importo viene addebitato sulla carta registrata al termine della pulizia.",
+    buchen_submit_btn: "Registra metodo di pagamento",
     buchen_summary_h3: "Riepilogo",
     buchen_summary_total_label: "Prezzo totale stimato",
     buchen_summary_recurring_p: "Per le pulizie ricorrenti, concordiamo prezzo e frequenza direttamente con te.",
@@ -737,8 +745,8 @@ window.SPLENDO_I18N_PAGE = {
     summary_empty: "Seleziona le opzioni per vedere il prezzo",
     products_label: "Prodotti forniti da noi",
     urgent_label: "Richiesta urgente",
-    status_sending: "Invio in corso...",
-    status_success: "Richiesta inviata. Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.",
+    status_redirecting: "Reindirizzamento alla pagina di pagamento sicura...",
+    status_cancelled: "La prenotazione non è stata confermata - nessuna carta è stata salvata. Puoi riprovare quando vuoi.",
     status_error: "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito.",
     included_label: "Incluso"
   }
