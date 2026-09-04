@@ -1,17 +1,21 @@
 /* Splendo - api/stripe-webhook.js
    Verifies the Stripe webhook signature and, on checkout.session.completed
    for a mode:'setup' session, makes the saved card the customer's default
-   payment method and appends the Sheets backup row - this is the ONLY
-   place that fires from in the card-on-file flow, specifically so an
-   abandoned checkout never leaves a record anywhere.
+   payment method, appends the Sheets backup row, and emails a booking
+   notification via Resend - this is the ONLY place any of that fires
+   from in the card-on-file flow, specifically so an abandoned checkout
+   never leaves a record or sends a notification anywhere.
 
-   The Web3Forms customer notification is NOT sent from here, on purpose:
-   Web3Forms's free tier returns 403 on server-to-server calls ("Use our
-   API in client side... Pro plan is required") - confirmed by testing it
-   directly, same constraint hit earlier on this exact codebase's
-   pre-auth branch. It's sent from buchen-success.html instead, via
-   GET /api/checkout-session for the booking data - client-side, after
-   the browser lands there, which only happens on a real completed setup.
+   The notification email is NOT sent via Web3Forms: its free tier
+   returns 403 on server-to-server calls ("Use our API in client side...
+   Pro plan is required") - confirmed by testing it directly, the same
+   constraint already hit once on this exact codebase's pre-auth branch.
+   A first version of this file tried firing it from the browser instead
+   (buchen-success.html) to work around that, but that makes the
+   notification only as reliable as the customer's browser staying on
+   the page after Stripe's redirect - not good enough as the one real
+   confirmation channel, so it's Resend (genuinely server-side capable)
+   from here instead, same reliability guarantee as the Sheets row.
 
    Idempotent: Stripe redelivers events (retries, duplicate webhooks), so
    this checks a "already processed this session" marker on the Customer
@@ -27,7 +31,7 @@
 
 const Stripe = require("stripe");
 const { appendBookingRow } = require("./_sheets");
-const { reassembleBooking } = require("./_metadata");
+const { sendBookingEmail } = require("./_email");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -38,6 +42,22 @@ function getRawBody(req) {
     req.on("end", function () { resolve(Buffer.concat(chunks)); });
     req.on("error", reject);
   });
+}
+
+/* Reassembles the booking record api/create-setup-session.js chunks
+   across Customer metadata keys (Stripe caps each value at 500 chars). */
+function reassembleBooking(customerMetadata) {
+  const chunkCount = parseInt(customerMetadata.booking_chunks || "0", 10);
+  let json = "";
+  for (let i = 0; i < chunkCount; i++) {
+    json += customerMetadata["booking_data_" + i] || "";
+  }
+  try {
+    return JSON.parse(json);
+  } catch (e) {
+    console.error("stripe-webhook: failed to reassemble booking metadata:", e.message);
+    return null;
+  }
 }
 
 async function handleSetupCompleted(session) {
@@ -74,11 +94,16 @@ async function handleSetupCompleted(session) {
     return;
   }
 
-  try {
-    await appendBookingRow(booking);
-  } catch (err) {
-    console.error("stripe-webhook: Sheets backup failed:", err.message);
-  }
+  const results = await Promise.allSettled([
+    appendBookingRow(booking),
+    sendBookingEmail(booking)
+  ]);
+  results.forEach(function (result, i) {
+    if (result.status === "rejected") {
+      var step = i === 0 ? "Sheets backup" : "Resend email";
+      console.error("stripe-webhook: " + step + " failed:", result.reason && result.reason.message);
+    }
+  });
 }
 
 module.exports = async function handler(req, res) {

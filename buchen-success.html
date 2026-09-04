@@ -253,52 +253,5 @@ window.SPLENDO_I18N_PAGE = {
 </script>
 <script src="i18n-common.js"></script>
 <script src="i18n.js"></script>
-<script>
-(function () {
-  "use strict";
-
-  // Same access key that was already public in booking.js - Web3Forms
-  // free tier only accepts client-side calls, so this has to run here,
-  // not in api/stripe-webhook.js. See that file's header comment.
-  var WEB3FORMS_ACCESS_KEY = "476e51d4-8223-4645-b4b2-04755e570b05";
-
-  var sessionId = new URLSearchParams(window.location.search).get("session_id");
-  if (!sessionId) return;
-
-  var dedupeKey = "splendo-notified-" + sessionId;
-  if (sessionStorage.getItem(dedupeKey)) return;
-
-  fetch("/api/checkout-session?session_id=" + encodeURIComponent(sessionId))
-    .then(function (res) {
-      if (!res.ok) throw new Error("checkout-session lookup failed: " + res.status);
-      return res.json();
-    })
-    .then(function (data) {
-      if (!data.booking) throw new Error("Missing booking data");
-      var payload = Object.assign({
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: "Neue Splendo-Buchung (Karte hinterlegt) - " + (data.booking.name || ""),
-        from_name: "Splendo Website",
-        rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html - AGB & Widerrufsbelehrung: https://splendo.eu/agb.html - Widerruf online: https://splendo.eu/widerruf.html"
-      }, data.booking);
-
-      return fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload)
-      });
-    })
-    .then(function () {
-      sessionStorage.setItem(dedupeKey, "1");
-    })
-    .catch(function (err) {
-      // Best-effort only: the booking is already confirmed via Stripe and
-      // backed up to the Sheet from the webhook regardless of whether this
-      // notification succeeds, so there's nothing useful to show the
-      // customer here if it fails.
-      console.error("buchen-success notify failed:", err.message);
-    });
-})();
-</script>
 </body>
 </html>
