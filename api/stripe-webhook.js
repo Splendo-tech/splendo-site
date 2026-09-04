@@ -1,9 +1,17 @@
 /* Splendo - api/stripe-webhook.js
    Verifies the Stripe webhook signature and, on checkout.session.completed
    for a mode:'setup' session, makes the saved card the customer's default
-   payment method and fires the booking notifications (Web3Forms + Sheets
-   backup) - this is the ONLY place those fire from in the card-on-file
-   flow, specifically so an abandoned checkout never notifies anyone.
+   payment method and appends the Sheets backup row - this is the ONLY
+   place that fires from in the card-on-file flow, specifically so an
+   abandoned checkout never leaves a record anywhere.
+
+   The Web3Forms customer notification is NOT sent from here, on purpose:
+   Web3Forms's free tier returns 403 on server-to-server calls ("Use our
+   API in client side... Pro plan is required") - confirmed by testing it
+   directly, same constraint hit earlier on this exact codebase's
+   pre-auth branch. It's sent from buchen-success.html instead, via
+   GET /api/checkout-session for the booking data - client-side, after
+   the browser lands there, which only happens on a real completed setup.
 
    Idempotent: Stripe redelivers events (retries, duplicate webhooks), so
    this checks a "already processed this session" marker on the Customer
@@ -18,8 +26,8 @@
    history if you're wondering why this comment is so specific.) */
 
 const Stripe = require("stripe");
-const { notifyWeb3Forms } = require("./_notify");
 const { appendBookingRow } = require("./_sheets");
+const { reassembleBooking } = require("./_metadata");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -30,20 +38,6 @@ function getRawBody(req) {
     req.on("end", function () { resolve(Buffer.concat(chunks)); });
     req.on("error", reject);
   });
-}
-
-function reassembleBooking(customerMetadata) {
-  const chunkCount = parseInt(customerMetadata.booking_chunks || "0", 10);
-  let json = "";
-  for (let i = 0; i < chunkCount; i++) {
-    json += customerMetadata["booking_data_" + i] || "";
-  }
-  try {
-    return JSON.parse(json);
-  } catch (e) {
-    console.error("stripe-webhook: failed to reassemble booking metadata:", e.message);
-    return null;
-  }
 }
 
 async function handleSetupCompleted(session) {
@@ -80,15 +74,11 @@ async function handleSetupCompleted(session) {
     return;
   }
 
-  const results = await Promise.allSettled([
-    notifyWeb3Forms(booking),
-    appendBookingRow(booking)
-  ]);
-  results.forEach(function (result, i) {
-    if (result.status === "rejected") {
-      console.error("stripe-webhook: notification step " + i + " failed:", result.reason && result.reason.message);
-    }
-  });
+  try {
+    await appendBookingRow(booking);
+  } catch (err) {
+    console.error("stripe-webhook: Sheets backup failed:", err.message);
+  }
 }
 
 module.exports = async function handler(req, res) {
