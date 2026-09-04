@@ -6,9 +6,6 @@
 (function () {
   "use strict";
 
-  // Sostituisci con la tua access key gratuita da https://web3forms.com
-  var WEB3FORMS_ACCESS_KEY = "476e51d4-8223-4645-b4b2-04755e570b05";
-
   var form = document.getElementById("booking-form");
   if (!form) return;
 
@@ -230,6 +227,18 @@
     if (plz && plzField) plzField.value = plz;
   })();
 
+  // Ritorno dalla pagina di pagamento Stripe dopo abbandono (cancel_url):
+  // la prenotazione non esiste, nessuna notifica è mai partita.
+  (function handleCancelledReturn() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("cancelled") !== "1") return;
+    statusEl.textContent = t("status_cancelled", "Die Buchung wurde nicht bestätigt - die Karte wurde nicht gespeichert. Du kannst es jederzeit erneut versuchen.");
+    statusEl.className = "form-status is-error";
+    params.delete("cancelled");
+    var newUrl = window.location.pathname + (params.toString() ? "?" + params.toString() : "");
+    window.history.replaceState({}, "", newUrl);
+  })();
+
   // ---- Validazione CAP di Berlino (10115–14199) ----
   function isValidBerlinPlz(plz) {
     return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
@@ -256,7 +265,35 @@
     });
   }
 
-  // ---- Invio form ----
+  // ---- Selezioni "grezze" per il ricalcolo prezzo lato server: i value/
+  // dataset qui coincidono 1:1 con le chiavi di api/_pricing.js. ----
+  function getPricingSelections() {
+    var apartmentInput = form.querySelector('input[name="apartment"]:checked');
+    var serviceLevelInput = form.querySelector('input[name="service-level"]:checked');
+    var extraInputs = form.querySelectorAll('input[name="extra"]:checked');
+    var counterValues = {};
+    counters.forEach(function (row) {
+      var valueEl = row.querySelector(".counter-value");
+      var qty = parseInt(valueEl.dataset.value, 10) || 0;
+      if (qty > 0) counterValues[row.dataset.counter] = qty;
+    });
+    var urgentInput = document.getElementById("urgent");
+    var productsInput = document.getElementById("products");
+
+    return {
+      apartment: apartmentInput ? apartmentInput.value : null,
+      serviceLevel: serviceLevelInput ? serviceLevelInput.value : null,
+      extras: Array.prototype.map.call(extraInputs, function (n) { return n.value; }),
+      counters: counterValues,
+      urgent: !!(urgentInput && urgentInput.checked),
+      products: !!(productsInput && productsInput.checked)
+    };
+  }
+
+  // ---- Invio form: crea la Setup Session Stripe e reindirizza al checkout
+  // ospitato. La prenotazione esiste solo se la carta viene salvata - non
+  // viene inviata nessuna notifica da qui, quella parte la fa il webhook
+  // dopo checkout.session.completed. ----
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -274,8 +311,9 @@
       return;
     }
 
-    statusEl.textContent = t("status_sending", "Invio in corso...");
+    statusEl.textContent = t("status_redirecting", "Weiterleitung zur sicheren Zahlungsseite...");
     statusEl.className = "form-status";
+    submitBtn.disabled = true;
 
     var apartment = getSelectedApartment();
     var serviceLevel = getSelectedServiceLevel();
@@ -285,10 +323,7 @@
     var products = getProducts();
     var urgent = getUrgent();
 
-    var payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "Neue Splendo-Buchungsanfrage - " + (form.querySelector("#nome").value || ""),
-      from_name: "Splendo Website",
+    var booking = {
       postleitzahl: form.querySelector("#plz").value,
       wohnungstyp: apartment ? apartment.deLabel : "",
       art_der_reinigung: serviceLevel.deLabel || "Standardreinigung",
@@ -297,7 +332,6 @@
       extras: extras.map(function (i) { return i.deLabel; }).join(", ") || "Keine",
       polstermoebel_sofas: tappezzeria ? "Ja, Preis auf Anfrage" : "Nein",
       dringende_anfrage: urgent ? ("Ja (+" + eur(urgent.amount) + ")") : "Nein",
-      geschaetzter_gesamtpreis: summaryTotalValue.textContent,
       rabattcode: form.querySelector("#promo").value || "Kein Rabattcode",
       bevorzugtes_datum: form.querySelector("#data").value,
       bevorzugte_uhrzeit: form.querySelector("#ora").value,
@@ -308,45 +342,30 @@
       haustiere: form.querySelector("#pets").value || "Keine Angabe",
       notizen: form.querySelector("#note").value,
       einwilligung_vorzeitiger_beginn_356_bgb: WIDERRUF_CONSENT_TEXT,
-      einwilligung_zeitstempel: new Date().toISOString(),
-      rechtliche_hinweise: "Datenschutz: https://splendo.eu/datenschutz.html - AGB & Widerrufsbelehrung: https://splendo.eu/agb.html - Widerruf online: https://splendo.eu/widerruf.html"
+      einwilligung_zeitstempel: new Date().toISOString()
     };
 
-    // Best-effort backup copy to a Google Sheet. Fire-and-forget: never lets
-    // a Sheets outage block or fail the actual booking, which always goes
-    // through Web3Forms below regardless of what happens here.
-    try {
-      fetch("/api/log-booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      }).catch(function () {});
-    } catch (e) {}
-
-    fetch("https://api.web3forms.com/submit", {
+    fetch("/api/create-setup-session", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        pricing: getPricingSelections(),
+        booking: booking,
+        lang: window.SPLENDO_GET_LANG ? window.SPLENDO_GET_LANG() : "de"
+      })
     })
-      .then(function (res) { return res.json(); })
+      .then(function (res) {
+        if (!res.ok) throw new Error("create-setup-session failed: " + res.status);
+        return res.json();
+      })
       .then(function (data) {
-        if (data.success) {
-          statusEl.textContent = t("status_success", "Richiesta inviata! Ti contatteremo entro poche ore su WhatsApp per confermare data e prezzo finale. Il pagamento avviene solo a fine servizio.");
-          statusEl.className = "form-status is-success";
-          form.reset();
-          counters.forEach(function (row) {
-            var valueEl = row.querySelector(".counter-value");
-            valueEl.dataset.value = 0;
-            valueEl.textContent = 0;
-          });
-          renderSummary();
-        } else {
-          throw new Error(data.message || "Errore invio");
-        }
+        if (!data.url) throw new Error("Missing checkout URL");
+        window.location.href = data.url;
       })
       .catch(function () {
-        statusEl.textContent = t("status_error", "Qualcosa è andato storto. Scrivici direttamente a admin@splendo.eu, ti rispondiamo subito.");
+        statusEl.textContent = t("status_error", "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu, wir antworten sofort.");
         statusEl.className = "form-status is-error";
+        submitBtn.disabled = false;
       });
   });
 })();

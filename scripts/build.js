@@ -19,6 +19,7 @@ const PARTIALS = path.join(ROOT, "_partials");
 const MANIFEST = {
   "index.html": "marketing",
   "buchen.html": "marketing",
+  "buchen-success.html": "marketing",
   "preise.html": "marketing",
   "ablauf.html": "marketing",
   "ueber-uns.html": "marketing",
