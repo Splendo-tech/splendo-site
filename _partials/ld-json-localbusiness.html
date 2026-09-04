@@ -1,0 +1,89 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://splendo.eu/#business",
+  "name": "Splendo Reinigung Berlin",
+  "alternateName": "Splendo",
+  "description": "Reinigungsservice für Privathaushalte in ganz Berlin. Standardreinigung, Grundreinigung, Einzugsreinigung und Endreinigung zum Festpreis, online buchbar.",
+  "url": "https://splendo.eu/",
+  "logo": "https://splendo.eu/logo-icon.png",
+  "image": "https://splendo.eu/logo-icon.png",
+  "telephone": "+491758990050",
+  "email": "admin@splendo.eu",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Kreditkarte, Debitkarte, Überweisung",
+  "inLanguage": ["de", "en", "it"],
+  "areaServed": [
+    { "@type": "City", "name": "Berlin" },
+    { "@type": "City", "name": "Potsdam" },
+    { "@type": "City", "name": "Falkensee" },
+    { "@type": "City", "name": "Schönefeld" },
+    { "@type": "City", "name": "Teltow" },
+    { "@type": "City", "name": "Kleinmachnow" },
+    { "@type": "City", "name": "Hennigsdorf" },
+    { "@type": "City", "name": "Bernau bei Berlin" },
+    { "@type": "City", "name": "Oranienburg" },
+    { "@type": "City", "name": "Königs Wusterhausen" }
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  }],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Reinigungsleistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Standardreinigung Wohnung" },
+        "priceCurrency": "EUR",
+        "price": "79.00",
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "79.00" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Grundreinigung / Deep Clean" },
+        "priceCurrency": "EUR",
+        "price": "102.70",
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "102.70" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Einzugsreinigung" },
+        "priceCurrency": "EUR",
+        "price": "102.70",
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "102.70" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Endreinigung / Auszugsreinigung" },
+        "priceCurrency": "EUR",
+        "price": "118.50",
+        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "118.50" }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": { "@type": "Service", "name": "Express-Reinigung innerhalb von 3 Stunden" },
+        "priceCurrency": "EUR",
+        "price": "56.00"
+      }
+    ]
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://splendo.eu/buchen.html",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": { "@type": "Reservation", "name": "Reinigungstermin buchen" }
+  }
+}
+</script>

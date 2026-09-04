@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-/* Splendo — regenerates the header/footer block in every page from the
-   shared partials in /_partials, replacing everything between the
+/* Splendo — regenerates the header/footer/JSON-LD blocks in every page from
+   the shared partials in /_partials, replacing everything between the
    BEGIN/END marker comments in place. The deployed output is still
    plain static HTML — this only removes the need to hand-edit the same
-   markup in 12 files every time the nav or footer changes.
+   markup in 12 files every time the nav, footer, or structured data changes.
 
    Run `npm run sync-partials` after editing a file in /_partials. It also runs
    automatically as part of `npm test` / the pre-push hook, so a page
@@ -47,6 +47,8 @@ function main() {
   let changed = 0;
   let failed = 0;
 
+  const ldJsonPartial = fs.readFileSync(path.join(PARTIALS, "ld-json-localbusiness.html"), "utf-8");
+
   for (const [page, variant] of Object.entries(MANIFEST)) {
     const pagePath = path.join(ROOT, page);
     if (!fs.existsSync(pagePath)) {
@@ -60,9 +62,11 @@ function main() {
     let { content, found: hFound } = replaceBlock(original, "HEADER", headerPartial);
     let footerResult = replaceBlock(content, "FOOTER", footerPartial);
     content = footerResult.content;
+    let ldJsonResult = replaceBlock(content, "LDJSON", ldJsonPartial);
+    content = ldJsonResult.content;
 
-    if (!hFound || !footerResult.found) {
-      console.error(`  FAIL  ${page} — missing BEGIN/END markers (header:${hFound} footer:${footerResult.found})`);
+    if (!hFound || !footerResult.found || !ldJsonResult.found) {
+      console.error(`  FAIL  ${page} — missing BEGIN/END markers (header:${hFound} footer:${footerResult.found} ldjson:${ldJsonResult.found})`);
       failed++;
       continue;
     }
