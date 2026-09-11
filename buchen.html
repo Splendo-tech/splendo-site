@@ -168,7 +168,7 @@
             <div class="field">
               <label for="plz" data-i18n="buchen_plz_label">PLZ</label>
               <input type="text" id="plz" name="plz" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="z.B. 10115" data-i18n-placeholder="buchen_plz_placeholder" required>
-              <p class="plz-error" id="plz-error" data-i18n="buchen_plz_error">Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).</p>
+              <p class="plz-error" id="plz-error" data-i18n="buchen_plz_error">Diese Postleitzahl erkennen wir nicht. Bitte überprüfe deine Eingabe.</p>
             </div>
           </div>
         </fieldset>
@@ -534,7 +534,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_legend1: "1. Postleitzahl",
     buchen_plz_label: "PLZ",
     buchen_plz_placeholder: "z.B. 10115",
-    buchen_plz_error: "Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).",
+    buchen_plz_error: "Diese Postleitzahl erkennen wir nicht. Bitte überprüfe deine Eingabe.",
     buchen_legend2: "2. Wohnungstyp",
     buchen_apt_studio: "Studio",
     buchen_apt_2zi: "2-Zimmer-Wohnung",
@@ -609,7 +609,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_legend1: "1. Postcode",
     buchen_plz_label: "Postcode",
     buchen_plz_placeholder: "e.g. 10115",
-    buchen_plz_error: "Please enter a valid Berlin postcode (10115–14199).",
+    buchen_plz_error: "We don't recognize this postcode. Please check what you entered.",
     buchen_legend2: "2. Apartment type",
     buchen_apt_studio: "Studio",
     buchen_apt_2zi: "1-bedroom flat",
@@ -684,7 +684,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_legend1: "1. CAP",
     buchen_plz_label: "CAP",
     buchen_plz_placeholder: "es. 10115",
-    buchen_plz_error: "Inserisci un CAP di Berlino valido (10115–14199).",
+    buchen_plz_error: "Non riconosciamo questo CAP. Controlla di averlo scritto giusto.",
     buchen_legend2: "2. Tipo di appartamento",
     buchen_apt_studio: "Studio",
     buchen_apt_2zi: "Bilocale",
@@ -752,6 +752,7 @@ window.SPLENDO_I18N_PAGE = {
   }
 };
 </script>
+<script src="plz-service-area.js"></script>
 <script src="i18n-common.js"></script>
 <script src="i18n.js"></script>
 <script src="booking.js" defer></script>

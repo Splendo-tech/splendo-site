@@ -239,11 +239,7 @@
     window.history.replaceState({}, "", newUrl);
   })();
 
-  // ---- Validazione CAP di Berlino (10115–14199) ----
-  function isValidBerlinPlz(plz) {
-    return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
-  }
-
+  // ---- Validazione PLZ contro l'area servita (plz-service-area.js) ----
   var plzField = document.getElementById("plz");
   var plzError = document.getElementById("plz-error");
 
@@ -297,7 +293,7 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (plzField && !isValidBerlinPlz(plzField.value.trim())) {
+    if (plzField && !window.SPLENDO_IS_VALID_PLZ(plzField.value.trim())) {
       plzError.classList.add("visible");
       plzField.classList.add("is-invalid");
       plzField.focus();

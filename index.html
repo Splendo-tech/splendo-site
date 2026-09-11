@@ -168,7 +168,7 @@
           </select>
           <input class="qs-input" id="qs-plz" data-i18n-placeholder="home_qs_plz_placeholder" placeholder="Deine Postleitzahl" data-i18n-aria-label="home_qs_plz_placeholder" aria-label="Deine Postleitzahl" inputmode="numeric" maxlength="5">
           <button class="qs-btn" id="qs-btn" type="button" data-i18n="home_qs_btn">Zum Angebot →</button>
-          <p class="plz-error" id="qs-plz-error" data-i18n="home_qs_error">Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).</p>
+          <p class="plz-error" id="qs-plz-error" data-i18n="home_qs_error">Diese Postleitzahl erkennen wir nicht. Bitte überprüfe deine Eingabe.</p>
         </div>
 
         <div class="reviews-note-v2">
@@ -419,7 +419,7 @@ window.SPLENDO_I18N_PAGE = {
     home_qs_type_ufficio: "Büroreinigung",
     home_qs_plz_placeholder: "Deine Postleitzahl",
     home_qs_btn: "Zum Angebot →",
-    home_qs_error: "Bitte gib eine gültige Berliner Postleitzahl ein (10115–14199).",
+    home_qs_error: "Diese Postleitzahl erkennen wir nicht. Bitte überprüfe deine Eingabe.",
     home_reviews_count: "aus 2.473 Bewertungen",
     home_how_h2: "So funktioniert's",
     home_step1_title: "Wähle deine Wohnung und Extras",
@@ -477,7 +477,7 @@ window.SPLENDO_I18N_PAGE = {
     home_qs_type_ufficio: "Office cleaning",
     home_qs_plz_placeholder: "Your postcode",
     home_qs_btn: "Get your quote →",
-    home_qs_error: "Please enter a valid Berlin postcode (10115–14199).",
+    home_qs_error: "We don't recognize this postcode. Please check what you entered.",
     home_reviews_count: "from 2,473 reviews",
     home_how_h2: "How it works",
     home_step1_title: "Choose your home and extras",
@@ -535,7 +535,7 @@ window.SPLENDO_I18N_PAGE = {
     home_qs_type_ufficio: "Pulizia ufficio",
     home_qs_plz_placeholder: "Il tuo CAP",
     home_qs_btn: "Vai al preventivo →",
-    home_qs_error: "Inserisci un CAP di Berlino valido (10115–14199).",
+    home_qs_error: "Non riconosciamo questo CAP. Controlla di averlo scritto giusto.",
     home_reviews_count: "su 2.473 recensioni",
     home_how_h2: "Come funziona",
     home_step1_title: "Scegli casa tua ed extra",
@@ -583,20 +583,17 @@ window.SPLENDO_I18N_PAGE = {
   }
 };
 </script>
+<script src="plz-service-area.js"></script>
 <script src="i18n-common.js"></script>
 <script src="i18n.js"></script>
 <script>
-function isValidBerlinPlz(plz) {
-  return /^[0-9]{5}$/.test(plz) && Number(plz) >= 10115 && Number(plz) <= 14199;
-}
-
 var qsPlzInput = document.getElementById('qs-plz');
 var qsPlzError = document.getElementById('qs-plz-error');
 
 document.getElementById('qs-btn').addEventListener('click', function () {
   var plz = qsPlzInput.value.trim();
 
-  if (!isValidBerlinPlz(plz)) {
+  if (!window.SPLENDO_IS_VALID_PLZ(plz)) {
     qsPlzError.classList.add('visible');
     qsPlzInput.classList.add('is-invalid');
     qsPlzInput.focus();
