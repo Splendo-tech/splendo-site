@@ -97,13 +97,14 @@ module.exports = async function handler(req, res) {
     });
 
     const origin = siteUrlFromRequest(req);
+    const langPrefix = lang === "de" ? "" : "/" + lang;
     const session = await stripe.checkout.sessions.create({
       mode: "setup",
       payment_method_types: ["card"],
       customer: customer.id,
       locale: lang,
-      success_url: origin + "/buchen-success.html?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: origin + "/buchen.html?cancelled=1"
+      success_url: origin + langPrefix + "/buchen-success.html?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: origin + langPrefix + "/buchen.html?cancelled=1"
     });
 
     res.status(200).json({ url: session.url });

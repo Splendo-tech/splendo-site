@@ -11,6 +11,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { LOCALIZED_PAGES, LANGS, pathFor, urlFor } = require("./i18n-pages-config");
 
 const ROOT = path.join(__dirname, "..");
 const PARTIALS = path.join(ROOT, "_partials");
@@ -43,6 +44,23 @@ function replaceBlock(content, markerName, partialContent) {
   return { content: content.replace(re, block), found: true };
 }
 
+// Builds the <link rel="alternate" hreflang="..."> block for a localized
+// page: one entry per language plus x-default (pointed at the German
+// version, since that's the site's default/fallback market).
+function buildHreflangBlock(slug) {
+  const links = LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${urlFor(slug, l)}">`);
+  links.push(`<link rel="alternate" hreflang="x-default" href="${urlFor(slug, "de")}">`);
+  return links.join("\n");
+}
+
+// Embeds the sibling-URL map i18n.js needs so the language switcher can
+// navigate to the matching /en/ or /it/ URL instead of swapping the DOM.
+function buildLangUrlsScript(slug) {
+  const map = {};
+  LANGS.forEach((l) => { map[l] = pathFor(slug, l); });
+  return `<script>window.SPLENDO_LANG_URLS = ${JSON.stringify(map)};</script>`;
+}
+
 function main() {
   const checkOnly = process.argv.includes("--check");
   let changed = 0;
@@ -66,8 +84,19 @@ function main() {
     let ldJsonResult = replaceBlock(content, "LDJSON", ldJsonPartial);
     content = ldJsonResult.content;
 
-    if (!hFound || !footerResult.found || !ldJsonResult.found) {
-      console.error(`  FAIL  ${page} — missing BEGIN/END markers (header:${hFound} footer:${footerResult.found} ldjson:${ldJsonResult.found})`);
+    let hreflangFound = true;
+    let langUrlsFound = true;
+    if (LOCALIZED_PAGES.includes(page)) {
+      const hreflangResult = replaceBlock(content, "HREFLANG", buildHreflangBlock(page));
+      content = hreflangResult.content;
+      hreflangFound = hreflangResult.found;
+      const langUrlsResult = replaceBlock(content, "LANGURLS", buildLangUrlsScript(page));
+      content = langUrlsResult.content;
+      langUrlsFound = langUrlsResult.found;
+    }
+
+    if (!hFound || !footerResult.found || !ldJsonResult.found || !hreflangFound || !langUrlsFound) {
+      console.error(`  FAIL  ${page} — missing BEGIN/END markers (header:${hFound} footer:${footerResult.found} ldjson:${ldJsonResult.found} hreflang:${hreflangFound} langurls:${langUrlsFound})`);
       failed++;
       continue;
     }

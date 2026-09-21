@@ -39,8 +39,21 @@ function checkFile(fname) {
   return { ok: true };
 }
 
+function listHtmlFiles() {
+  const top = fs.readdirSync(ROOT).filter((f) => f.endsWith(".html"));
+  const nested = [];
+  for (const dir of ["en", "it"]) {
+    const dirPath = path.join(ROOT, dir);
+    if (!fs.existsSync(dirPath)) continue;
+    for (const f of fs.readdirSync(dirPath).filter((f) => f.endsWith(".html"))) {
+      nested.push(path.join(dir, f));
+    }
+  }
+  return top.concat(nested);
+}
+
 function main() {
-  const files = fs.readdirSync(ROOT).filter((f) => f.endsWith(".html"));
+  const files = listHtmlFiles();
   let failed = 0;
   for (const f of files) {
     const result = checkFile(path.join(ROOT, f));

@@ -17,6 +17,15 @@
 
   var counters = form.querySelectorAll("[data-counter]");
 
+  // Apartment type / service level / frequency each default to a
+  // pre-checked radio - captured here, before any user interaction, so
+  // the unsaved-data check below can tell "still on the default" apart
+  // from "visitor actually picked something".
+  var defaultRadioValues = {};
+  Array.prototype.forEach.call(form.querySelectorAll('input[type="radio"]:checked'), function (el) {
+    defaultRadioValues[el.name] = el.value;
+  });
+
   function eur(n) {
     return n.toFixed(0) + "€";
   }
@@ -364,4 +373,24 @@
         submitBtn.disabled = false;
       });
   });
+
+  // Language switching here navigates to a different URL (/, /en/, /it/) -
+  // warn before throwing away whatever the visitor has already typed.
+  window.SPLENDO_BEFORE_LANG_SWITCH = function () {
+    var hasText = Array.prototype.some.call(
+      form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], textarea'),
+      function (el) { return el.value && el.value.trim(); }
+    );
+    var hasCheckbox = form.querySelector('input[type="checkbox"]:checked') !== null;
+    var hasRadioChange = Array.prototype.some.call(form.querySelectorAll('input[type="radio"]:checked'), function (el) {
+      return defaultRadioValues[el.name] !== el.value;
+    });
+    var hasCounter = Array.prototype.some.call(counters, function (row) {
+      var valueEl = row.querySelector(".counter-value");
+      return valueEl && parseInt(valueEl.dataset.value, 10) > 0;
+    });
+
+    if (!hasText && !hasCheckbox && !hasRadioChange && !hasCounter) return true;
+    return window.confirm(t("lang_switch_unsaved_warning", "Switching language will lose what you've entered in the form so far. Continue anyway?"));
+  };
 })();

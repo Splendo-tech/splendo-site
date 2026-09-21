@@ -2,7 +2,16 @@
    Motore di traduzione minimale, senza framework. Lingua default: tedesco (de).
    Ogni pagina definisce window.SPLENDO_I18N_PAGE = { de: {...}, en: {...}, it: {...} }
    prima di includere questo script. I dizionari comuni (header/footer) sono
-   in i18n-common.js. */
+   in i18n-common.js.
+
+   Localized pages (the ones generated under /en/ and /it/ by
+   scripts/localize.js) declare window.SPLENDO_LANG_URLS = {de,en,it} —
+   the language IS the URL there, so the switcher navigates to the
+   sibling URL instead of swapping the DOM, and the current language is
+   read from the page's own <html lang> rather than a saved preference.
+   Pages without that map (the German-only legal pages) keep the old
+   behavior: the switcher re-renders the header/footer in place and
+   remembers the choice in localStorage. */
 
 (function () {
   "use strict";
@@ -10,11 +19,17 @@
   var STORAGE_KEY = "splendo-lang";
   var DEFAULT_LANG = "de";
   var LANGS = ["de", "en", "it"];
+  var LOCALIZED_URLS = window.SPLENDO_LANG_URLS || null;
 
   function getSavedLang() {
     var saved = null;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     return LANGS.indexOf(saved) !== -1 ? saved : DEFAULT_LANG;
+  }
+
+  function getPageLang() {
+    var pageLang = document.documentElement.getAttribute("lang");
+    return LANGS.indexOf(pageLang) !== -1 ? pageLang : DEFAULT_LANG;
   }
 
   function buildDict() {
@@ -35,7 +50,7 @@
     return fallback && fallback[key] !== undefined ? fallback[key] : key;
   }
 
-  var currentLang = getSavedLang();
+  var currentLang = LOCALIZED_URLS ? getPageLang() : getSavedLang();
   window.SPLENDO_T = function (key) { return t(key, currentLang); };
   window.SPLENDO_GET_LANG = function () { return currentLang; };
 
@@ -76,7 +91,21 @@
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        applyLanguage(btn.getAttribute("data-lang"));
+        var target = btn.getAttribute("data-lang");
+
+        if (LOCALIZED_URLS) {
+          if (target === currentLang) { closeMobileNav(); return; }
+          var proceed = typeof window.SPLENDO_BEFORE_LANG_SWITCH === "function"
+            ? window.SPLENDO_BEFORE_LANG_SWITCH(target)
+            : true;
+          if (proceed && LOCALIZED_URLS[target]) {
+            window.location.href = LOCALIZED_URLS[target];
+          }
+          closeMobileNav();
+          return;
+        }
+
+        applyLanguage(target);
         closeMobileNav();
       });
     });

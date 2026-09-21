@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "sync-partials": "node scripts/build.js",
-    "test": "node scripts/check-tags.js && node scripts/check-i18n.js && node scripts/build.js --check",
+    "sync-partials": "node scripts/build.js && node scripts/localize.js",
+    "test": "node scripts/check-tags.js && node scripts/check-i18n.js && node scripts/build.js --check && node scripts/localize.js --check",
     "hooks:install": "bash scripts/install-hooks.sh"
   },
   "dependencies": {
     "stripe": "^22.6.1"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0"
   }
 }
