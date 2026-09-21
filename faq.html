@@ -20,12 +20,12 @@
     {
       "@type": "Question",
       "name": "Wie funktioniert die Bezahlung?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Du erhältst einen sicheren Zahlungslink (Stripe) per WhatsApp, erst nachdem der Service abgeschlossen ist. Keine Karte wird im Voraus gespeichert." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Bei der Buchung hinterlegst du eine Zahlungsmethode über Stripe - es wird dabei nichts abgebucht. Der Rechnungsbetrag wird erst nach Abschluss der Reinigung von der hinterlegten Karte eingezogen." }
     },
     {
       "@type": "Question",
       "name": "Kann ich eine Buchung stornieren oder verschieben?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ja. Bis 24 Stunden vor dem Termin ist die Stornierung kostenlos. Bei einer Absage weniger als 24 Stunden vorher werden 50 % des vorgesehenen Preises berechnet." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Ja. Bis 24 Stunden vor dem Termin ist die Stornierung kostenlos. Bei einer Absage weniger als 24 Stunden vorher werden 50 % des vorgesehenen Preises von der hinterlegten Zahlungsmethode eingezogen." }
     },
     {
       "@type": "Question",
@@ -198,12 +198,12 @@
 
         <div class="faq-item-v2">
           <button type="button" class="faq-q-v2" aria-expanded="false"><span data-i18n="faq_q1">Wie funktioniert die Bezahlung?</span> <span class="faq-icon">+</span></button>
-          <div class="faq-a-v2" hidden><span data-i18n="faq_a1">Du erhältst einen sicheren Zahlungslink (Stripe) per WhatsApp, erst nachdem der Service abgeschlossen ist. Keine Karte wird im Voraus gespeichert.</span></div>
+          <div class="faq-a-v2" hidden><span data-i18n="faq_a1">Bei der Buchung hinterlegst du eine Zahlungsmethode über Stripe - es wird dabei nichts abgebucht. Der Rechnungsbetrag wird erst nach Abschluss der Reinigung von der hinterlegten Karte eingezogen.</span></div>
         </div>
 
         <div class="faq-item-v2">
           <button type="button" class="faq-q-v2" aria-expanded="false"><span data-i18n="faq_q2">Kann ich eine Buchung stornieren oder verschieben?</span> <span class="faq-icon">+</span></button>
-          <div class="faq-a-v2" hidden><span data-i18n="faq_a2">Ja. Bis 24 Stunden vor dem Termin ist die Stornierung kostenlos. Bei einer Absage weniger als 24 Stunden vorher werden 50 % des vorgesehenen Preises berechnet.</span></div>
+          <div class="faq-a-v2" hidden><span data-i18n="faq_a2">Ja. Bis 24 Stunden vor dem Termin ist die Stornierung kostenlos. Bei einer Absage weniger als 24 Stunden vorher werden 50 % des vorgesehenen Preises von der hinterlegten Zahlungsmethode eingezogen.</span></div>
         </div>
 
         <div class="faq-item-v2">
@@ -302,9 +302,9 @@ window.SPLENDO_I18N_PAGE = {
     faq_h1: "Häufig gestellte Fragen zur Wohnungsreinigung",
     faq_subtitle: "Alles, was du vor deiner Buchung wissen musst.",
     faq_q1: "Wie funktioniert die Bezahlung?",
-    faq_a1: "Du erhältst einen sicheren Zahlungslink (Stripe) per WhatsApp, erst nachdem der Service abgeschlossen ist. Keine Karte wird im Voraus gespeichert.",
+    faq_a1: "Bei der Buchung hinterlegst du eine Zahlungsmethode über Stripe - es wird dabei nichts abgebucht. Der Rechnungsbetrag wird erst nach Abschluss der Reinigung von der hinterlegten Karte eingezogen.",
     faq_q2: "Kann ich eine Buchung stornieren oder verschieben?",
-    faq_a2: "Ja. Bis 24 Stunden vor dem Termin ist die Stornierung kostenlos. Bei einer Absage weniger als 24 Stunden vorher werden 50 % des vorgesehenen Preises berechnet.",
+    faq_a2: "Ja. Bis 24 Stunden vor dem Termin ist die Stornierung kostenlos. Bei einer Absage weniger als 24 Stunden vorher werden 50 % des vorgesehenen Preises von der hinterlegten Zahlungsmethode eingezogen.",
     faq_q3: "Muss ich die Reinigungsprodukte selbst bereitstellen?",
     faq_a3: "Du hast die Wahl: Wenn du bereits Reinigungsmittel und Tücher zu Hause hast, zahlst du nichts extra. Wenn du möchtest, dass wir sie mitbringen, kostet das 18 € zusätzlich.",
     faq_q4: "Was passiert, wenn ich mit dem Service nicht zufrieden bin?",
@@ -325,9 +325,9 @@ window.SPLENDO_I18N_PAGE = {
     faq_h1: "Frequently asked questions about home cleaning",
     faq_subtitle: "Everything you need to know before you book.",
     faq_q1: "How does payment work?",
-    faq_a1: "You'll receive a secure payment link (Stripe) via WhatsApp only after the service is complete. No card is saved in advance.",
+    faq_a1: "When you book, you store a payment method with Stripe - nothing is charged at that point. The invoice amount is only charged to the stored card after the cleaning is completed.",
     faq_q2: "Can I cancel or reschedule a booking?",
-    faq_a2: "Yes. Cancellation is free up to 24 hours before the appointment. Within 24 hours, 50% of the planned price is charged.",
+    faq_a2: "Yes. Cancellation is free up to 24 hours before the appointment. Within 24 hours, 50% of the planned price is charged to the stored payment method.",
     faq_q3: "Do I need to provide the cleaning products?",
     faq_a3: "It's your choice: if you already have cleaning products and cloths at home, you pay nothing extra. If you'd prefer we bring our own, it's an extra €18.",
     faq_q4: "What happens if I'm not satisfied with the service?",
@@ -348,9 +348,9 @@ window.SPLENDO_I18N_PAGE = {
     faq_h1: "Domande frequenti sulle pulizie di casa",
     faq_subtitle: "Tutto quello che ti serve sapere prima di prenotare.",
     faq_q1: "Come funziona il pagamento?",
-    faq_a1: "Ricevi un link di pagamento sicuro (Stripe) via WhatsApp solo dopo che il servizio è concluso. Nessuna carta salvata in anticipo.",
+    faq_a1: "Al momento della prenotazione registri un metodo di pagamento tramite Stripe - non viene addebitato nulla in quel momento. L'importo della fattura viene addebitato sulla carta registrata solo dopo che la pulizia è conclusa.",
     faq_q2: "Posso cancellare o spostare una prenotazione?",
-    faq_a2: "Sì. La cancellazione è gratuita fino a 24 ore prima dell'appuntamento. Sotto le 24 ore, viene addebitato il 50% del prezzo previsto.",
+    faq_a2: "Sì. La cancellazione è gratuita fino a 24 ore prima dell'appuntamento. Sotto le 24 ore, viene addebitato il 50% del prezzo previsto sul metodo di pagamento registrato.",
     faq_q3: "Devo fornire io i prodotti di pulizia?",
     faq_a3: "Puoi scegliere: se hai già detersivi e panni in casa, non paghi nulla in più. Se preferisci che li portiamo noi, è un extra di 18€.",
     faq_q4: "Cosa succede se non sono soddisfatto/a del servizio?",
