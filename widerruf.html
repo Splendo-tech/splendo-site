@@ -175,7 +175,11 @@
             <label for="w-email" data-i18n="widerruf_field_email_label">E-Mail (für die Bestätigung)</label>
             <input type="email" id="w-email" name="w-email" required>
           </div>
-          <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="widerruf_confirm_btn">Widerruf bestätigen</button>
+          <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+            <label for="w-website">Website</label>
+            <input type="text" id="w-website" name="w-website" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" id="widerruf-submit-btn" class="btn btn-gold btn-lg btn-block" data-i18n="widerruf_confirm_btn">Widerruf bestätigen</button>
           <p id="widerruf-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
 
@@ -290,11 +294,11 @@ window.SPLENDO_I18N_PAGE = {
 <script>
 (function () {
   "use strict";
-  var WEB3FORMS_ACCESS_KEY = "476e51d4-8223-4645-b4b2-04755e570b05";
 
   var step1 = document.getElementById("widerruf-step-1");
   var startBtn = document.getElementById("btn-start-widerruf");
   var form = document.getElementById("widerruf-form");
+  var submitBtn = document.getElementById("widerruf-submit-btn");
   var statusEl = document.getElementById("widerruf-status");
   var confirmationBox = document.getElementById("widerruf-confirmation");
   var declarationDeEl = document.getElementById("widerruf-declaration-de");
@@ -304,30 +308,6 @@ window.SPLENDO_I18N_PAGE = {
   function t(key, fallback) {
     return window.SPLENDO_T ? window.SPLENDO_T(key) : fallback;
   }
-
-  function lang() {
-    return window.SPLENDO_GET_LANG ? window.SPLENDO_GET_LANG() : "de";
-  }
-
-  // Berlin wall-clock time as a proper ISO 8601 string, with the correct
-  // CET/CEST offset - independent of the visitor's own timezone.
-  function berlinIsoTimestamp(date) {
-    var parts = new Intl.DateTimeFormat("en-CA", {
-      timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit",
-      hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
-    }).formatToParts(date);
-    var map = {};
-    parts.forEach(function (p) { map[p.type] = p.value; });
-    var localAsUtc = new Date(Date.UTC(map.year, map.month - 1, map.day, map.hour, map.minute, map.second));
-    var offsetMinutes = Math.round((localAsUtc.getTime() - date.getTime()) / 60000);
-    var sign = offsetMinutes >= 0 ? "+" : "-";
-    var abs = Math.abs(offsetMinutes);
-    var oh = String(Math.floor(abs / 60)).padStart(2, "0");
-    var om = String(abs % 60).padStart(2, "0");
-    return map.year + "-" + map.month + "-" + map.day + "T" + map.hour + ":" + map.minute + ":" + map.second + sign + oh + ":" + om;
-  }
-
-  var LOCALE_MAP = { de: "de-DE", en: "en-GB", it: "it-IT" };
 
   startBtn.addEventListener("click", function () {
     step1.style.display = "none";
@@ -341,57 +321,38 @@ window.SPLENDO_I18N_PAGE = {
     var name = document.getElementById("w-name").value.trim();
     var buchung = document.getElementById("w-buchung").value.trim();
     var email = document.getElementById("w-email").value.trim();
-
-    var now = new Date();
-    var isoBerlin = berlinIsoTimestamp(now);
-    var internalDisplay = now.toLocaleString("de-DE", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" }) + " Uhr";
-    var customerLocale = LOCALE_MAP[lang()] || "de-DE";
-    var customerDisplay = now.toLocaleString(customerLocale, { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" });
-
-    var declaration = "Hiermit widerrufe ich, " + name + ", den mit Splendo abgeschlossenen Vertrag über die Erbringung der Reinigungsleistung (Buchung/Referenz: " + buchung + ").";
+    var website = document.getElementById("w-website").value;
 
     statusEl.textContent = t("widerruf_sending_status", "Wird gesendet …");
     statusEl.className = "form-status";
+    submitBtn.disabled = true;
 
-    var payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "Widerruf eingegangen - " + name,
-      from_name: "Splendo Website - Widerruf",
-      replyto: email,
-      ccemail: email,
-      name: name,
-      buchungsnummer: buchung,
-      email: email,
-      widerrufserklaerung: declaration,
-      eingegangen_am: internalDisplay,
-      eingegangen_am_iso: isoBerlin
-    };
-
-    fetch("https://api.web3forms.com/submit", {
+    fetch("/api/widerruf", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: name, buchung: buchung, email: email, website: website })
     })
-      .then(function (res) { return res.json(); })
+      .then(function (res) {
+        if (!res.ok) throw new Error("widerruf API failed: " + res.status);
+        return res.json();
+      })
       .then(function (data) {
-        if (data.success) {
-          form.style.display = "none";
-          declarationDeEl.textContent = declaration;
-          var translationText = t("widerruf_translation_text", "").replace("{name}", name).replace("{buchung}", buchung);
-          var translationLabel = t("widerruf_translation_label", "");
-          if (translationText && translationLabel) {
-            declarationTranslationEl.textContent = translationLabel + " " + translationText;
-            declarationTranslationEl.style.display = "block";
-          }
-          confirmationSuffixEl.textContent = t("widerruf_confirmation_suffix", "").replace("{time}", customerDisplay).replace("{email}", email);
-          confirmationBox.style.display = "block";
-        } else {
-          throw new Error(data.message || "Web3Forms error");
+        if (!data.success) throw new Error(data.error || "widerruf API error");
+        form.style.display = "none";
+        declarationDeEl.textContent = data.declaration;
+        var translationText = t("widerruf_translation_text", "").replace("{name}", name).replace("{buchung}", buchung);
+        var translationLabel = t("widerruf_translation_label", "");
+        if (translationText && translationLabel) {
+          declarationTranslationEl.textContent = translationLabel + " " + translationText;
+          declarationTranslationEl.style.display = "block";
         }
+        confirmationSuffixEl.textContent = t("widerruf_confirmation_suffix", "").replace("{time}", data.timestamp).replace("{email}", email);
+        confirmationBox.style.display = "block";
       })
       .catch(function () {
         statusEl.textContent = t("widerruf_error_status", "Etwas ist schiefgelaufen. Schreib uns direkt an admin@splendo.eu.");
         statusEl.className = "form-status is-error";
+        submitBtn.disabled = false;
       });
   });
 })();

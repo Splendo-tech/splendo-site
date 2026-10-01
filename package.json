@@ -8,6 +8,7 @@
     "hooks:install": "bash scripts/install-hooks.sh"
   },
   "dependencies": {
+    "resend": "^6.31.0",
     "stripe": "^22.6.1"
   },
   "devDependencies": {
