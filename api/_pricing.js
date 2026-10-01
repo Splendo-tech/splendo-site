@@ -43,6 +43,14 @@ const COUNTER_UNIT_PRICES = {
 const URGENT_PRICE = 56;
 const PRODUCTS_PRICE = 18;
 
+// Promo codes are free-text the customer types in, not a constrained
+// selection like extras/counters - an unrecognized code just means no
+// discount applies, not a tampered/invalid request, so (unlike the rest
+// of this function) it never throws.
+const PROMO_CODES = {
+  "WILLKOMMEN10": 0.10
+};
+
 /* selections shape:
    {
      apartment: "Studio" | "2-Zimmer" | "3-Zimmer" | "4+",
@@ -50,7 +58,8 @@ const PRODUCTS_PRICE = 18;
      extras: string[],                 // values matching EXTRA_PRICES keys
      counters: { finestre?: number, "ore-extra"?: number },
      urgent: boolean,
-     products: boolean
+     products: boolean,
+     promoCode: string                 // optional, matched against PROMO_CODES
    }
    Throws on any unrecognized key - fail closed rather than silently
    under-charging on a typo'd or tampered value. */
@@ -94,7 +103,18 @@ function computeTotal(selections) {
   if (selections.urgent) total += URGENT_PRICE;
   if (selections.products) total += PRODUCTS_PRICE;
 
-  return { total: total, quoteOnly: quoteOnly };
+  let discount = 0;
+  let promoApplied = null;
+  if (!quoteOnly) {
+    const code = String(selections.promoCode || "").trim().toUpperCase();
+    if (code && Object.prototype.hasOwnProperty.call(PROMO_CODES, code)) {
+      promoApplied = code;
+      discount = Math.round(total * PROMO_CODES[code]);
+      total -= discount;
+    }
+  }
+
+  return { total: total, quoteOnly: quoteOnly, discount: discount, promoApplied: promoApplied };
 }
 
 module.exports = {
@@ -104,5 +124,6 @@ module.exports = {
   COUNTER_UNIT_PRICES: COUNTER_UNIT_PRICES,
   URGENT_PRICE: URGENT_PRICE,
   PRODUCTS_PRICE: PRODUCTS_PRICE,
+  PROMO_CODES: PROMO_CODES,
   computeTotal: computeTotal
 };

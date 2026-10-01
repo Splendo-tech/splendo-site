@@ -16,6 +16,16 @@
   var statusEl = document.getElementById("form-status");
 
   var counters = form.querySelectorAll("[data-counter]");
+  var promoInput = document.getElementById("promo");
+
+  // Mirrors api/_pricing.js's PROMO_CODES - keep the two in sync by hand,
+  // same as every other price in this file already has to be.
+  var PROMO_CODES = { "WILLKOMMEN10": 0.10 };
+
+  function getPromoDiscountRate() {
+    var code = (promoInput.value || "").trim().toUpperCase();
+    return PROMO_CODES[code] || 0;
+  }
 
   // Apartment type / service level / frequency each default to a
   // pre-checked radio - captured here, before any user interaction, so
@@ -175,6 +185,13 @@
       rows.push({ label: t("urgent_label", "Richiesta urgente"), amountLabel: "+" + eur(urgent.amount) });
     }
 
+    var discountRate = (apartment && !apartment.isQuote) ? getPromoDiscountRate() : 0;
+    if (discountRate > 0) {
+      var discountAmount = Math.round(total * discountRate);
+      total -= discountAmount;
+      rows.push({ label: t("promo_discount_label", "Rabatt"), amountLabel: "−" + eur(discountAmount) });
+    }
+
     summaryList.innerHTML = "";
     if (rows.length === 0) {
       var empty = document.createElement("li");
@@ -225,6 +242,7 @@
   });
 
   form.addEventListener("change", renderSummary);
+  promoInput.addEventListener("input", renderSummary);
   document.addEventListener("splendo:langchange", renderSummary);
   renderSummary();
 
@@ -291,7 +309,8 @@
       extras: Array.prototype.map.call(extraInputs, function (n) { return n.value; }),
       counters: counterValues,
       urgent: !!(urgentInput && urgentInput.checked),
-      products: !!(productsInput && productsInput.checked)
+      products: !!(productsInput && productsInput.checked),
+      promoCode: promoInput.value || ""
     };
   }
 
