@@ -2109,3 +2109,9 @@ a:focus-visible, button:focus-visible {
 .contact-card-v2 .social-link:focus-visible { outline-color: var(--navy); color: var(--gold); }
 .site-footer .social-links { margin-top: 0; }
 .footer-v2-brand .social-links { margin-left: -8px; }
+
+@media (max-width: 700px) {
+  .footer-nav { flex-wrap: wrap; gap: 10px 20px; }
+  .footer-nav a { margin-right: 0; }
+  .site-footer .footer-inner { justify-content: flex-start; gap: 16px 24px; }
+}
