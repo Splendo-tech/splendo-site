@@ -2091,3 +2091,21 @@ a:focus-visible, button:focus-visible {
 .qs-input.is-invalid, .field input.is-invalid {
   border-color: #B3261E !important;
 }
+
+/* ---------- Social links (footer + Kontakt) ---------- */
+.social-links { display: flex; gap: 6px; margin-top: 14px; }
+.social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px; border-radius: 8px;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.15s ease;
+}
+.social-link svg { display: block; width: 24px; height: 24px; }
+.social-link:hover { color: var(--gold); }
+.social-link:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 2px; color: var(--gold-soft); }
+.social-links--light { justify-content: center; margin-top: 0; }
+.contact-card-v2 .social-link { color: var(--navy); }
+.contact-card-v2 .social-link:hover { color: var(--gold); text-decoration: none; }
+.contact-card-v2 .social-link:focus-visible { outline-color: var(--navy); color: var(--gold); }
+.site-footer .social-links { margin-top: 0; }
+.footer-v2-brand .social-links { margin-left: -8px; }

@@ -21,6 +21,8 @@ window.SPLENDO_I18N_COMMON = {
     footer_col_legale: "Rechtliches",
     lang_switch_label: "Sprache wählen",
     whatsapp_float_label: "Kontaktiere uns auf WhatsApp",
+    social_instagram_label: "Splendo auf Instagram",
+    social_facebook_label: "Splendo auf Facebook",
     hamburger_label: "Menü",
     skip_to_content: "Zum Inhalt springen"
   },
@@ -43,6 +45,8 @@ window.SPLENDO_I18N_COMMON = {
     footer_col_legale: "Legal",
     lang_switch_label: "Choose language",
     whatsapp_float_label: "Contact us on WhatsApp",
+    social_instagram_label: "Splendo on Instagram",
+    social_facebook_label: "Splendo on Facebook",
     hamburger_label: "Menu",
     skip_to_content: "Skip to content"
   },
@@ -65,6 +69,8 @@ window.SPLENDO_I18N_COMMON = {
     footer_col_legale: "Legale",
     lang_switch_label: "Seleziona lingua",
     whatsapp_float_label: "Contattaci su WhatsApp",
+    social_instagram_label: "Splendo su Instagram",
+    social_facebook_label: "Splendo su Facebook",
     hamburger_label: "Menu",
     skip_to_content: "Vai al contenuto"
   }
