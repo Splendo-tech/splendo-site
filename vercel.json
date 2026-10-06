@@ -5,6 +5,9 @@
     { "source": "/come-funziona.html", "destination": "/ablauf.html", "permanent": true },
     { "source": "/chi-siamo.html", "destination": "/ueber-uns.html", "permanent": true },
     { "source": "/contatti.html", "destination": "/kontakt.html", "permanent": true },
+    { "source": "/team.html", "destination": "/ueber-uns.html", "permanent": true },
+    { "source": "/en/team.html", "destination": "/en/ueber-uns.html", "permanent": true },
+    { "source": "/it/team.html", "destination": "/it/ueber-uns.html", "permanent": true },
     { "source": "/zone-servite.html", "destination": "/", "permanent": true },
     { "source": "/servicegebiete.html", "destination": "/", "permanent": true }
   ]

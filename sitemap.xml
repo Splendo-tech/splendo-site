@@ -91,24 +91,6 @@
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://splendo.eu/team.html</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://splendo.eu/en/team.html</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://splendo.eu/it/team.html</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://splendo.eu/kontakt.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>

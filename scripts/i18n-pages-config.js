@@ -12,7 +12,6 @@ const LOCALIZED_PAGES = [
   "preise.html",
   "ablauf.html",
   "ueber-uns.html",
-  "team.html",
   "kontakt.html",
   "faq.html",
   "buchen-success.html"
@@ -36,7 +35,6 @@ const BREADCRUMB_LABELS = {
   "preise.html": { de: "Preise", en: "Prices", it: "Prezzi" },
   "ablauf.html": { de: "So funktioniert's", en: "How it works", it: "Come funziona" },
   "ueber-uns.html": { de: "Über uns", en: "About us", it: "Chi siamo" },
-  "team.html": { de: "Team", en: "Team", it: "Team" },
   "kontakt.html": { de: "Kontakt", en: "Contact", it: "Contatti" },
   "faq.html": { de: "FAQ", en: "FAQ", it: "FAQ" }
 };

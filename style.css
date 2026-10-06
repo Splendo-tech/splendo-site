@@ -991,53 +991,6 @@ a:focus-visible, button:focus-visible {
   fill: #ffffff;
 }
 
-/* ---------- Team page ---------- */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-}
-
-.team-card {
-  background: var(--white);
-  border: 1px solid rgba(31,56,100,0.1);
-  border-radius: 16px;
-  padding: 36px 28px;
-  text-align: center;
-}
-
-.team-avatar {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  background: var(--tint);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.team-avatar svg {
-  width: 46px;
-  height: 46px;
-  fill: var(--navy);
-  opacity: 0.35;
-}
-
-.team-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin: 0 0 10px;
-}
-
-.team-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  opacity: 0.8;
-}
-
 /* ---------- Promo code field ---------- */
 .promo-field {
   margin: 0 0 28px;
@@ -1823,63 +1776,6 @@ a:focus-visible, button:focus-visible {
   .story-photo-v2 { width: 100%; height: 260px; }
   .values-grid-v2 { flex-direction: column; gap: 32px; }
 }
-
-/* ---------- Team (team.html) ---------- */
-.team-section-v2 { max-width: 1000px; margin: 0 auto; }
-
-.team-grid-v2 {
-  display: flex;
-  gap: 26px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.team-card-v2 {
-  background: var(--white);
-  border-radius: 18px;
-  overflow: hidden;
-  width: 260px;
-  border: 1px solid rgba(31,56,100,0.08);
-  box-shadow: 0 10px 30px rgba(31,56,100,0.06);
-}
-
-.team-photo-v2 {
-  height: 220px;
-  background: var(--tint);
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid #eee;
-}
-
-.team-photo-v2 svg { width: 56px; height: 56px; fill: var(--navy); opacity: 0.3; }
-
-.team-info-v2 { padding: 20px; text-align: center; }
-
-.team-info-v2 h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--navy);
-  margin: 0 0 4px;
-}
-
-.team-info-v2 .role {
-  color: var(--gold-text);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 10px;
-}
-
-.team-info-v2 p { color: #667; font-size: 0.85rem; line-height: 1.5; margin: 0; }
-
-.team-card-v2.add-placeholder {
-  display: flex; align-items: center; justify-content: center; flex-direction: column;
-  border: 2px dashed #ccc; background: transparent; box-shadow: none;
-  color: #999; font-size: 0.85rem; text-align: center; padding: 30px;
-}
-
-.team-card-v2.add-placeholder .plus { font-size: 2.25rem; color: var(--gold); margin-bottom: 10px; }
 
 .cta-join {
   text-align: center;

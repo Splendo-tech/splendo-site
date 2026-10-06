@@ -24,7 +24,6 @@ const MANIFEST = {
   "preise.html": "marketing",
   "ablauf.html": "marketing",
   "ueber-uns.html": "marketing",
-  "team.html": "marketing",
   "kontakt.html": "marketing",
   "faq.html": "marketing",
   "impressum.html": "legal",
