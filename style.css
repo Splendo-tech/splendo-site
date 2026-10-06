@@ -1338,36 +1338,9 @@ a:focus-visible, button:focus-visible {
 .why-v2-item-text span { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
 
 /* ---------- Zone + mappa v2 ---------- */
-.map-layout-v2 {
-  display: flex;
-  gap: 44px;
-  align-items: center;
-}
+.map-layout-v2 { display: flex; justify-content: center; }
 
-.map-box-v2 {
-  position: relative;
-  flex: 1.1;
-  background: var(--white);
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 20px 50px rgba(31,56,100,0.12);
-}
-
-.map-box-v2 .map-coverage-badge-v2 {
-  top: 24px;
-  left: 24px;
-}
-
-.map-box-v2 img {
-  width: 100%;
-  height: 380px;
-  border: 0;
-  border-radius: 14px;
-  display: block;
-  object-fit: cover;
-}
-
-.legend-v2 { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.legend-v2 { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 48px; }
 
 .legend-v2-item {
   display: flex; align-items: center; gap: 14px;
@@ -1473,7 +1446,7 @@ a:focus-visible, button:focus-visible {
 
 .footer-v2-brand { max-width: 280px; }
 .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.footer-logo-icon { height: 42px; width: auto; display: block; }
+.footer-logo-icon { height: 42px; width: 42px; display: block; border-radius: 50%; background: var(--cream); }
 .footer-v2-brand p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.55); }
 
 .footer-v2-cols { display: flex; gap: 56px; }
@@ -1502,7 +1475,6 @@ a:focus-visible, button:focus-visible {
   .why-v2-inner { flex-direction: column; }
   .why-v2-photo { width: 100%; height: 260px; order: 2; }
   .why-v2-text { order: 1; }
-  .map-layout-v2 { flex-direction: column; }
   .job-card { flex-direction: column; }
   .job-photo { min-height: 220px; }
   .job-content { padding: 36px 28px; }
@@ -1967,39 +1939,9 @@ a:focus-visible, button:focus-visible {
 .contact-card-v2 a { color: var(--gold-text); font-weight: 600; font-size: 0.85rem; text-decoration: none; }
 .contact-card-v2 a:hover { text-decoration: underline; }
 
-.map-and-zones-v2 {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  flex-wrap: wrap;
-}
+.map-and-zones-v2 { display: flex; justify-content: center; text-align: center; }
 
-.contact-map-v2 {
-  position: relative;
-  flex: 1.1;
-  min-width: 280px;
-  border-radius: 18px;
-  overflow: hidden;
-  height: 320px;
-}
-
-.contact-map-v2 img { width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
-
-.map-coverage-badge-v2 {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  background: var(--gold);
-  color: var(--navy-dark);
-  font-weight: 700;
-  font-size: 0.8rem;
-  padding: 8px 14px;
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-}
-
-.zones-list-v2 { flex: 1; min-width: 260px; }
+.zones-list-v2 { max-width: 640px; }
 
 .zones-list-v2 h3 {
   font-family: var(--font-display);
@@ -2010,7 +1952,7 @@ a:focus-visible, button:focus-visible {
 
 .zones-list-v2 p { color: #667; font-size: 0.9rem; margin: 0 0 20px; line-height: 1.6; }
 
-.zone-tags-v2 { display: flex; flex-wrap: wrap; gap: 8px; }
+.zone-tags-v2 { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 
 .zone-tag-v2 {
   background: rgba(31,56,100,0.06);
@@ -2023,8 +1965,6 @@ a:focus-visible, button:focus-visible {
 
 @media (max-width: 700px) {
   .contact-grid-v2 { flex-direction: column; }
-  .map-and-zones-v2 { flex-direction: column; }
-  .contact-map-v2 { width: 100%; }
 }
 
 /* ---------- FAQ (faq.html) ---------- */
