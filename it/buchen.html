@@ -456,8 +456,6 @@
           <input type="text" id="promo" name="promo" placeholder="es. WILLKOMMEN10" data-i18n-placeholder="buchen_promo_placeholder">
         </div>
 
-        <p class="form-payment-note" data-i18n="buchen_payment_note">Alla fine della prenotazione registrerai un metodo di pagamento tramite il nostro partner Stripe. L'addebito avviene solo a pulizia conclusa.</p>
-
         <label class="consent-check">
           <input type="checkbox" id="widerruf-consent" required="">
           <span>
@@ -466,12 +464,7 @@
           </span>
         </label>
 
-        <p class="form-payment-note payment-method-note">
-          Für die Buchung hinterlegst du eine Zahlungsmethode. Es wird jetzt nichts abgebucht. Der Rechnungsbetrag wird nach Abschluss der Reinigung von der hinterlegten Karte eingezogen.
-          <small class="consent-translation" data-i18n-html="buchen_payment_consent_translation">Per prenotare registri un metodo di pagamento. Ora non viene addebitato nulla. L'importo viene addebitato sulla carta registrata al termine della pulizia.</small>
-        </p>
-
-        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="buchen_submit_btn" id="booking-submit-btn" disabled="">Registra metodo di pagamento</button>
+        <button type="submit" class="btn btn-gold btn-lg btn-block" data-i18n="btn_prenota" id="booking-submit-btn" disabled="">Prenota ora</button>
         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
 
@@ -615,10 +608,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_promo_label: "Hast du einen Rabattcode? <span class=\"promo-optional\">(optional)</span>",
     buchen_promo_placeholder: "z.B. WILLKOMMEN10",
     promo_discount_label: "Rabatt",
-    buchen_payment_note: "Am Ende der Buchung hinterlegst du eine Zahlungsmethode über unseren Partner Stripe. Abgebucht wird erst nach Abschluss der Reinigung.",
     buchen_consent_translation: "",
-    buchen_payment_consent_translation: "",
-    buchen_submit_btn: "Zahlungsmethode hinterlegen",
     buchen_summary_h3: "Zusammenfassung",
     buchen_summary_total_label: "Geschätzter Gesamtpreis",
     buchen_summary_recurring_p: "Für wiederkehrende Reinigungen vereinbaren wir Preis und Häufigkeit direkt mit dir.",
@@ -692,10 +682,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_promo_label: "Got a promo code? <span class=\"promo-optional\">(optional)</span>",
     buchen_promo_placeholder: "e.g. WILLKOMMEN10",
     promo_discount_label: "Discount",
-    buchen_payment_note: "At the end of the booking you'll store a payment method with our partner Stripe. Nothing is charged until the cleaning is completed.",
     buchen_consent_translation: "Translation, not legally binding: I expressly request that Splendo begins the cleaning service before the withdrawal period expires. I am aware that I lose my right of withdrawal once the service has been performed in full.",
-    buchen_payment_consent_translation: "To book, you store a payment method. Nothing is charged now. The invoice amount is charged to the stored card after the cleaning is completed.",
-    buchen_submit_btn: "Save payment method",
     buchen_summary_h3: "Summary",
     buchen_summary_total_label: "Estimated total price",
     buchen_summary_recurring_p: "For recurring cleanings, we agree on price and frequency directly with you.",
@@ -769,10 +756,7 @@ window.SPLENDO_I18N_PAGE = {
     buchen_promo_label: "Hai un codice promozionale? <span class=\"promo-optional\">(facoltativo)</span>",
     buchen_promo_placeholder: "es. WILLKOMMEN10",
     promo_discount_label: "Sconto",
-    buchen_payment_note: "Alla fine della prenotazione registrerai un metodo di pagamento tramite il nostro partner Stripe. L'addebito avviene solo a pulizia conclusa.",
     buchen_consent_translation: "Traduzione, non vincolante: chiedo espressamente che Splendo inizi il servizio prima della scadenza dei 14 giorni. So che perdo il diritto di recesso una volta che la prestazione è stata eseguita per intero.",
-    buchen_payment_consent_translation: "Per prenotare registri un metodo di pagamento. Ora non viene addebitato nulla. L'importo viene addebitato sulla carta registrata al termine della pulizia.",
-    buchen_submit_btn: "Registra metodo di pagamento",
     buchen_summary_h3: "Riepilogo",
     buchen_summary_total_label: "Prezzo totale stimato",
     buchen_summary_recurring_p: "Per le pulizie ricorrenti, concordiamo prezzo e frequenza direttamente con te.",

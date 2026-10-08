@@ -772,15 +772,6 @@ a:focus-visible, button:focus-visible {
 
 .field textarea { resize: vertical; min-height: 90px; }
 
-.form-payment-note {
-  background: var(--tint);
-  border-radius: 12px;
-  padding: 16px 20px;
-  font-size: 0.92rem;
-  color: var(--navy-ink);
-  margin: 0 0 28px;
-}
-
 .form-status {
   margin: 16px 0 0;
   font-weight: 600;
