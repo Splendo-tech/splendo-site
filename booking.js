@@ -277,16 +277,7 @@
     });
   }
 
-  // ---- Einwilligung § 356 Abs. 4 BGB (vorzeitiger Beginn der Dienstleistung) ----
-  var WIDERRUF_CONSENT_TEXT = "Ich verlange ausdrücklich, dass Splendo mit der Reinigungsleistung vor Ablauf der Widerrufsfrist beginnt. Mir ist bekannt, dass ich mein Widerrufsrecht verliere, sobald die Leistung vollständig erbracht ist.";
-  var consentCheckbox = document.getElementById("widerruf-consent");
   var submitBtn = document.getElementById("booking-submit-btn");
-
-  if (consentCheckbox && submitBtn) {
-    consentCheckbox.addEventListener("change", function () {
-      submitBtn.disabled = !consentCheckbox.checked;
-    });
-  }
 
   // ---- Selezioni "grezze" per il ricalcolo prezzo lato server: i value/
   // dataset qui coincidono 1:1 con le chiavi di api/_pricing.js. ----
@@ -329,12 +320,6 @@
       return;
     }
 
-    if (consentCheckbox && !consentCheckbox.checked) {
-      consentCheckbox.focus();
-      consentCheckbox.scrollIntoView({ block: "center", behavior: "smooth" });
-      return;
-    }
-
     statusEl.textContent = t("status_redirecting", "Weiterleitung zur sicheren Zahlungsseite...");
     statusEl.className = "form-status";
     submitBtn.disabled = true;
@@ -364,9 +349,7 @@
       telefon: form.querySelector("#telefono").value,
       email: form.querySelector("#email").value,
       haustiere: form.querySelector("#pets").value || "Keine Angabe",
-      notizen: form.querySelector("#note").value,
-      einwilligung_vorzeitiger_beginn_356_bgb: WIDERRUF_CONSENT_TEXT,
-      einwilligung_zeitstempel: new Date().toISOString()
+      notizen: form.querySelector("#note").value
     };
 
     fetch("/api/create-setup-session", {

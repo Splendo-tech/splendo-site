@@ -646,32 +646,6 @@ a:focus-visible, button:focus-visible {
 
 .extra-check input { width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; }
 
-.consent-check {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  padding: 16px 18px;
-  border-radius: 12px;
-  border: 1.5px solid rgba(191,144,0,0.35);
-  background: rgba(191,144,0,0.06);
-  margin: 20px 0;
-}
-
-.consent-check input { width: 18px; height: 18px; accent-color: var(--gold); flex-shrink: 0; margin-top: 2px; }
-
-.consent-translation {
-  display: block;
-  margin-top: 8px;
-  font-weight: 400;
-  font-size: 0.85em;
-  color: #667;
-}
-.consent-translation:empty { display: none; }
-
 .extra-name small { display: block; font-weight: 400; opacity: 0.6; font-size: 0.82rem; margin-top: 2px; }
 
 .extra-price {
