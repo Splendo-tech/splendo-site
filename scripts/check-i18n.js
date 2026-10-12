@@ -31,7 +31,7 @@ const GERMAN_TELLS = [
 // plus German service/legal terms deliberately kept untranslated (with a gloss)
 // per the EN/IT house style — e.g. "Endreinigung (pulizia di fine locazione)".
 const ALLOWLIST = [
-  "Berlin", "Extra", "Splendo", "WhatsApp", "Stripe", "Web3Forms",
+  "Berlin", "Extra", "Splendo", "WhatsApp", "Stripe",
   "Endreinigung", "Grundreinigung", "Einzugsreinigung", "Bezirk", "Kaution", "Anmeldung"
 ];
 

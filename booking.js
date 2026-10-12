@@ -1,7 +1,8 @@
 /* Splendo - booking.js
-   Calcolo prezzo live + invio form di prenotazione via Web3Forms (nessun backend proprio).
-   Le etichette mostrate seguono la lingua attiva (lette dal DOM già tradotto da i18n.js).
-   L'email interna usa sempre le etichette tedesche (attributo data-de). */
+   Calcolo prezzo live + invio del form di prenotazione: crea una Setup Session
+   Stripe tramite /api/create-setup-session e reindirizza al checkout ospitato.
+   Le etichette mostrate seguono la lingua della pagina (testi già tradotti da
+   i18n.js). I dati inviati usano sempre le etichette tedesche (attributo data-de). */
 
 (function () {
   "use strict";
