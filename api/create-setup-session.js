@@ -71,6 +71,10 @@ module.exports = async function handler(req, res) {
   try {
     const bookingRecord = Object.assign({}, booking, {
       geschaetzter_gesamtpreis: priceResult.quoteOnly ? "Preis auf Anfrage" : priceResult.total + "€",
+      rabattcode_angewendet: priceResult.promoApplied
+        ? priceResult.promoApplied + " (-" + priceResult.discount + "€)"
+        : "Kein gültiger Rabattcode",
+      endpreis: priceResult.quoteOnly ? "Preis auf Anfrage" : priceResult.total + "€",
       lang: lang
     });
     const bookingJson = JSON.stringify(bookingRecord);
@@ -80,6 +84,8 @@ module.exports = async function handler(req, res) {
       booking_chunks: String(chunks.length),
       lang: lang,
       estimated_total_eur: priceResult.quoteOnly ? "quote" : String(priceResult.total),
+      promo_code: priceResult.promoApplied || "none",
+      final_price_eur: priceResult.quoteOnly ? "quote" : String(priceResult.total),
       apartment: String(booking.wohnungstyp || "").slice(0, 500),
       service_level: String(booking.art_der_reinigung || "").slice(0, 500),
       booking_date: String(booking.bevorzugtes_datum || "").slice(0, 500),

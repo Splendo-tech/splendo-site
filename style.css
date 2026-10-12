@@ -1916,3 +1916,14 @@ a:focus-visible, button:focus-visible {
   .footer-nav a { margin-right: 0; }
   .site-footer .footer-inner { justify-content: flex-start; gap: 16px 24px; }
 }
+
+.promo-msg { margin: 8px 0 0; font-size: 0.85rem; font-weight: 600; color: #B3261E; }
+.promo-msg[hidden] { display: none; }
+.summary-total-old {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #667;
+  margin-right: 4px;
+  text-decoration: line-through;
+}

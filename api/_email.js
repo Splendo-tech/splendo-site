@@ -26,6 +26,8 @@ const FIELD_LABELS = [
   ["reinigungsprodukte_mitbringen", "Reinigungsprodukte"],
   ["geschaetzter_gesamtpreis", "Geschätzter Gesamtpreis"],
   ["rabattcode", "Rabattcode"],
+  ["rabattcode_angewendet", "Rabattcode (angewendet)"],
+  ["endpreis", "Endpreis (nach Rabatt)"],
   ["haustiere", "Haustiere"],
   ["notizen", "Notizen"]
 ];

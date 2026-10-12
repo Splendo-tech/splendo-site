@@ -44,12 +44,21 @@ const URGENT_PRICE = 56;
 const PRODUCTS_PRICE = 18;
 
 // Promo codes are free-text the customer types in, not a constrained
-// selection like extras/counters - an unrecognized code just means no
-// discount applies, not a tampered/invalid request, so (unlike the rest
-// of this function) it never throws.
+// selection like extras/counters - an unrecognized or expired code just
+// means no discount applies, not a tampered/invalid request, so (unlike
+// the rest of this function) it never throws.
+//   percent    - % off the booking total
+//   rounding   - "nearest": the discount is rounded to the nearest euro;
+//                "up": the discounted total is rounded UP to a full euro
+//   validUntil - last valid day (inclusive), Europe/Berlin, YYYY-MM-DD
 const PROMO_CODES = {
-  "WILLKOMMEN10": 0.10
+  "WILLKOMMEN10": { percent: 10, rounding: "nearest" },
+  "BERLIN15": { percent: 15, rounding: "up", validUntil: "2026-10-31" }
 };
+
+function berlinDateString(now) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin" }).format(now);
+}
 
 /* selections shape:
    {
@@ -63,7 +72,7 @@ const PROMO_CODES = {
    }
    Throws on any unrecognized key - fail closed rather than silently
    under-charging on a typo'd or tampered value. */
-function computeTotal(selections) {
+function computeTotal(selections, now) {
   selections = selections || {};
   let total = 0;
   let quoteOnly = false;
@@ -105,16 +114,26 @@ function computeTotal(selections) {
 
   let discount = 0;
   let promoApplied = null;
-  if (!quoteOnly) {
-    const code = String(selections.promoCode || "").trim().toUpperCase();
-    if (code && Object.prototype.hasOwnProperty.call(PROMO_CODES, code)) {
+  let promoStatus = "none";
+  const code = String(selections.promoCode || "").trim().toUpperCase();
+  if (code) {
+    const promo = Object.prototype.hasOwnProperty.call(PROMO_CODES, code) ? PROMO_CODES[code] : null;
+    if (!promo) {
+      promoStatus = "invalid";
+    } else if (promo.validUntil && berlinDateString(now || new Date()) > promo.validUntil) {
+      promoStatus = "expired";
+    } else if (!quoteOnly) {
       promoApplied = code;
-      discount = Math.round(total * PROMO_CODES[code]);
-      total -= discount;
+      promoStatus = "applied";
+      const discounted = promo.rounding === "up"
+        ? Math.ceil(total * (100 - promo.percent) / 100)
+        : total - Math.round(total * promo.percent / 100);
+      discount = total - discounted;
+      total = discounted;
     }
   }
 
-  return { total: total, quoteOnly: quoteOnly, discount: discount, promoApplied: promoApplied };
+  return { total: total, quoteOnly: quoteOnly, discount: discount, promoApplied: promoApplied, promoStatus: promoStatus };
 }
 
 module.exports = {

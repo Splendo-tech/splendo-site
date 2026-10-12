@@ -18,13 +18,41 @@
   var counters = form.querySelectorAll("[data-counter]");
   var promoInput = document.getElementById("promo");
 
-  // Mirrors api/_pricing.js's PROMO_CODES - keep the two in sync by hand,
-  // same as every other price in this file already has to be.
-  var PROMO_CODES = { "WILLKOMMEN10": 0.10 };
+  var promoMsg = document.getElementById("promo-msg");
 
-  function getPromoDiscountRate() {
+  // Mirrors api/_pricing.js's PROMO_CODES - keep the two in sync by hand,
+  // same as every other price in this file already has to be. The server
+  // re-checks the code (and its expiry) and is what actually counts.
+  //   strike - also show the pre-discount total struck through
+  var PROMO_CODES = {
+    "WILLKOMMEN10": { percent: 10, rounding: "nearest" },
+    "BERLIN15": { percent: 15, rounding: "up", validUntil: "2026-10-31", strike: true }
+  };
+
+  function berlinToday() {
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin" }).format(new Date());
+  }
+
+  // -> { status: "none" | "invalid" | "expired" | "valid", promo }
+  function getPromo() {
     var code = (promoInput.value || "").trim().toUpperCase();
-    return PROMO_CODES[code] || 0;
+    if (!code) return { status: "none" };
+    var promo = Object.prototype.hasOwnProperty.call(PROMO_CODES, code) ? PROMO_CODES[code] : null;
+    if (!promo) return { status: "invalid" };
+    if (promo.validUntil && berlinToday() > promo.validUntil) return { status: "expired" };
+    return { status: "valid", promo: promo };
+  }
+
+  function showPromoMessage() {
+    var status = getPromo().status;
+    if (status === "invalid" || status === "expired") {
+      promoMsg.textContent = status === "expired"
+        ? t("promo_expired_msg", "Dieser Code ist abgelaufen.")
+        : t("promo_invalid_msg", "Dieser Code ist ungültig.");
+      promoMsg.hidden = false;
+    } else {
+      promoMsg.hidden = true;
+    }
   }
 
   // Apartment type / service level / frequency each default to a
@@ -185,11 +213,16 @@
       rows.push({ label: t("urgent_label", "Richiesta urgente"), amountLabel: "+" + eur(urgent.amount) });
     }
 
-    var discountRate = (apartment && !apartment.isQuote) ? getPromoDiscountRate() : 0;
-    if (discountRate > 0) {
-      var discountAmount = Math.round(total * discountRate);
-      total -= discountAmount;
-      rows.push({ label: t("promo_discount_label", "Rabatt"), amountLabel: "−" + eur(discountAmount) });
+    var preDiscountTotal = total;
+    var promo = (apartment && !apartment.isQuote) ? getPromo() : { status: "none" };
+    var showStrike = false;
+    if (promo.status === "valid") {
+      var discountedTotal = promo.promo.rounding === "up"
+        ? Math.ceil(total * (100 - promo.promo.percent) / 100)
+        : total - Math.round(total * promo.promo.percent / 100);
+      rows.push({ label: t("promo_discount_label", "Rabatt"), amountLabel: "−" + eur(total - discountedTotal) });
+      total = discountedTotal;
+      showStrike = !!promo.promo.strike;
     }
 
     summaryList.innerHTML = "";
@@ -219,7 +252,15 @@
     } else {
       summaryTotalBlock.hidden = false;
       summaryRecurring.hidden = true;
-      summaryTotalValue.textContent = eur(total);
+      summaryTotalValue.textContent = "";
+      if (showStrike) {
+        var oldTotalEl = document.createElement("s");
+        oldTotalEl.className = "summary-total-old";
+        oldTotalEl.textContent = eur(preDiscountTotal);
+        summaryTotalValue.appendChild(oldTotalEl);
+        summaryTotalValue.appendChild(document.createTextNode(" "));
+      }
+      summaryTotalValue.appendChild(document.createTextNode(eur(total)));
     }
   }
 
@@ -242,7 +283,11 @@
   });
 
   form.addEventListener("change", renderSummary);
-  promoInput.addEventListener("input", renderSummary);
+  promoInput.addEventListener("input", function () {
+    promoMsg.hidden = true;
+    renderSummary();
+  });
+  promoInput.addEventListener("change", showPromoMessage);
   document.addEventListener("splendo:langchange", renderSummary);
   renderSummary();
 
@@ -311,6 +356,8 @@
   // dopo checkout.session.completed. ----
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    showPromoMessage();
 
     if (plzField && !window.SPLENDO_IS_VALID_PLZ(plzField.value.trim())) {
       plzError.classList.add("visible");
