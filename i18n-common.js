@@ -23,7 +23,12 @@ window.SPLENDO_I18N_COMMON = {
     social_instagram_label: "Splendo auf Instagram",
     social_facebook_label: "Splendo auf Facebook",
     hamburger_label: "Menü",
-    skip_to_content: "Zum Inhalt springen"
+    skip_to_content: "Zum Inhalt springen",
+    footer_cookie_settings: "Cookie-Einstellungen",
+    cookie_banner_title: "Cookies & Datenschutz",
+    cookie_banner_text: "Mit Google Ads messen wir, ob eine Buchung über eine unserer Anzeigen zustande kommt. Dafür setzt Google Cookies, aber nur mit deiner Zustimmung. Ohne Zustimmung werden keine Daten an Google gesendet. Mehr dazu in unserer <a href=\"/datenschutz.html\">Datenschutzerklärung</a>.",
+    cookie_accept: "Alle akzeptieren",
+    cookie_necessary: "Nur notwendige"
   },
   en: {
     nav_come_funziona: "How it works",
@@ -46,7 +51,12 @@ window.SPLENDO_I18N_COMMON = {
     social_instagram_label: "Splendo on Instagram",
     social_facebook_label: "Splendo on Facebook",
     hamburger_label: "Menu",
-    skip_to_content: "Skip to content"
+    skip_to_content: "Skip to content",
+    footer_cookie_settings: "Cookie settings",
+    cookie_banner_title: "Cookies & privacy",
+    cookie_banner_text: "We use Google Ads to measure whether a booking comes from one of our ads. Google sets cookies for this, but only with your consent. Without your consent, no data is sent to Google. More in our <a href=\"/datenschutz.html\">Privacy Policy</a>.",
+    cookie_accept: "Accept all",
+    cookie_necessary: "Only necessary"
   },
   it: {
     nav_come_funziona: "Come funziona",
@@ -69,6 +79,11 @@ window.SPLENDO_I18N_COMMON = {
     social_instagram_label: "Splendo su Instagram",
     social_facebook_label: "Splendo su Facebook",
     hamburger_label: "Menu",
-    skip_to_content: "Vai al contenuto"
+    skip_to_content: "Vai al contenuto",
+    footer_cookie_settings: "Impostazioni cookie",
+    cookie_banner_title: "Cookie e privacy",
+    cookie_banner_text: "Con Google Ads misuriamo se una prenotazione arriva da uno dei nostri annunci. Per farlo Google imposta dei cookie, ma solo con il tuo consenso. Senza consenso non viene inviato nessun dato a Google. Maggiori informazioni nella nostra <a href=\"/datenschutz.html\">informativa sulla privacy</a>.",
+    cookie_accept: "Accetta tutti",
+    cookie_necessary: "Solo necessari"
   }
 };
